@@ -41,7 +41,7 @@
 $route['default_controller'] = "dashboard";
 $route['404_override'] = '';
 
-$route['game/(:any)'] = 'game/show/$1';
+$route['games/(:any)'] = 'game/show/$1';
 
 
 /* End of file routes.php */

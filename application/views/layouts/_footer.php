@@ -11,10 +11,8 @@
         <script src="<?php echo base_url(); ?>scripts/plugins/file-upload/jquery.iframe-transport.js"></script>
         <script src="<?php echo base_url(); ?>scripts/plugins/file-upload/jquery.fileupload.js"></script>
         <script src="<?php echo base_url(); ?>scripts/plugins/file-upload/jquery.fileupload-ui.js"></script>    	    
-        <script src="<?php echo base_url(); ?>scripts/plugins/colorpicker/farbtastic.js"></script>  
         <script src="<?php echo base_url(); ?>scripts/plugins/scroll/jquery.scrollTo-min.js"></script>  
-        <script src="<?php echo base_url(); ?>scripts/plugins/raty/js/jquery.raty.js"></script>  
-        <!-- <script src="https://raw.github.com/desandro/masonry/master/jquery.masonry.min.js"></script>  	     -->
+
             
 		<script type="text/javascript" src = "<?php echo base_url() ?>scripts/page.js?<?php echo time(); ?>"></script>
 		<script type="text/javascript">
