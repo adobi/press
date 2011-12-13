@@ -38,7 +38,7 @@
                 <div class="clearfix">
                     <label for="description">Description</label>
                     <div class="input">
-                        <textarea rows="6" name="description" id="description" class="xxlarge"><?php echo $item ? $item->description : '' ?></textarea>
+                        <textarea rows="6" name="description" id="redactor" class="xxlarge" style="width: 100%; height: 320px;"><?php echo $item ? $item->description : '' ?></textarea>
                     </div>
                 </div>  
                 <div class="clearfix">
@@ -57,7 +57,7 @@
                                 </a>
                             </div>
                             <p>
-                                <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>">delete image</a>
+                                <a href="<?php echo base_url() ?>game/delete_file/<?php echo $item->id ?>/logo">delete image</a>
                             </p>
                         <?php else: ?>
                             <input type="file" name = "logo" value = "" />
@@ -65,11 +65,12 @@
                     </div>
                 </div>  
                 <div class="clearfix">
-                    <label for="logo">Pack</label>
+                    <label for="pack">Pack</label>
                     <div class="input">
                         <?php if ($item && $item->pack): ?>
                             <input type="text" name = "pack" id = "pack" class = "large" value = "<?php echo $item ? $item->pack : '' ?>" disabled = "disabled"/>
-                            <a href="<?php echo base_url() ?>uploads/original/<?php echo $item->pack ?>" target = "_blank">download pack</a>
+                            <a href="<?php echo base_url() ?>game/delete_file/<?php echo $item->id ?>/pack">delete pack</a>
+                            <a href="<?php echo base_url() ?>uploads/original/<?php echo $item->pack ?>" target = "_blank" style="margin-left:20px;font-weight:bold;">download pack &rarr;</a>
                         <?php else: ?>
                             <input type="file" name = "pack" value = "" />
                         <?php endif ?>

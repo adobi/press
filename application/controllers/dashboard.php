@@ -10,7 +10,7 @@ class Dashboard extends MY_Controller
     {
         $data = array();
         
-        $this->load->model('Games', 'model');
+        $this->load->model('Sites', 'model');
         
         $data['items'] = $this->model->fetchAll();
         
