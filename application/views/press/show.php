@@ -12,7 +12,7 @@
                     </h3>
                     <h6><?php echo to_date($site->released) ?></h6>
                     <h5>
-                        <a href="#">Dowload the pack</a>
+                        <a href="#" class = "btn primary">Dowload the pack</a>
                     </h5>
                 </div>
                 <div class="span6 col">
