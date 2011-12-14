@@ -13,6 +13,9 @@
         <script src = "http://code.jquery.com/jquery-1.7.min.js"></script>
         <script src = "<?php echo base_url() ?>scripts/plugins/bootstrap-dropdown.js"></script>
         <script src = "<?php echo base_url() ?>scripts/plugins/bootstrap-tabs.js"></script>
+        
+    	<script src="<?php echo base_url() ?>scripts/plugins/redactor/js/redactor/redactor.js"></script>
+    	<link rel="stylesheet" href="<?php echo base_url() ?>scripts/plugins/redactor/js/redactor/css/redactor.css" />        
     
     </head>
     
@@ -20,7 +23,7 @@
         
     <div id="fb-root"></div>	
     
-    <div class="container span16" id="top">
+    <div class="container" id="top">
     	<div class="content">
         <?php if ($this->session->userdata('logged_in')): ?>
             

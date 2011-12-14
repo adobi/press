@@ -1,17 +1,5 @@
 (function($) {
 	
-	App = {
-		
-	    loader: function() {
-            $("#ajax-loader").ajaxStart(function(){
-                $(this).show();
-            }).ajaxStop(function() {
-                $(this).hide();
-            });		
-	    }
-	};
-	
-	
 	$(function() {
 	    $('#fileupload').fileupload();
 	    
@@ -165,13 +153,9 @@
             return false;
         }); 
         
-        //$('.pills').pills();      
         $('.pills').pills();
-        /*
-        $('#image-sortable').masonry({
-            itemSelector : '.sortable-item',
-        });        			     
-        */
+        if ($('#redactor').length)
+            $('#redactor').redactor({ lang: 'en' });
 	})
 	
 }) (jQuery);
