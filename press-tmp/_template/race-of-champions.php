@@ -36,6 +36,40 @@
         </div>
     </div>
     
+    <div class="span16 col available">
+        <div class="row" style="padding:10px;">
+            <div class="span3">
+                <h2>Available on:</h2>
+            </div>
+            <div class="span12">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "iPod, iPhone, iPad" href="http://itunes.apple.com/us/app/race-of-champions-the-official/id469354336" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/app_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Race Of Champions iPhone link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/race-of-champions-the-official/id469354336">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "Android phone and tablet" href="https://market.android.com/details?id=com.invictus.roc" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/android_market.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Race Of Champions Android link" data-ga-value = "1" value = "https://market.android.com/details?id=com.invictus.roc">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
     <div class="span16 press">
         <div style="padding:10px;">
             <div class="row" style="margin-bottom:20px;">

@@ -9,6 +9,7 @@
         <link rel = "stylesheet" href="<?= base_url() ?>css/site.css" media="all" />
         
         <script src = "http://code.jquery.com/jquery-1.7.min.js"></script>
+        <script src = "<?php echo base_url() ?>scripts/plugins/bootstrap-twipsy.js"></script>
         <script type="text/javascript">
             BASE_URL = "<?php echo base_url() ?>";
         </script>

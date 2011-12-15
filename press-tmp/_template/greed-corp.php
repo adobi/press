@@ -35,6 +35,71 @@
             </div>
         </div>
     </div>
+
+    <div class="span16 col available">
+        <div class="row" style="padding:10px;">
+            <div class="span3">
+                <h2>Available on:</h2>
+            </div>
+            <div class="span12">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "iPod, iPhone"  href="http://itunes.apple.com/us/app/greed-corp/id484852980" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/app_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Greed Corp iPhone link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/greed-corp/id484852980">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "iPad"  href="http://itunes.apple.com/us/app/greed-corp-hd/id468398642" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/app_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Greed Corp iPad link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/greed-corp-hd/id468398642">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "MAC"  href="http://itunes.apple.com/us/app/greed-corp/id470513549" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/mac_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Greed Corp Mac link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/greed-corp/id470513549">
+                            </td>
+                        </tr>                        
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "Android phone"  href="https://market.android.com/details?id=com.Invictus.GreedCorpMobile" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/android_market.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Greed Corp android phone link" data-ga-value = "1" value = "https://market.android.com/details?id=com.Invictus.GreedCorpMobile">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "Android tablet"  href="https://market.android.com/details?id=com.Invictus.GreedCorp" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/android_market.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Greed Corp android tablet link" data-ga-value = "1" value = "https://market.android.com/details?id=com.Invictus.GreedCorp">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     
     <div class="span16 press">
         <div style="padding:10px;">
