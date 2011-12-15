@@ -5,7 +5,7 @@
     <?php endif ?>
 >
     <head>
-    	<title>Microsites</title>
+    	<title>Press</title>
         <meta charset="utf-8">
         
         <link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.min.css" media="all" />
