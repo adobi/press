@@ -35,6 +35,70 @@
             </div>
         </div>
     </div>
+
+    <div class="span16 col available">
+        <div class="row" style="padding:10px;">
+            <div class="span3">
+                <h2>Available on:</h2>
+            </div>
+            <div class="span12">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "iPod, iPhone"  href="http://itunes.apple.com/us/app/santa-ride!/id487620164" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/app_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Santa Ride iPhone link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/santa-ride!/id487620164">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "iPad"  href="http://itunes.apple.com/us/app/santa-ride!-hd/id487630157" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/app_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Santa Ride iPad link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/santa-ride!-hd/id487630157">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "Android phone"  href="https://market.android.com/details?id=com.invictus.santaridemobile" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/android_market.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Santa Ride android phone link" data-ga-value = "1" value = "https://market.android.com/details?id=com.invictus.santaridemobile">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "Android tablet"  href="https://market.android.com/details?id=com.invictus.santaride" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/android_market.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Santa Ride android tablet link" data-ga-value = "1" value = "https://market.android.com/details?id=com.invictus.santaride">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right;">
+                                <a rel = "twipsy" title = "web"  href="http://santaride.invictus.com/" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/web.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-cetegory="Santa Ride web link" data-ga-value = "1" value = "http://santaride.invictus.com/">
+                            </td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     
     <div class="span16 press">
         <div style="padding:10px;">
@@ -50,7 +114,7 @@
                         For Immediate Release                 
                     </p>
                     <p>
-                        Title: <strong>SantaRide!</strong>
+                        Title: <strong>Santa Ride!</strong>
                     </p>
                 </div>
                 <div class="span8">
