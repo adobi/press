@@ -112,7 +112,7 @@
             <h4 style="margin-bottom:20px;">New tracks, cars and multiplayer for iOS version has just arrived for the Race Of Champions – the official game</h4>
 
             <p>
-                <a href="http://bit.ly/ROC_yt3_pr" target = "_blank">Race Of Champions Mobile Game 1.2 update trailer</a>
+                <a href="http://bit.ly/ROC_yt3_pr" target = "_blank" data-ga="1" data-ga-category="Video - Trailers" data-ga-action="play" data-ga-label="ROC trailer - Barcelona" data-ga-value = "1">Race Of Champions Mobile Game 1.2 update trailer</a>
             </p>
             <p style="margin-top:20px;">
                 Invictus Games Ltd. has just released two stunning updates for the state-of-art racing game. Race Of Champions now offers two brand new cars – Skoda Fabia S2000 and VW Polo R – and a brand new track located in Barcelona.

@@ -140,7 +140,7 @@
             </h4>
             
             <p>
-                <a href="http://bit.ly/santa_yt1_pr" target = "_blank">Santa Ride! – The Official Trailer</a>
+                <a href="http://bit.ly/santa_yt1_pr" target = "_blank" data-ga="1" data-ga-category="Video - Trailers" data-ga-action="play" data-ga-label="Santa Ride trailer - Launch" data-ga-value = "1">Santa Ride! – The Official Trailer</a>
             </p>                
             <!-- 
             <p>
