@@ -145,7 +145,7 @@
             
 
             <p>
-                <a href="http://bit.ly/greedcorp_yt2_pr" target = "_blank">Greed corp on iPhone and Android phones - Official trailer</a>
+                <a href="http://bit.ly/greedcorp_yt2_pr" target = "_blank" data-ga="1" data-ga-category="Video - Trailers" data-ga-action="play" data-ga-label="Greed Corp trailer - Phones" data-ga-value = "1">Greed corp on iPhone and Android phones - Official trailer</a>
             </p>            
             <!-- 
             <p>
@@ -159,7 +159,7 @@
                 Also, all content has been localized for the new release, and updates are being rolled out for the iPad and Android tablet versions accordingly. 
             </p>
             <p>
-                Developers are offering 40% special discount on iPhone and iPad versions for the festive season. Android versions are available for free.
+                The game will launch with a 40% special discount on iPhone and the iPad version will receive a special holiday discount of 40%.
             </p>
 
             <p style="margin-top:40px;">
