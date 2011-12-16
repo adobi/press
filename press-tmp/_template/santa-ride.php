@@ -35,6 +35,70 @@
             </div>
         </div>
     </div>
+
+    <div class="span16 col available">
+        <div class="row" style="padding:10px;">
+            <div class="span3">
+                <h2>Available on:</h2>
+            </div>
+            <div class="span12">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "iPod, iPhone"  href="http://itunes.apple.com/us/app/santa-ride!/id487620164" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/app_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-label="Santa Ride iPhone link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/santa-ride!/id487620164">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "iPad"  href="http://itunes.apple.com/us/app/santa-ride!-hd/id487630157" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/app_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-label="Santa Ride iPad link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/santa-ride!-hd/id487630157">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "Android phone"  href="https://market.android.com/details?id=com.invictus.santaridemobile" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/android_market.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-label="Santa Ride android phone link" data-ga-value = "1" value = "https://market.android.com/details?id=com.invictus.santaridemobile">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "Android tablet"  href="https://market.android.com/details?id=com.invictus.santaride" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/android_market.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-label="Santa Ride android tablet link" data-ga-value = "1" value = "https://market.android.com/details?id=com.invictus.santaride">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right;">
+                                <a rel = "twipsy" title = "web"  href="http://santaride.invictus.com/" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/web.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-label="Santa Ride web link" data-ga-value = "1" value = "http://santaride.invictus.com/">
+                            </td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     
     <div class="span16 press">
         <div style="padding:10px;">
@@ -50,7 +114,7 @@
                         For Immediate Release                 
                     </p>
                     <p>
-                        Title: <strong>SantaRide!</strong>
+                        Title: <strong>Santa Ride!</strong>
                     </p>
                 </div>
                 <div class="span8">
@@ -67,7 +131,7 @@
                         PUBLISHER: Invictus
                     </p>
                     <p>
-                        INVICTUS WEBSITE: <a href="http://santaride.invictus.com" target = "_blank">http://santaride.invictus.com</a>
+                        INVICTUS WEBSITE: <a href="http://santaride.invictus.com" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - Santa Ride Launch - Santa Ride Microsite" data-ga-value="1">http://santaride.invictus.com</a>
                     </p>
                 </div>
             </div>
@@ -91,23 +155,23 @@
             </p>
             
             <p style="margin-top:20px;">
-                Santa and Invictus also ask people to give a helping hand for children and adults in need in the real world: this year we give a platform for -<a href="https://www.facebook.com/pages/K%C5%91szikla-Alap%C3%ADtv%C3%A1ny/292861434080669?sk=wall" target = "_blank"> The Rock Foundation</a> - helping children from Ukraine and Romania to get medical care. Invictus gives the profit they earn from in-game advertisement during the first 3 months. Thank you for your help and for playing with Santa Ride! 
+                Santa and Invictus also ask people to give a helping hand for children and adults in need in the real world: this year we give a platform for -
+                <a href="https://www.facebook.com/pages/K%C5%91szikla-Alap%C3%ADtv%C3%A1ny/292861434080669?sk=wall" target = "_blank" data-ga = "1" data-ga-category="Outbound link" data-ga-action="click" data-ga-label="Press - Santa Ride Launch - Koszikla FB" data-ga-value="1"> The Rock Foundation</a> - helping children from Ukraine and Romania to get medical care. Invictus gives the profit they earn from in-game advertisement during the first 3 months. Thank you for your help and for playing with Santa Ride! 
             </p>
 
             <p style="margin-top:40px;">
                 For more information on Santa Ride!, please visit: 
             </p>
             <p>
-                <a href="https://www.facebook.com/santaride.game" target = "_blank">https://www.facebook.com/santaride.game</a>
+                <a href="https://www.facebook.com/santaride.game" target = "_blank" data-ga = "1" data-ga-category="Outbound link" data-ga-action="click" data-ga-label="Press - Santa Ride Launch - Santa Ride FB" data-ga-value="1">https://www.facebook.com/santaride.game</a>
             </p>
-            <p>
-                <a href="http://www.invictus.com/" target = "_blank">http://www.invictus.com/</a>
-            </p>
+
             <p style="margin-top:20px;">
                <strong>About Invictus Games Ltd: </strong>
             </p>
             <p>
-                Invictus Games Ltd is Hungary’s premier video game development studio, with a wealth of experience creating detailed racing games. Invictus' more than 10 year track record developing racing games includes offline and online on iOS, Android and PC, for companies such as Codemasters, Activision, Disney and Gamepot. To learn more about Invictus games, please visit <a href="http://www.invictus.com">http://www.invictus.com</a>.
+                Invictus Games Ltd is Hungary’s premier video game development studio, with a wealth of experience creating detailed racing games. Invictus' more than 10 year track record developing racing games includes offline and online on iOS, Android and PC, for companies such as Codemasters, Activision, Disney and Gamepot. To learn more about Invictus games, please visit 
+                <a href="http://www.invictus.com" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - Santa Ride Launch - Santa Ride InvictusCom" data-ga-value="1">http://www.invictus.com</a>.
             </p>
             
         </div>

@@ -40,6 +40,10 @@
         <script type="text/javascript">
             (function($) {
                 $(function() {
+                    
+                    $('[rel=twipsy]').twipsy();
+
+                    
          	        $('body').delegate('.copy-code', 'click', function() {
          	            var self = $(this);
          	            
@@ -48,9 +52,9 @@
          	            self.select();
      	            });
      	            
-            	    $('[data-ga=1]').bind('click', function() {
+            	    $('[data-ga=1]').bind('click, mousedown', function() {
             	        var self = $(this);
-                        console.log(self);
+                        //console.log(self);
             	        GA.track(self);
             	        
             	        return true;
