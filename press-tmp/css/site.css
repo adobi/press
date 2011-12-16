@@ -158,3 +158,16 @@
     */
     margin-top:30px;
 }
+
+table td {
+    vertical-align:middle;
+    border-top:0px;
+}
+
+table td a {
+    display:inline-block;
+}
+
+.available {
+    margin-top:20px;
+}

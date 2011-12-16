@@ -36,6 +36,40 @@
         </div>
     </div>
     
+    <div class="span16 col available">
+        <div class="row" style="padding:10px;">
+            <div class="span3">
+                <h2>Available on:</h2>
+            </div>
+            <div class="span12">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "iPod, iPhone, iPad" href="http://itunes.apple.com/us/app/race-of-champions-the-official/id469354336" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/app_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-label="Race Of Champions iPhone link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/race-of-champions-the-official/id469354336">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "Android phone and tablet" href="https://market.android.com/details?id=com.invictus.roc" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/android_market.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-label="Race Of Champions Android link" data-ga-value = "1" value = "https://market.android.com/details?id=com.invictus.roc">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
     <div class="span16 press">
         <div style="padding:10px;">
             <div class="row" style="margin-bottom:20px;">
@@ -67,10 +101,10 @@
                         PUBLISHER: Invictus
                     </p>
                     <p>
-                        ROC WEBSITE: <a href="http://www.raceofchampions.com" target = "_blank">www.raceofchampions.com</a>
+                        ROC WEBSITE: <a href="http://www.raceofchampions.com" target = "_blank" data-ga = "1" data-ga-category="Outbound link" data-ga-action="click" data-ga-label="Press - ROC Barcelona - ROC ROC-DOT-COM Top" data-ga-value="1">www.raceofchampions.com</a>
                     </p>
                     <p>
-                        INVICTUS WEBSITE: <a href="http://www.invictus.com" target = "_blank">www.invictus.com</a>
+                        INVICTUS WEBSITE: <a href="http://www.invictus.com" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - ROC Barcelona - ROC InvictusCom Top" data-ga-value="1">www.invictus.com</a>
                     </p>
                 </div>
             </div>
@@ -94,9 +128,9 @@
             </p>
             <ol>
                 <li>For further information please contact Invictus: press@InvictusGames.com  +36-52-541-973</li>
-                <li>Race Of Champions Game Facebook page: <a href="https://www.facebook.com/raceofchampions.game" target = "_blank">https://www.facebook.com/raceofchampions.game</a></li>
-                <li>Invictus website: <a href="http://www.invictus.com" target = "_blank">www.invictus.com</a></li>
-                <li>Dedicated Race Of Champions website: <a href="http://www.raceofchampions.com" target = "_blank">www.raceofchampions.com</a></li>
+                <li>Race Of Champions Game Facebook page: <a href="https://www.facebook.com/raceofchampions.game" target = "_blank" data-ga = "1" data-ga-category="Outbound link" data-ga-action="click" data-ga-label="Press - ROC Barcelona - ROC FB" data-ga-value="1">https://www.facebook.com/raceofchampions.game</a></li>
+                <li>Invictus website: <a href="http://www.invictus.com" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - ROC Barcelona - ROC InvictusCom Bottom" data-ga-value="1">www.invictus.com</a></li>
+                <li>Dedicated Race Of Champions website: <a href="http://www.raceofchampions.com" target = "_blank" data-ga = "1" data-ga-category="Outbound link" data-ga-action="click" data-ga-label="Press - ROC Barcelona - ROC ROC-DOT-COM Bottom" data-ga-value="1">www.raceofchampions.com</a></li>
             </ol>
             <p>
                <strong> About the Race Of Champions:</strong>
