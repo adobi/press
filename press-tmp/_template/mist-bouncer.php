@@ -28,10 +28,34 @@
         </div>
         <div class="span11 col" style="text-aling:center">
             <div class="span10" style="margin:10px auto">
-                <iframe width="575" height="320" src="http://www.youtube.com/embed/m94CTguzqqA" frameborder="0" allowfullscreen></iframe>
+                <iframe width="575" height="320" src="http://www.youtube.com/embed/WXVU6Tlz8mU" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="input">
-                <textarea rows="2" class = "xxlarge copy-code" style="margin:0 30px; width:565px;" data-ga = "1" data-ga-category = "Embed code" data-ga-action = "select" data-ga-label = "Mist Bouncer video embed code" data-ga-value = "1"><iframe width="575" height="320" src="http://www.youtube.com/embed/m94CTguzqqA" frameborder="0" allowfullscreen></iframe></textarea>
+                <textarea rows="2" class = "xxlarge copy-code" style="margin:0 30px; width:565px;" data-ga = "1" data-ga-category = "Embed code" data-ga-action = "select" data-ga-label = "Mist Bouncer video embed code" data-ga-value = "1"><iframe width="575" height="320" src="http://www.youtube.com/embed/WXVU6Tlz8mU" frameborder="0" allowfullscreen></iframe></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="span16 col available">
+        <div class="row" style="padding:10px;">
+            <div class="span3">
+                <h2>Available on:</h2>
+            </div>
+            <div class="span12">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a rel = "twipsy" title = "iPod, iPhone, iPad" href="http://itunes.apple.com/app/mist-bouncer/id484449814" target = "_blank">
+                                    <img src="<?php echo base_url() ?>images/app_store.png" alt="">
+                                </a>                                
+                            </td>
+                            <td>
+                                <input type="text" class = "xxlarge copy-code" data-ga="1" data-ga-category="Embed code" data-ga-action="select" data-ga-label="Race Of Champions iPhone link" data-ga-value = "1" value = "http://itunes.apple.com/us/app/race-of-champions-the-official/id469354336">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -67,10 +91,10 @@
                         PUBLISHER: Invictus
                     </p>
                     <p>
-                        VANGUARD WEBSITE: <a href=" http://www.vanguardgames.net" target = "_blank"> http://www.vanguardgames.net</a>
+                        VANGUARD WEBSITE: <a href=" http://www.vanguardgames.net" target = "_blank" data-ga = "1" data-ga-category="Outbound link" data-ga-action="click" data-ga-label="Press - Mist Bouncer Phone - Mist Bouncer Vanguard Top" data-ga-value="1"> http://www.vanguardgames.net</a>
                     </p>
                     <p>
-                        INVICTUS WEBSITE: <a href="http://www.invictus.com" target = "_blank">www.invictus.com</a>
+                        INVICTUS WEBSITE: <a href="http://www.invictus.com" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - Mist Bouncer Phone - Mist Bouncer InvictusCom Top" data-ga-value="1">www.invictus.com</a>
                     </p>
                 </div>
             </div>
@@ -83,13 +107,13 @@
             </p>
              -->
             <p style="margin-top:20px;">
-                Invictus Games and Vanguard Games have been busy working together this year and are releasing a second collaboration game, Mist Bouncer placed in the same Mistbound realm as Greed Corp.
+                Invictus Games and Vanguard Games have been busy working together this year and are releasing a second collaboration game, Mist Bouncer placed in the same Mistbound realm as Greed Corp.            
             </p>
             <p>
-                The game features the robots from Greed Corp escaping from the collapse of the tile they are currently on since Mistbound universe consists of land that are collapsing in consequence of the exploitation of the resources. Players need to jump from one platform to another up to the top.
+                The game features the robots from Greed Corp escaping from the collapse of the tile they are currently on since Mistbound universe consists of land that are collapsing in consequence of the exploitation of the resources. Players need to jump from one platform to another up to the top.            
             </p>
             <p>
-                After reaching the top of the tile, they are transported by a plane to another tile. During being in the cargo space of the plane, boxes are falling down to them and they need to eliminate them within a brick breaker mini-game.
+                After reaching the top of the tile, they are transported by a plane to another tile. During being in the cargo space of the plane, boxes are falling down to them and they need to eliminate them within a brick breaker mini-game.            
             </p>
             <p>
                 Screenshots and images feature gameplay footage as well as official logo and character artworks. 
@@ -98,22 +122,24 @@
                 For more information on Mist Bouncer, please visit: 
             </p>
             <p>
-                <a href="https://www.facebook.com/mistbouncer" target = "_blank">https://www.facebook.com/mistbouncer</a>
+                <a href="https://www.facebook.com/mistbouncer" target = "_blank" data-ga = "1" data-ga-category="Outbound link" data-ga-action="click" data-ga-label="Press - Mist Bouncer Phone - Mist Mouncer FB" data-ga-value="1">https://www.facebook.com/mistbouncer</a>
             </p>
             <p>
-                <a href="http://www.invictus.com/" target = "_blank">http://www.invictus.com/</a>
+                <a href="http://www.invictus.com/" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - Mist Bouncer Phone - Mist Bouncer InvictusCom Bottom" data-ga-value="1">http://www.invictus.com/</a>
             </p>
             <p style="margin-top:20px;">
                <strong>About Invictus Games Ltd: </strong>
             </p>
             <p>
-                Invictus Games Ltd is Hungary’s premier video game development studio, with a wealth of experience creating detailed racing games. Invictus' more than 10 year track record developing racing games includes offline and online on iOS, Android and PC, for companies such as Codemasters, Activision, Disney and Gamepot. To learn more about Invictus games, please visit <a href="http://www.invictus.com">http://www.invictus.com</a>.
+                Invictus Games Ltd is Hungary’s premier video game development studio, with a wealth of experience creating detailed racing games. Invictus' more than 10 year track record developing racing games includes offline and online on iOS, Android and PC, for companies such as Codemasters, Activision, Disney and Gamepot. To learn more about Invictus games, please visit 
+                <a href="http://www.invictus.com" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - Mist Bouncer Phone - Mist Bouncer InvictusCom Bottom" data-ga-value="1">http://www.invictus.com</a>.
             </p>
             <p style="margin-top:20px;">
                 <strong>About Vanguard Games:</strong>
             </p>
             <p>
-                Vanguard Games is a developer of downloadable online games for premium gaming platforms situated in Amsterdam. Vanguard is a merger of two studios and was founded in March 2010; its mission is to create new types of online games by combining the best elements of online gaming with the hallmarks of high-end console gaming. . To learn more about Vanguard Games, please visit <a href="http://www.vanguardgames.net">http://www.vanguardgames.net</a>.
+                Vanguard Games is a developer of downloadable online games for premium gaming platforms situated in Amsterdam. Vanguard is a merger of two studios and was founded in March 2010; its mission is to create new types of online games by combining the best elements of online gaming with the hallmarks of high-end console gaming. To learn more about Vanguard Games, please visit 
+                <a href="http://www.vanguardgames.net" target = "_blank" data-ga = "1" data-ga-category="Outbound link" data-ga-action="click" data-ga-label="Press - Mist Bouncer Phone - Mist Bouncer Vanguard Bottom" data-ga-value="1">http://www.vanguardgames.net</a>.
             </p>
             
         </div>
