@@ -37,7 +37,7 @@
                 <a href="<?php echo base_url() ?>" class="brand">Latest Invictus press releases</a>
                     <ul class="nav">
                         <li <?php echo $controller === '' || $controller === 'race-of-champions' ? ' class="active"' : '' ?>><a href="<?php echo base_url() ?>race-of-champions">Race Of Champions</a></li>
-                        <!-- <li <?php echo $controller === 'mist-bouncer' ? ' class="active"' : '' ?>><a href="<?php echo base_url() ?>mist-bouncer">Mist Bouncer</a></li> -->
+                        <li <?php echo $controller === 'mist-bouncer' ? ' class="active"' : '' ?>><a href="<?php echo base_url() ?>mist-bouncer">Mist Bouncer</a></li>
                         <li <?php echo $controller === 'greed-corp' ? ' class="active"' : '' ?>><a href="<?php echo base_url() ?>greed-corp">Greed Corp</a></li>
                         <li <?php echo $controller === 'santa-ride' ? ' class="active"' : '' ?>><a href="<?php echo base_url() ?>santa-ride">Santa Ride!</a></li>
                     </ul>
