@@ -2,7 +2,7 @@
  * bootstrap-tabs.js v2.0.0
  * http://twitter.github.com/bootstrap/javascript.html#tabs
  * ========================================================
- * Copyright 2011 Twitter, Inc.
+ * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,6 +104,7 @@
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('tab')
+        
       if (!data) $this.data('tab', (data = new Tab(this)))
       if (typeof option == 'string') data[option]()
     })

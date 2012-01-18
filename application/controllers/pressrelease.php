@@ -84,6 +84,49 @@ class Pressrelease extends MY_Controller
         $this->template->build('pressrelease/edit_analytics', $data);
     }
     
+    public function edit_pack()
+    {
+        $data = array();
+
+        $this->template->set_partial('analytics', '_partials/analytics');
+        
+        $data['item'] = false;
+        
+        $this->template->build('pressrelease/edit_pack', $data);
+    }
+    
+    public function edit_game()
+    {
+        $data = array();
+
+        $this->template->set_partial('analytics', '_partials/analytics');
+        
+        $data['item'] = false;
+        
+        $this->template->build('pressrelease/edit_game', $data);
+    }    
+    
+    public function edit_video()
+    {
+        $data = array();
+
+        $this->template->set_partial('analytics', '_partials/analytics');
+        
+        $data['item'] = false;
+        
+        $this->template->build('pressrelease/edit_video', $data);
+    }     
+
+    public function edit_store()
+    {
+        $data = array();
+
+        $this->template->set_partial('analytics', '_partials/analytics');
+        
+        $data['item'] = false;
+        
+        $this->template->build('pressrelease/edit_store', $data);
+    }     
     public function delete()
     {
         $id = $this->uri->segment(3);

@@ -20,7 +20,7 @@
         <div class="span5 col center" id="general-info">
             <div class="span5 logo editable">
                 <img src="http://placehold.it/175x175" alt="">
-                <div class="right item-nav ">
+                <div class="center item-nav ">
                     <?php echo form_open('', array('style'=>'margin-right:10px;')) ?>
                         <div class="file-input-wrapper">
                             <button class="btn info"><i class="picture"></i>
@@ -36,8 +36,7 @@
                 <h3>Greed Corp</h3>         
                 <h5>Released 14 December 2011</h5>
                 <p class="right item-nav">
-                    <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_analytics" rel="dialog" title="Press release - Google analytics settings" style="margin-right:0px;"><i class="cog"></i>analytics</a>
-                    <a class="btn" href="#"><i class="edit"></i>edit</a>
+                    <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_game" rel="dialog" title="Press release game settings"><i class="edit"></i>edit</a>
                 </p>
             </div>
             <div  class="span5 editable">
@@ -48,17 +47,7 @@
                     </span>                
                 </p>
                 <div class="right item-nav">
-                    
-                    <?php echo form_open('', array('style'=>'margin-right:10px;')) ?>
-                        <div class="file-input-wrapper">
-                            <button class="btn info"><i class="file"></i>
-                                select a file
-                            </button>
-                            <input type="file" id="upload-logo" name="upload"/>
-                        </div>
-                        <button class="btn"><i class="upload"></i>upload</button>
-                        <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_analytics" rel="dialog" title="Download link - Google analytics settings" style="margin-right:0px;"><i class="cog"></i>analytics</a>
-                    <?php echo form_close() ?>
+                    <a href="<?php echo base_url() ?>pressrelease/edit_pack" class="btn" rel="dialog" title="Press release pack settings"><i class="edit"></i>edit</a>
                 </div>
             </div>
             <div class="span5 editable">
@@ -76,20 +65,24 @@
             </div>
         </div>
         <div class="span7 col">
-            <div class="span7 editable" style="margin:10px auto;text-align:center">
-                <img src="http://placehold.it/520x305" alt="" style="margin: 0 auto;">
+            <div class="editable">
+                <div class="span7" style="margin:10px auto;text-align:center">
+                    <img src="http://placehold.it/520x305" alt="" style="margin: 0 auto;">
+                </div>
+                <div class="span7" style="margin:5px auto">
+                    <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 auto;" disabled="disabled"><iframe width="530" height="315" src="http://www.youtube.com/embed/a2re02ob2RM" frameborder="0" allowfullscreen></iframe></textarea>
+                    <!-- 
+                    <p class="right item-nav" style="margin-right:10px;">
+                        <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_analytics" rel="dialog" title="Video code copy - Google analytics settings" style="margin-right:0px;"><i class="cog"></i>analytics</a>
+                    </p>
+                     -->
+                </div>
                 <p class="right item-nav">
-                    <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_analytics" rel="dialog" title="Video - Google analytics settings" style="margin-right:0px;"><i class="cog"></i>analytics</a>
-                    <a class="btn" href="#"><i class="edit"></i>edit</a>
-                </p>
-            </div>
-            <div class="span7 editable" style="margin:0 auto">
-                <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 auto;" disabled="disabled"><iframe width="530" height="315" src="http://www.youtube.com/embed/a2re02ob2RM" frameborder="0" allowfullscreen></iframe></textarea>
-                <p class="right item-nav" style="margin-right:10px;">
-                    <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_analytics" rel="dialog" title="Video code copy - Google analytics settings" style="margin-right:0px;"><i class="cog"></i>analytics</a>
+                    <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_video" rel="dialog" title="Video settings"><i class="edit"></i>edit</a>
                 </p>
             </div>
         </div>
+                
     </div>
 
     <div class="row available">
@@ -107,8 +100,7 @@
                     <div class="span7">
                         <input type="text" class = "input-xxlarge copy-code" value = "http://itunes.apple.com/us/app/greed-corp/id484852980">
                         <p class="item-nav right">
-                            <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_analytics" rel="dialog" title="Store - Google analytics settings" style="margin-right:0px;"><i class="cog"></i>analytics</a>
-                            <a class="btn" href="#"><i class="edit"></i>edit</a>
+                            <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_store" rel="dialog" title="Store settings"><i class="edit"></i>edit</a>
                             <a class="btn" href="#"><i class="trash"></i>delete</a>
                         </p>
                     </div>
