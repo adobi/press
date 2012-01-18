@@ -1,0 +1,92 @@
+
+.video-play {
+    background:url(../images/play-overlay3.png) no-repeat transparent;
+    cursor:pointer!important;
+}
+
+
+.col, .hero-unit {
+    background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eeeeee));
+    background: -moz-linear-gradient(top,  #f6f6f6,  #eeeeee); 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#eeeeee');
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+    -webkit-box-shadow:0 3px 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:0 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow:0 3px 5px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip:padding-box;
+    -moz-background-clip:padding-box;
+    background-clip:padding-box; 
+    margin-top:10px;
+}
+
+.col {
+    background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#ffffff));
+    background: -moz-linear-gradient(top,  #f1f1f1,  #ffffff); 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f1f1', endColorstr='#ffffff');    
+}
+
+.hero-unit {
+    padding-bottom:20px;
+    text-align:center;
+}
+
+.cols .col {
+    height:440px;
+}
+
+.item {
+    background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eeeeee));
+    background: -moz-linear-gradient(top,  #f6f6f6,  #eeeeee);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#eeeeee');
+    border-radius:4px;
+    border-bottom:1px solid #ccc;
+    padding:10px;
+    box-shadow:0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+}
+
+
+.press, .available, .press-release-text {
+    margin-top:30px!important;
+}
+
+.press-release-text {
+    margin-left:0px!important;
+}
+.stores-table td {
+    border-top:0px;
+}
+
+
+.input-xxlarge {
+    width:510px;
+}
+
+.logo {
+    margin-top:10px;
+}
+/*
+.press [class*=span] {
+    height:200px;
+}
+*/
+
+
+a[rel=twipsy] {
+    display:inline-block;
+}
+
+
+.store-item .row {
+    margin-top:10px;
+}
+
+.store-item .span2 {
+    margin-left:0px;
+}
+
+.store-item .span6 {
+    padding-top:5px;
+    margin-left:0px;
+}

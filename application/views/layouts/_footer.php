@@ -1,21 +1,23 @@
-            </div> <!-- /content -->   
+            <!-- </div> --> <!-- /content -->   
 
+            <footer style="margin-top:30px;">
+                <p>&copy; Invictus Games <?php echo date('Y') ?></p>
+            </footer>
         
         </div> <!-- /container -->
-		
 		<div id="loading-global">Working...</div>		
 				
 
     	<script src = "<?php echo base_url() ?>scripts/plugins/headjs/head.min.js"></script> 
     	<script type="text/javascript">
-    	    head.js("http://code.jquery.com/jquery-1.7.min.js", 
+    	    head.js("http://code.jquery.com/jquery-1.7.1.min.js", 
     	            "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-dropdown.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-tab.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-alert.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-modal.js",
-                    "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-twipsy.js",
+                    "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-tooltip.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-popover.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
                     "<?php echo base_url() ?>scripts/plugins/redactor/js/redactor/redactor.js",
