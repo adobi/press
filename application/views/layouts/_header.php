@@ -13,9 +13,9 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->        
         
+        <link rel = "stylesheet" href="<?= base_url() ?>css/aristo.css" media="all" />
         <link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.min.css" media="all" />
 		<link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.custom.min.css" media="all" />
-        <link rel = "stylesheet" href="<?= base_url() ?>css/aristo.css" media="all" />
         <link rel = "stylesheet" href="<?= base_url() ?>css/press-release.css" media="all" />
         <link rel = "stylesheet" href="<?= base_url() ?>css/page.css" media="all" />
         <link rel = "stylesheet" href="<?= base_url() ?>scripts/plugins/file-upload/jquery.fileupload-ui.css" media="all" />

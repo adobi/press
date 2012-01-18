@@ -2,7 +2,7 @@
  * bootstrap-modal.js v2.0.0
  * http://twitter.github.com/bootstrap/javascript.html#modal
  * =========================================================
- * Copyright 2011 Twitter, Inc.
+ * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -174,7 +174,6 @@
       var $this = $(this)
         , data = $this.data('modal')
         , options = typeof option == 'object' && option
-      
       if (!data) $this.data('modal', (data = new Modal(this, options)))
       if (typeof option == 'string') data[option]()
       else data.show()
@@ -197,7 +196,7 @@
       var $this = $(this)
         , $target = $($this.attr('data-target') || $this.attr('href'))
         , option = $target.data('modal') ? 'toggle' : $.extend({}, $target.data(), $this.data())
-      
+
       e.preventDefault()
       $target.modal(option)
     })

@@ -149,6 +149,7 @@ table thead th {
 
 .editable {
     border:1px dashed #ccc;
+    padding:3px 0 5px 0;
     //opacity:0.6;
 }
 
@@ -177,3 +178,6 @@ table thead th {
     cursor:pointer;width:140px; height:30px;display:inline-block; overflow:hidden; position:relative;top:11px;
 }
 
+.tabs a {
+    color:#0088cc;
+}
