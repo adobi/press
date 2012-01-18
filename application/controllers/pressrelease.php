@@ -28,9 +28,13 @@ class Pressrelease extends MY_Controller
         $item = false;
         if ($id) {
             $item = $this->model->find((int)$id);
+        } else {
+            //$inserted = $this->model->insert();
+            
+            //redirect(base_url().'pressrelease/edit/'.$inserted);
         }
         $data['item'] = $item;
-        
+        /*
         $this->form_validation->set_rules("game_id", "Game_id", "trim|required");
 		$this->form_validation->set_rules("released", "Released", "trim|required");
 		$this->form_validation->set_rules("logo", "Logo", "trim|required");
@@ -48,7 +52,7 @@ class Pressrelease extends MY_Controller
 		$this->form_validation->set_rules("pack_ga_label", "Pack_ga_label", "trim|required");
 		$this->form_validation->set_rules("pack_ga_value", "Pack_ga_value", "trim|required");
 		$this->form_validation->set_rules("pack_ga_noninteraction", "Pack_ga_noninteraction", "trim|required");
-		
+		*/
         
         if ($this->form_validation->run()) {
         
@@ -60,6 +64,24 @@ class Pressrelease extends MY_Controller
             redirect($_SERVER['HTTP_REFERER']);
         }
         $this->template->build('pressrelease/edit', $data);
+    }
+    
+    public function edit_section()
+    {
+        $data = array();
+        
+        
+        $this->template->build('pressrelease/edit_section', $data);
+    }
+
+    
+    public function edit_analytics()
+    {
+        $data = array();
+        
+        $data['item'] = false;
+        
+        $this->template->build('pressrelease/edit_analytics', $data);
     }
     
     public function delete()

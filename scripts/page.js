@@ -1,4 +1,4 @@
-﻿(function($) {
+(function($) {
 	
 	$(function() {
 
@@ -124,8 +124,8 @@
             var self = $(this);
             
             
-            var elem = $('<div />', {'class': 'dialog', id: 'dialog_'+(new Date()).getTime(), title: self.attr('title')}).html('<p style = "width: 300px;text-align:center"><img src = "'+App.URL+'images/pie.gif" /></p>');
-    
+            var elem = $('<div />', {'class': 'dialog', id: 'dialog_'+(new Date()).getTime(), title: self.attr('title')}).html('<p style = "text-align:center"><img src = "'+App.URL+'images/pie.gif" /></p>');
+            
             elem.dialog({
                 modal: false,
                 width: 'auto',
@@ -133,22 +133,24 @@
                 position:[Math.floor((window.innerWidth / 2)-150),  70],
                 open: function(event, ui) {
 
-                    elem.html($('<img />', {src:self.attr('href')}));
+                    //elem.html($('<img />', {src:self.attr('href')}));
                     elem.dialog('option', 'position', [Math.floor(((window.innerWidth  - elem.width()) / 2)), window.pageYOffset]);
                     $('.ui-dialog').css('top',  window.pageYOffset + 70);
                     //alert(window.innerHeight);
 
-                    /*
+                    
                     $.get(self.attr('href'), function(response) {
                         elem.html(response);
-                        //alert(window.innerHeight);
+                        
                         elem.dialog('option', 'position', [Math.floor(((window.innerWidth  - elem.width()) / 2)), window.pageYOffset]);
                         $('.ui-dialog').css('top',  window.pageYOffset + 70);
                         
                         
-                        //elem.find('form p:last').append('<button class = "close-dialog">Mégsem</button>');
+                        if ($('#redactor').length) {
+                            $('#redactor').redactor({ lang: 'en', toolbar: 'mini' });
+                        }
                     });
-                    */
+                    
                 }
             });
             
@@ -231,12 +233,66 @@
                 e.preventDefault()
             });
         
-        $('a[rel=twipsy]').twipsy();
+        $('a[rel=twipsy]').tooltip();
                 	
 		prettyPrint() 
           
 		
-		
+    
+        $('body').delegate('.copy-code', 'click', function() {
+            var self = $(this);
+            
+            self.select();
+        });		
+        
+        $('body').delegate('[data-editable=edit]', 'click', function() {
+            
+            var self = $(this),
+                elem = self.parents('.editable:first').find('.editable-text');
+                html = elem.html(),
+                
+                h = (self.data('editable-height') !== undefined ? self.data('editable-height') : 220) + 'px';
+                /*
+                redactor = $('<textarea />', 
+                {
+                     name: '',
+                     'class':"redactor",
+                })
+                .css({
+                     width:"99%",
+                     height: h,
+                 })
+                .val(html);
+                */
+                $.get(self.attr('href'), function(response) {
+                    
+                    elem.html(response);
+                    
+                    elem.find('.redactor')
+                        .css('height', h)
+                        .val(html)
+                        .redactor({ lang: 'en', toolbar: 'mini' });
+                });
+            
+            return false;
+        });
+        
+        $('body').delegate('[data-editable=cancel]', 'click', function() {
+            var self = $(this),
+                html = self.parents('form:first').find('.redactor').val(),
+                elem = self.parents('.editable:first').find('.editable-text');
+            
+            elem.html(html);
+            
+            return false;
+        });
+        
+        $('body').delegate('form', 'submit', function() {
+            $('#loading-global').show();
+            
+            return true;
+        })
+
     });
 	
 }) (jQuery);

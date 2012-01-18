@@ -156,6 +156,8 @@
         $('.pills').pills();
         if ($('#redactor').length)
             $('#redactor').redactor({ lang: 'en' });
+            
+            
 	})
 	
 }) (jQuery);
