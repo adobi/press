@@ -243,13 +243,14 @@
             var self = $(this);
             
             self.select();
-        });		
-        
+        });	
+        	
+        var originlHtml = null;
         $('body').delegate('[data-editable=edit]', 'click', function() {
             
             var self = $(this),
                 elem = self.parents('.editable:first').find('.editable-text');
-                html = elem.html(),
+                html = originlHtml = elem.html(),
                 
                 h = (self.data('editable-height') !== undefined ? self.data('editable-height') : 220) + 'px';
                 /*
@@ -282,7 +283,7 @@
                 html = self.parents('form:first').find('.redactor').val(),
                 elem = self.parents('.editable:first').find('.editable-text');
             
-            elem.html(html);
+            elem.html(originlHtml);
             
             return false;
         });
