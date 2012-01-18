@@ -10,10 +10,6 @@ class Dashboard extends MY_Controller
     {
         $data = array();
         
-        $this->load->model('Sites', 'model');
-        
-        $data['items'] = $this->model->fetchAll();
-        
         $this->template->build('dashboard/index', $data);
     }
 }

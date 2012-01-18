@@ -14,7 +14,7 @@ class Video extends MY_Controller
         
         $data['items'] = $this->model->fetchAll();
         
-        $this->template->build('/index', $data);
+        $this->template->build('video/index', $data);
     }
     
     public function edit() 
@@ -23,13 +23,22 @@ class Video extends MY_Controller
         
         $id = $this->uri->segment(3);
         
-        $this->load->model('', 'model');
+        $this->load->model('Videos', 'model');
         
         $item = false;
         if ($id) {
             $item = $this->model->find((int)$id);
         }
         $data['item'] = $item;
+        
+        $this->form_validation->set_rules("code", "Code", "trim|required");
+		$this->form_validation->set_rules("ga_category", "Ga_category", "trim|required");
+		$this->form_validation->set_rules("ga_action", "Ga_action", "trim|required");
+		$this->form_validation->set_rules("ga_label", "Ga_label", "trim|required");
+		$this->form_validation->set_rules("ga_value", "Ga_value", "trim|required");
+		$this->form_validation->set_rules("ga_noninteraction", "Ga_noninteraction", "trim|required");
+		$this->form_validation->set_rules("pressrelease_id", "Pressrelease_id", "trim|required");
+		
         
         if ($this->form_validation->run()) {
         
@@ -39,14 +48,8 @@ class Video extends MY_Controller
                 $this->model->insert($_POST);
             }
             redirect($_SERVER['HTTP_REFERER']);
-        } else {
-            if ($_POST) {
-                
-                redirect($_SERVER['HTTP_REFERER']);
-            }
         }
-        
-        $this->template->build('/edit', $data);
+        $this->template->build('video/edit', $data);
     }
     
     public function delete()
@@ -54,53 +57,11 @@ class Video extends MY_Controller
         $id = $this->uri->segment(3);
         
         if ($id) {
-            $this->load->model('', 'model');
+            $this->load->model('Videos', 'model');
             
             $this->model->delete($id);
         }
         
         redirect($_SERVER['HTTP_REFERER']);
     }
-    
-    public function analytics()
-    {
-        $data = array();
-
-        $id = $this->uri->segment(3);
-        
-        $this->load->model('Videos', 'model');
-        
-        $item = $this->model->find($id);
-        
-        $data['item'] = $item;
-        
-        if ($_POST) {
-            
-            if (!isset($_POST['ga_noninteraction'])) {
-                $_POST['ga_noninteraction'] = null;
-            }            
-            
-            $this->model->update($_POST, $id);
-            
-            redirect(base_url() . 'game/videos/' . $item->site_id);
-        }
-        
-        $this->template->set_partial('event_tracking', '_partials/event_tracking');
-        
-        $this->template->build('video/analytics', $data);        
-    }
-    
-    public function update_order()
-    {
-        if ($_POST && isset($_POST['order'])) {
-            
-            $this->load->model('Videos', 'model');
-            
-            foreach ($_POST['order'] as $order => $id) {
-                $this->model->update(array('order'=>$order), $id);
-            }
-        }
-        
-        die;
-    }    
 }
