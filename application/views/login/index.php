@@ -1,15 +1,28 @@
-<?php echo form_open() ?>
 
-	<fieldset style="margin-top:20px;">
+<?php if (validation_errors()): ?>
+    <div class="alert alert-error">
+        <?php echo validation_errors() ?>
+    </div>
+<?php endif ?>
+
+<?php echo form_open('', array('class'=>'form-horizontal')) ?>
+        
 	    <legend>Please login</legend>
-		<div class="clearfix">
-			<label for="xlInput">Password</label>
-			<div class="input">
-			  <input type="password" size="30" name="password" id="password" class="password" />
-			</div>
-		</div>		
-		<div class="actions">
-			<input type="submit" value="Login" class="btn primary">
-		</div>  		
-	</fieldset>
+    
+        <fieldset class="control-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+			    <input type="text" name="username" id="username" class="username input-xlarge" />
+            </div>
+        </fieldset>
+        <fieldset class="control-group">
+            <label class="control-label" for="password">Password</label>
+            <div class="controls">
+			    <input type="password" name="password" id="password" class="password input-xlarge" />
+            </div>
+        </fieldset>
+        <fieldset class="form-actions">
+            <input type="submit" value="Login" class="btn primary">
+        </fieldset> 
+
 <?php echo form_close() ?>
