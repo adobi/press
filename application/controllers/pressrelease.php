@@ -29,11 +29,16 @@ class Pressrelease extends MY_Controller
         if ($id) {
             $item = $this->model->find((int)$id);
             $this->load->model('Games', 'games');
-            
-            $game = $this->games->find($item->game_id);
-            
-            $item->game_name = $game->name;
-            $item->game_url = $game->url;
+            if ($item->game_id) {
+                
+                $game = $this->games->find($item->game_id);
+                
+                $item->game_name = $game->name;
+                $item->game_url = $game->url;
+            } else {
+                $item->game_name = false;
+                $item->game_url = false;
+            }
             
             $this->load->model('Stores', 'stores');
             

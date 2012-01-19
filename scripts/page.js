@@ -94,8 +94,8 @@
         //$('.pills').pills();
         $('.tabs').tab();
         
-        if ($('#redactor').length) {
-            $('#redactor').redactor({ lang: 'en', toolbar: 'mini' });
+        if ($('.redactor').length) {
+            $('.redactor').redactor({ lang: 'en', toolbar: 'mini' });
         }
             
         $(".fancybox").fancybox();

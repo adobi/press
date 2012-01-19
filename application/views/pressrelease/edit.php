@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="span7 col">
-            <div class="editable">
+            <div class="editable <?php echo $item->video ? '' : 'missing' ?>">
                 <div class="span7" style="margin:10px auto;text-align:center">
                     <?php if ($item->video): ?>
                         <?php echo embed_youtube($item->video) ?>
