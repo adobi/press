@@ -212,7 +212,8 @@ table thead th {
 }
 
 .missing {
-    background:#F2DEDE;
+    //background:#F2DEDE;
+    background:rgba(242, 222, 222, 0.4);
     border-color:#E9C7C7;
 }
 
@@ -222,4 +223,13 @@ table thead th {
 
 .press-logo {
     margin:0 auto;
+}
+
+.settings-tab-content form {
+    display:inline-block;
+    margin-top:10px;
+}
+
+.settings-tab-content textarea {
+    width:700px; height: 320px;
 }

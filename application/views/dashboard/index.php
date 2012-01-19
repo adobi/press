@@ -6,7 +6,7 @@
             
             <li class="span3 alert <?php echo $item->active === '1' ? 'alert-success' : 'alert-error' ?>">
                 <div class="thumbnail">
-                    <img class="press-logo" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" alt="">
+                    <img class="press-logo" src="<?php echo $item->logo ? base_url() .'uploads/original/' . $item->logo : 'http://placehold.it/175x175' ?>" alt="">
                     <div class="caption">
                         <h5 class="center"><?php echo $item->game_name ?></h5>
                         <h6 class="center"><?php echo to_date($item->released) ?></h6>

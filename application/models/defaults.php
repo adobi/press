@@ -6,4 +6,9 @@ class Defaults extends MY_Model
 {
     protected $_name = "ip_settings";
     protected $_primary = "id";
+    
+    public function getId() 
+    {
+        return 1;
+    }
 }

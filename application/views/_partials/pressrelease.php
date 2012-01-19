@@ -4,8 +4,8 @@
     </div>
 <?php endif ?>
 <?php if (!$item): ?>
-    <div class="alert aret-error">
-        No press release selected
+    <div class="alert alret-error">
+        No press release found :(
     </div>
 <?php else: ?>
     <div class="preview">

@@ -43,6 +43,7 @@
                   </ul>
                   <div class="pull-right">
                       <ul class="nav">
+                          <li><a href="#" class="toggle-help" style="color:#fff;"><strong>Help!</strong></a></li>
                           <li class="vertical-divider"></li>
                           <li><a href="<?php echo base_url() ?>auth/logout" style="font-weight:bold"><i class="w off-w"></i>Logout</a></li>
                       </ul>
