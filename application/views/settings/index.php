@@ -34,7 +34,7 @@
         <div class="tab-content">
             <div class="tab-pane active" id="pack-description">
                 <?php echo form_open() ?>
-                    <textarea name="" style="width:500px; height: 320px;" class="redactor"></textarea>
+                    <textarea name="" style="width:500px; height: 320px;" class="_redactor"></textarea>
                     <fieldset class="form-actions">
                         <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn close-dialog" href="<?php echo base_url() ?>">Cancel</a>
                     </fieldset>                    
