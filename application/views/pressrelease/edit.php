@@ -7,8 +7,8 @@
     </div>
 <?php endif ?>
 <?php if (!$item): ?>
-    <div class="alert aret-error">
-        No press release selected
+    <div class="alert alret-error">
+        No press release found
     </div>
 <?php else: ?>
     <h2 class="round alert <?php echo $item->active ? 'alert-success' : 'alert-error' ?>" style="padding:10px; color:#222">
@@ -18,8 +18,8 @@
                 Create new press release
         <?php endif ?>
         <?php if ($item): ?>
-            
             <p class="pull-right">
+                
                 <?php if ($item->active): ?>
                     <a class="btn" href="<?php echo base_url() ?>pressrelease/inactivate/<?php echo $item->id ?>"><i class="refresh"></i> make inactive</a>
                 <?php else: ?>
@@ -33,7 +33,7 @@
 
     <div class="row cols">
         <div class="span5 col center" id="general-info">
-            <div class="span5 logo editable <?php echo $item->logo ? '' : 'missing' ?>">
+            <div class="span5 logo editable <?php echo $item->logo ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 1" data-content="Upload game logo" data-placement="top" data-trigger="manual">
                 <img src="<?php echo $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/175x175' ?>" alt="">
                 <div class="center item-nav ">
                     <?php if ($item->logo): ?>
@@ -52,14 +52,14 @@
                     <?php endif ?>
                 </div>
             </div>   
-            <div class="span5 editable <?php echo $item->game_name && $item->released ? '' : 'missing' ?>">
+            <div class="span5 editable <?php echo $item->game_name && $item->released ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 2" data-content="Select a game and set the release date" data-placement="right" data-trigger="manual">
                 <h3><?php echo $item->game_name ?></h3>         
                 <h5>Released <?php echo to_date($item->released) ?></h5>
                 <p class="right item-nav">
                     <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_game/" rel="dialog" title="Press release game settings"><i class="edit"></i>edit</a>
                 </p>
             </div>
-            <div  class="span5 editable <?php echo $item->pack ? '' : 'missing' ?>">
+            <div  class="span5 editable <?php echo $item->pack ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 3" data-content="Upload the pack (may take several minutes)" data-placement="right" data-trigger="manual">
                 <a class="btn primary large" href = "#">Download press pack</a>
                 <p>
                     <span class="help-block">
@@ -70,17 +70,12 @@
                     <a href="<?php echo base_url() ?>pressrelease/edit_pack" class="btn" rel="dialog" title="Press release pack settings"><i class="edit"></i>edit</a>
                 </div>
             </div>
-            <div class="span5 editable <?php echo $item->pack_description ? '' : 'missing' ?>">
+            <div class="span5 editable <?php echo $item->pack_description ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 4" data-content="Edit the description of the pack" data-placement="right" data-trigger="manual">
                 <div class="editable-text left">
                     <?php if (trim($item->pack_description)): ?>
                         <?php echo $item->pack_description ?>
                     <?php else: ?>
-                        <p>The press pack contains:</p>
-                        <ul>
-                            <li>High resolution artwork and screenshots</li>
-                            <li>Press release</li>
-                            <li>YouTube video embed code </li>
-                        </ul>
+                        <?php echo $defaults->pack_description ?>
                     <?php endif ?>
                 </div>
                 <p class="right item-nav">
@@ -89,7 +84,7 @@
             </div>
         </div>
         <div class="span7 col">
-            <div class="editable <?php echo $item->video ? '' : 'missing' ?>">
+            <div class="editable <?php echo $item->video ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 5" data-content="Add a video" data-placement="top" data-trigger="manual">
                 <div class="span7" style="margin:10px auto;text-align:center">
                     <?php if ($item->video): ?>
                         <?php echo embed_youtube($item->video) ?>
@@ -115,7 +110,7 @@
     </div>
 
     <div class="row available">
-        <div class="span12 col <?php echo !$item->stores ? 'missing' : '' ?>">
+        <div class="span12 col <?php echo !$item->stores ? 'missing' : '' ?>" data-tooltip="tooltip" data-title="Step 6" data-content="Set the platforms and stores" data-placement="top" data-trigger="manual">
             <div class="span3">
                 <h2>Available on:</h2>
             </div>
@@ -146,50 +141,24 @@
     </div>
     
     <div class="row press">
-        <div class="span5 editable">
+        <div class="span5 editable" data-tooltip="tooltip" data-title="Step 7" data-content="Add the game name and release date" data-placement="top" data-trigger="manual">
             <div class="editable-text">
                 <?php if ($item->header_col1): ?>
                     <?php echo $item->header_col1 ?>
                 <?php else: ?>
-                    
-                    <p>
-                        PRESS RELEASE
-                    </p>
-                    <p>
-                        <?php echo to_date($item->released) ?>
-                    </p>
-                    <p>
-                        For Immediate Release                 
-                    </p>
-                    <p>
-                        Title: <strong><?php echo $item->game_name ?></strong>
-                    </p>
+                    <?php echo $defaults->header_col1 ?>
                 <?php endif ?>
             </div>
             <p class="right item-nav">
                 <a href="<?php echo base_url() ?>pressrelease/edit_section" class="btn" data-editable="edit" data-field="header_col1"><i class="edit"></i> edit</a>
             </p>
         </div>
-        <div class="span6 editable" style="width:535px;">
+        <div class="span6 editable" style="width:535px;" data-tooltip="tooltip" data-title="Step 8" data-content="Add the platforms" data-placement="top" data-trigger="manual">
             <div class="editable-text">
                 <?php if ($item->header_col2): ?>
                     <?php echo $item->header_col2 ?>
                 <?php else: ?>
-                    <p>
-                        FORMAT:
-                    </p>
-                    <p>
-                        RELEASE:<?php echo to_date($item->released) ?>
-                    </p>
-                    <p>
-                        DEVELOPER: Invictus
-                    </p>
-                    <p>
-                        PUBLISHER: Invictus
-                    </p>
-                    <p>
-                        INVICTUS WEBSITE: <a href="http://www.invictus.com" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - Greed Corp Phone - Greed Corp InvictusCom Top" data-ga-value="1">www.invictus.com</a>
-                    </p>
+                    <?php echo $defaults->header_col2 ?>
                 <?php endif ?>
             </div>
             <p class="right item-nav">
@@ -198,20 +167,12 @@
         </div>
     </div>
     
-    <div class="editable press-release-text">
+    <div class="editable press-release-text" data-tooltip="tooltip" data-title="Step 9" data-content="Add the text of the press release" data-placement="top" data-trigger="manual">
         <div class="editable-text">
             <?php if ($item->description): ?>
                 <?php echo $item->description ?>
             <?php else: ?>
-    
-                <p>
-                   <strong>About Invictus Games Ltd: </strong>
-                </p>
-                <p>
-                    Invictus Games Ltd is Hungary’s premier video game development studio, with a wealth of experience creating detailed racing games. Invictus' more than 10 year track record developing racing games includes offline and online on iOS, Android and PC, for companies such as Codemasters, Activision, Disney and Gamepot. To learn more about Invictus games, please visit 
-                    <a href="http://www.invictus.com" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - Greed Corp Phone - Greed Corp InvictusCom Bottom" data-ga-value="1">http://www.invictus.com</a>.
-                </p>
- 
+                <?php echo $defaults->description ?>
             <?php endif ?>
         </div>                 
         <p class="right item-nav">

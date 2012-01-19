@@ -25,29 +25,46 @@ class Pressrelease extends MY_Controller
         
         $this->load->model('Pressreleases', 'model');
         
+        $this->load->model('Defaults', 'defaults');
+        $data['defaults'] = $this->defaults->find($this->defaults->getid());
+        
         $item = false;
         if ($id) {
             $item = $this->model->find((int)$id);
             $this->load->model('Games', 'games');
-            if ($item->game_id) {
+            
+            if ($item) {
                 
-                $game = $this->games->find($item->game_id);
+                if ($item->game_id) {
+                    
+                    $game = $this->games->find($item->game_id);
+                    
+                    $item->game_name = $game->name;
+                    $item->game_url = $game->url;
+                } else {
+                    $item->game_name = false;
+                    $item->game_url = false;
+                }
                 
-                $item->game_name = $game->name;
-                $item->game_url = $game->url;
+                $this->load->model('Stores', 'stores');
+                
+                $item->stores = $this->stores->fetchForPressRelease($id);
+                
+                $this->session->set_userdata('current_pressrelease', $id);
             } else {
-                $item->game_name = false;
-                $item->game_url = false;
+                redirect(base_url().'dashboard');
             }
             
-            $this->load->model('Stores', 'stores');
-            
-            $item->stores = $this->stores->fetchForPressRelease($id);
-            
-            $this->session->set_userdata('current_pressrelease', $id);
             
         } else {
-            $inserted = $this->model->insert(array('active'=>0, 'created'=>date('Y-m-d H:i:s', time())));
+            
+            foreach ($data['defaults'] as $prop=>$val) {
+                $insert[$prop] = $val;
+            }
+            $insert['active'] = 0;
+            $insert['created'] = date('Y-m-d H:i:s', time());
+            
+            $inserted = $this->model->insert($insert);
             
             redirect(base_url().'pressrelease/edit/'.$inserted);
         }
@@ -213,15 +230,22 @@ class Pressrelease extends MY_Controller
         
         $item = $this->model->find((int)$id);
         $this->load->model('Games', 'games');
-        
-        $game = $this->games->find($item->game_id);
-        
-        $item->game_name = $game->name;
-        $item->game_url = $game->url;
-        
-        $this->load->model('Stores', 'stores');
-        
-        $item->stores = $this->stores->fetchForPressRelease($id);
+        if ($item) {
+            
+            $game = $this->games->find($item->game_id);
+            if ($game) {
+                
+                $item->game_name = $game->name;
+                $item->game_url = $game->url;
+            } else {
+                $item->game_name = false;
+                $item->game_url = false;
+            }
+            
+            $this->load->model('Stores', 'stores');
+            
+            $item->stores = $this->stores->fetchForPressRelease($id);
+        }
         
         $data['item'] = $item;
         
