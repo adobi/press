@@ -32,11 +32,19 @@ class Platform extends MY_Controller
         $data['item'] = $item;
         
         $this->form_validation->set_rules("name", "Name", "trim|required");
-		$this->form_validation->set_rules("url", "Url", "trim|required");
-		$this->form_validation->set_rules("image", "Image", "trim|required");
-		
+		//$this->form_validation->set_rules("url", "Url", "trim|required");
         
         if ($this->form_validation->run()) {
+
+            if ($this->upload->do_upload('image')) {
+                
+                if ($id) {
+                    
+                    $this->_deleteImage($id);
+                }
+                
+                $_POST['image'] = $this->upload->file_name;
+            } 
         
             if ($id) {
                 $this->model->update($_POST, $id);
@@ -48,6 +56,19 @@ class Platform extends MY_Controller
         $this->template->build('platform/edit', $data);
     }
     
+    public function delete_image() 
+    {
+        $id = $this->uri->segment(3);
+        
+        if ($id) {
+            
+            $this->_deleteImage($id);
+            
+        }
+        
+        redirect($_SERVER['HTTP_REFERER']);
+    }      
+    
     public function delete()
     {
         $id = $this->uri->segment(3);
@@ -56,8 +77,32 @@ class Platform extends MY_Controller
             $this->load->model('Platforms', 'model');
             
             $this->model->delete($id);
+            
+            $this->_deleteImage($id, true);
         }
         
         redirect($_SERVER['HTTP_REFERER']);
     }
+    
+    
+    
+    private function _deleteImage($id, $withRecord = false) 
+    {
+        $this->load->model('Platforms', 'model');
+        
+        $item = $this->model->find($id);
+        
+        if ($item && $item->image) {
+            $this->load->config('upload');
+            
+            @unlink($this->config->item('upload_path') . $item->image);
+        }
+        
+        if (!$withRecord) {
+            
+            $this->model->update(array('image'=>null), $id);
+        }
+        
+        return $withRecord ? $this->model->delete($id) : true;
+    }       
 }

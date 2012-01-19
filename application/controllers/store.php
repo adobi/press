@@ -31,25 +31,32 @@ class Store extends MY_Controller
         }
         $data['item'] = $item;
         
-        $this->form_validation->set_rules("pressrelease_id", "Pressrelease_id", "trim|required");
+        $this->load->model('Platforms', 'platforms');
+        
+        if (!$id) {
+            
+            $data['platforms'] = $this->platforms->toAssocArray('id', 'name', $this->platforms->fetchAvailbale($this->session->userdata('current_pressrelease')));
+        } else {
+            $data['platforms'] = $this->platforms->toAssocArray('id', 'name', $this->platforms->fetchAll());
+        }
+        
 		$this->form_validation->set_rules("platform_id", "Platform_id", "trim|required");
-		$this->form_validation->set_rules("url", "Url", "trim|required");
-		$this->form_validation->set_rules("ga_category", "Ga_category", "trim|required");
-		$this->form_validation->set_rules("ga_action", "Ga_action", "trim|required");
-		$this->form_validation->set_rules("ga_label", "Ga_label", "trim|required");
-		$this->form_validation->set_rules("ga_value", "Ga_value", "trim|required");
-		$this->form_validation->set_rules("ga_noninteraction", "Ga_noninteraction", "trim|required");
-		
         
         if ($this->form_validation->run()) {
         
+            $_POST['pressrelease_id'] = $this->session->userdata('current_pressrelease');
+            
             if ($id) {
                 $this->model->update($_POST, $id);
             } else {
                 $this->model->insert($_POST);
             }
+            
             redirect($_SERVER['HTTP_REFERER']);
         }
+        
+        $this->template->set_partial('analytics', '_partials/analytics', array('prefix'=>''));        
+        
         $this->template->build('store/edit', $data);
     }
     

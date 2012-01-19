@@ -28,67 +28,85 @@ class Pressrelease extends MY_Controller
         $item = false;
         if ($id) {
             $item = $this->model->find((int)$id);
-        } else {
-            //$inserted = $this->model->insert();
+            $this->load->model('Games', 'games');
             
-            //redirect(base_url().'pressrelease/edit/'.$inserted);
+            $game = $this->games->find($item->game_id);
+            
+            $item->game_name = $game->name;
+            $item->game_url = $game->url;
+            
+            $this->load->model('Stores', 'stores');
+            
+            $item->stores = $this->stores->fetchForPressRelease($id);
+            
+            $this->session->set_userdata('current_pressrelease', $id);
+            
+        } else {
+            $inserted = $this->model->insert(array('active'=>0, 'created'=>date('Y-m-d H:i:s', time())));
+            
+            redirect(base_url().'pressrelease/edit/'.$inserted);
         }
-        $data['item'] = $item;
-        /*
-        $this->form_validation->set_rules("game_id", "Game_id", "trim|required");
-		$this->form_validation->set_rules("released", "Released", "trim|required");
-		$this->form_validation->set_rules("logo", "Logo", "trim|required");
-		$this->form_validation->set_rules("pack_description", "Pack_description", "trim|required");
-		$this->form_validation->set_rules("header_col2", "Header_col2", "trim|required");
-		$this->form_validation->set_rules("header_col1", "Header_col1", "trim|required");
-		$this->form_validation->set_rules("description", "Description", "trim|required");
-		$this->form_validation->set_rules("title_ga_category", "Title_ga_category", "trim|required");
-		$this->form_validation->set_rules("title_ga_action", "Title_ga_action", "trim|required");
-		$this->form_validation->set_rules("title_ga_label", "Title_ga_label", "trim|required");
-		$this->form_validation->set_rules("title_ga_value", "Title_ga_value", "trim|required");
-		$this->form_validation->set_rules("title_ga_noninteraction", "Title_ga_noninteraction", "trim|required");
-		$this->form_validation->set_rules("pack_ga_category", "Pack_ga_category", "trim|required");
-		$this->form_validation->set_rules("pack_ga_action", "Pack_ga_action", "trim|required");
-		$this->form_validation->set_rules("pack_ga_label", "Pack_ga_label", "trim|required");
-		$this->form_validation->set_rules("pack_ga_value", "Pack_ga_value", "trim|required");
-		$this->form_validation->set_rules("pack_ga_noninteraction", "Pack_ga_noninteraction", "trim|required");
-		*/
         
-        if ($this->form_validation->run()) {
-        
-            if ($id) {
+        if ($_POST) {
+            
+            if ($this->upload->do_upload('logo')) {
+                
+                if ($id) {
+                    
+                    $this->_deleteImage($id);
+                }
+                
+                $_POST['logo'] = $this->upload->file_name;
+                unset($_POST['upload_logo']);
                 $this->model->update($_POST, $id);
-            } else {
-                $this->model->insert($_POST);
-            }
+                
+            }             
             redirect($_SERVER['HTTP_REFERER']);
         }
+        
+        $data['item'] = $item;
+
         $this->template->build('pressrelease/edit', $data);
     }
+    
+    public function delete_image() 
+    {
+        $id = $this->uri->segment(3);
+        
+        if ($id) {
+            
+            $this->_deleteImage($id);
+        }
+        
+        redirect($_SERVER['HTTP_REFERER']);
+    }     
     
     public function edit_section()
     {
         $data = array();
         
+            
+        $id = $this->session->userdata('current_pressrelease');
+
+        $this->load->model('Pressreleases', 'model');
+        
+        $data['item'] = $this->model->find($id);
+        
+        if ($_POST) {
+            
+            $this->model->update($_POST, $id);
+            
+            redirect($_SERVER['HTTP_REFERER']);
+        }
         
         $this->template->build('pressrelease/edit_section', $data);
-    }
-
-    
-    public function edit_analytics()
-    {
-        $data = array();
-        
-        $data['item'] = false;
-        
-        $this->template->build('pressrelease/edit_analytics', $data);
     }
     
     public function edit_pack()
     {
         $data = array();
 
-        $this->template->set_partial('analytics', '_partials/analytics');
+        $this->template->set_partial('analytics', '_partials/analytics', array('prefix'=>'pack_'));
         
         $data['item'] = false;
         
@@ -99,9 +117,26 @@ class Pressrelease extends MY_Controller
     {
         $data = array();
 
-        $this->template->set_partial('analytics', '_partials/analytics');
+        $this->template->set_partial('analytics', '_partials/analytics', array('prefix'=>'title_'));
         
-        $data['item'] = false;
+        $id = $this->session->userdata('current_pressrelease');
+
+        $this->load->model('Pressreleases', 'model');
+        
+        $data['item'] = $this->model->find($id);
+        
+        $this->load->model('Games', 'games');
+        
+        $data['games'] = $this->games->toAssocArray('id', 'name', $this->games->fetchAll());
+        
+        $this->form_validation->set_rules('game_id', 'Game', 'trim|required');
+        $this->form_validation->set_rules('released', 'Released', 'trim|required');
+        
+        if ($this->form_validation->run()) {
+            $this->model->update($_POST, $id);
+            
+            redirect($_SERVER['HTTP_REFERER']);
+        }
         
         $this->template->build('pressrelease/edit_game', $data);
     }    
@@ -110,23 +145,26 @@ class Pressrelease extends MY_Controller
     {
         $data = array();
 
-        $this->template->set_partial('analytics', '_partials/analytics');
+        $this->template->set_partial('analytics_video', '_partials/analytics', array('prefix'=>'video_'));
+        $this->template->set_partial('analytics_video_code', '_partials/analytics', array('prefix'=>'video_code_'));
         
-        $data['item'] = false;
+        $id = $this->session->userdata('current_pressrelease');
+
+        $this->load->model('Pressreleases', 'model');
+        
+        $data['item'] = $this->model->find($id);
+        
+        $this->form_validation->set_rules('video', 'Video', 'trim|required');
+        
+        if ($this->form_validation->run()) {
+            $this->model->update($_POST, $id);
+            
+            redirect($_SERVER['HTTP_REFERER']);
+        }
         
         $this->template->build('pressrelease/edit_video', $data);
     }     
 
-    public function edit_store()
-    {
-        $data = array();
-
-        $this->template->set_partial('analytics', '_partials/analytics');
-        
-        $data['item'] = false;
-        
-        $this->template->build('pressrelease/edit_store', $data);
-    }     
     public function delete()
     {
         $id = $this->uri->segment(3);
@@ -135,8 +173,75 @@ class Pressrelease extends MY_Controller
             $this->load->model('Pressreleases', 'model');
             
             $this->model->delete($id);
+            
+            $this->_deleteImage($id, true);
         }
         
         redirect($_SERVER['HTTP_REFERER']);
     }
+    
+    public function activate()
+    {
+        $this->load->model('Pressreleases', 'rumor');
+        
+        $this->rumor->update(array('active'=>1, 'published'=>date('Y-m-d H:i:s', time())), $this->uri->segment(3));
+        
+        redirect($_SERVER['HTTP_REFERER']);
+    } 
+
+    public function inactivate()
+    {
+        $this->load->model('Pressreleases', 'rumor');
+        
+        $this->rumor->update(array('active'=>0), $this->uri->segment(3));
+        
+        redirect($_SERVER['HTTP_REFERER']);
+    }     
+    
+    public function preview()
+    {
+        $data = array();
+        
+        $id = $this->uri->segment(3);
+        
+        $this->load->model('Pressreleases', 'model');
+        
+        $item = $this->model->find((int)$id);
+        $this->load->model('Games', 'games');
+        
+        $game = $this->games->find($item->game_id);
+        
+        $item->game_name = $game->name;
+        $item->game_url = $game->url;
+        
+        $this->load->model('Stores', 'stores');
+        
+        $item->stores = $this->stores->fetchForPressRelease($id);
+        
+        $data['item'] = $item;
+        
+        $this->template->set_partial('pressrelease', '_partials/pressrelease', $data);
+        
+        $this->template->build('pressrelease/preview', $data);
+    }
+    
+    private function _deleteImage($id, $withRecord = false) 
+    {
+        $this->load->model('Pressreleases', 'model');
+        
+        $item = $this->model->find($id);
+        
+        if ($item && $item->logo) {
+            $this->load->config('upload');
+            
+            @unlink($this->config->item('upload_path') . $item->logo);
+        }
+        
+        if (!$withRecord) {
+            
+            $this->model->update(array('logo'=>null), $id);
+        }
+        
+        return $withRecord ? $this->model->delete($id) : true;
+    }     
 }
