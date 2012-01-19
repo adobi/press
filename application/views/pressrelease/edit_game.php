@@ -10,13 +10,13 @@
             <fieldset class="control-group">
                 <label for="">Select a game</label>
                 <div class="controls">
-                    <input type="text" class = "input-xlarge" value = "" name="game_id">
+                    <?php echo form_dropdown('game_id', $games, $item && isset($item->game_id) ? $item->game_id : '', 'class="chosen"') ?>
                 </div>
             </fieldset>            
             <fieldset class="control-group">
                 <label for="">Released</label>
                 <div class="controls">
-                    <input type="text" class = "input-small datepicker" value = "" name="released">
+                    <input type="text" class = "input-small datepicker" value = "<?php echo to_date($item->released) ?>" name="released">
                 </div>
             </fieldset>
         </div>
@@ -25,6 +25,6 @@
         </div>
     </div>
     <fieldset class="form-actions">
-        <button class="btn primary"><i class="ok"></i>Save</button><!-- &nbsp; <a class="btn" href="<?php echo base_url() ?>/<?php echo $this->uri->segment(1) ?>">Cancel</a> --> 
+        <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn close-dialog" href="#">Cancel</a>
     </fieldset>
 <?php echo form_close() ?>

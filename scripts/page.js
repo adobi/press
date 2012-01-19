@@ -36,7 +36,10 @@
             
             
             var elem = $('<div />', {'class': 'dialog', id: 'dialog_'+(new Date()).getTime(), title: self.attr('title')}).html('<p style = "text-align:center"><img src = "'+App.URL+'images/pie.gif" /></p>');
-            elem.css('min-width', '450px')
+            elem.css({
+                'min-width': '450px',
+            });
+            
             elem.dialog({
                 modal: true,
                 width: 'auto',
@@ -48,7 +51,7 @@
                     
                     $.get(self.attr('href'), function(response) {
                         elem.html(response);
-                        
+                        elem.find('.tab-content').css('min-height', 250)
                         elem.dialog('option', 'position', [Math.floor(((window.innerWidth  - elem.width()) / 2)), window.pageYOffset]);
                         $('.ui-dialog').css('top',  window.pageYOffset + 70);
                         
@@ -66,6 +69,13 @@
                                 yearRange: '2010:+5'
                             });	                            
                         }
+                        
+                        //if ($(".chosen").length) {
+                            
+                            elem.find(".chosen").chosen({
+                                no_results_text: "No results matched", 
+                            }); 
+                        //}
                     });
                     
                 }
@@ -154,35 +164,39 @@
             self.select();
         });	
         	
-        var originlHtml = null;
+        var originalHtml = null;
         $('body').delegate('[data-editable=edit]', 'click', function() {
             
-            var self = $(this),
-                elem = self.parents('.editable:first').find('.editable-text');
-                html = originlHtml = elem.html(),
+            if ($(this).is('.editable')) {
+                var self = $(this).find('[data-editable=edit]'),
+                    elem = $(this).find('.editable-text');
+            } else {
+                var self = $(this),
+                    elem = self.parents('.editable:first').find('.editable-text');
+            }
+            
+            var html = elem.html(),
+            
+            h = (self.data('editable-height') !== undefined ? self.data('editable-height') : 220) + 'px';
+
+            $.get(self.attr('href'), function(response) {
                 
-                h = (self.data('editable-height') !== undefined ? self.data('editable-height') : 220) + 'px';
-                /*
-                redactor = $('<textarea />', 
-                {
-                     name: '',
-                     'class':"redactor",
-                })
-                .css({
-                     width:"99%",
-                     height: h,
-                 })
-                .val(html);
-                */
-                $.get(self.attr('href'), function(response) {
-                    
-                    elem.html(response);
-                    
-                    elem.find('.redactor')
-                        .css('height', h)
-                        .val(html)
-                        .redactor({ lang: 'en', toolbar: 'mini' });
-                });
+                if ($('.redactor').length) {
+                    $.each($('.redactor'), function(i, v) {
+                        $(v).parents('.editable-text').html(originalHtml);
+                    });
+                }
+                
+                elem.html(response);
+                
+                originalHtml = html;
+                
+                elem.find('.redactor')
+                    .attr('name', self.data('field'))
+                    .css('height', h)
+                    .val(html)
+                    .redactor({ lang: 'en', toolbar: 'mini' });
+            });
             
             return false;
         });
@@ -192,7 +206,7 @@
                 html = self.parents('form:first').find('.redactor').val(),
                 elem = self.parents('.editable:first').find('.editable-text');
             
-            elem.html(originlHtml);
+            elem.html(originalHtml);
             
             return false;
         });

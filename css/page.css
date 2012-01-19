@@ -1,4 +1,10 @@
 
+.round {
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+}
+
 .item {
     background:rgba(0, 0, 0, 0.0); 
     //border-bottom:1px solid #eee;
@@ -10,6 +16,9 @@
     //margin-right:10px!important; margin-left:0px!important;
 }
 
+.items .item {
+    margin:0 10px 20px 0!important;
+}
 
 .item-header {
     background:rgba(0, 0, 0, 0.05); 
@@ -147,6 +156,18 @@ table thead th {
     height:auto;
 }
 
+.preview .cols .col {
+    min-height:420px;
+}
+
+.preview .alert, .thumbnails .alert {
+    padding:0px;
+}
+
+.alert .thumbnail {
+    border:0px;
+}
+
 .editable {
     border:1px dashed #ccc;
     padding:3px 0 5px 0;
@@ -180,4 +201,25 @@ table thead th {
 
 .tabs a {
     color:#0088cc;
+}
+
+
+.inactive-item {
+    background:#FFEDED;//#F7EEDC;
+}
+.active-item {
+    background:#E6F2DE;//#E6F7DC;
+}
+
+.missing {
+    background:#F2DEDE;
+    border-color:#E9C7C7;
+}
+
+.dialog .form-horizontal .form-actions {
+    text-align:right;
+}
+
+.press-logo {
+    margin:0 auto;
 }
