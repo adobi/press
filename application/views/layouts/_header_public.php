@@ -18,7 +18,7 @@
         <link rel = "stylesheet" href="<?= base_url() ?>css/press-release.css" media="all" />
     </head>
     
-    <body>    
+    <body class="press-release">    
             <div class="navbar navbar-fixed">
               <div class="navbar-inner" style="padding:5px 0">
                 <div class="container">

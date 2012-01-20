@@ -42,7 +42,9 @@ footer a:hover {
     color:#fff;
 }
 
-.dropdown-menu li>a:hover,.dropdown-menu .active>a,.dropdown-menu .active>a:hover{color:#fff;text-decoration:none;background-color:#F86218 ;}
+.press-release .dropdown-menu li>a:hover,
+.press-release .dropdown-menu .active>a,
+.press-release .dropdown-menu .active>a:hover{color:#fff;text-decoration:none;background-color:#F86218!important;}
 
 .page-header {
     background-color: #F5F5F5;
