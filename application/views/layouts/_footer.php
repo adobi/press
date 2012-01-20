@@ -1,9 +1,4 @@
             <!-- </div> --> <!-- /content -->   
-
-            <footer style="margin-top:30px;">
-                <p>&copy; Invictus Games <?php echo date('Y') ?></p>
-            </footer>
-        
         </div> <!-- /container -->
 		<div id="loading-global">Working...</div>		
 				
