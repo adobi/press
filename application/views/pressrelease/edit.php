@@ -25,7 +25,7 @@
                 <?php else: ?>
                     <a class="btn" href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="refresh"></i> make active</a>
                 <?php endif ?>
-                <a class="btn" href="<?php echo base_url() ?>pressrelease/preview/<?php echo $item->id ?>"><i class="zoom-in"></i>preview</a>
+                <a class="btn" href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="zoom-in"></i>preview</a>
                 <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>" class="btn danger"><i class="trash"></i>delete</a>
             </p>
         <?php endif ?>
@@ -75,7 +75,7 @@
                     <?php if (trim($item->pack_description)): ?>
                         <?php echo $item->pack_description ?>
                     <?php else: ?>
-                        <?php echo $defaults->pack_description ?>
+                        <?php echo @$defaults->pack_description ?>
                     <?php endif ?>
                 </div>
                 <p class="right item-nav">
@@ -146,7 +146,7 @@
                 <?php if ($item->header_col1): ?>
                     <?php echo $item->header_col1 ?>
                 <?php else: ?>
-                    <?php echo $defaults->header_col1 ?>
+                    <?php echo @$defaults->header_col1 ?>
                 <?php endif ?>
             </div>
             <p class="right item-nav">
@@ -158,7 +158,7 @@
                 <?php if ($item->header_col2): ?>
                     <?php echo $item->header_col2 ?>
                 <?php else: ?>
-                    <?php echo $defaults->header_col2 ?>
+                    <?php echo @$defaults->header_col2 ?>
                 <?php endif ?>
             </div>
             <p class="right item-nav">
@@ -172,7 +172,7 @@
             <?php if ($item->description): ?>
                 <?php echo $item->description ?>
             <?php else: ?>
-                <?php echo $defaults->description ?>
+                <?php echo @$defaults->description ?>
             <?php endif ?>
         </div>                 
         <p class="right item-nav">

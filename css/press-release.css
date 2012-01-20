@@ -1,4 +1,72 @@
 
+body {
+  background-color: #FFFFFF;
+  background-image: url("../images/grid-18px-masked.png");
+  background-repeat: repeat-x;
+  position: relative;
+}
+
+.content {
+    margin-top:80px;
+}
+
+@font-face {
+    font-family: "Droid Sans";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Droid Sans"), local("DroidSans"), url("http://themes.googleusercontent.com/static/fonts/droidsans/v3/s-BiyweUPV0v-yRb-cjciBsxEYwM7FgeyaSgU71cLG0.woff") format("woff");
+}
+
+footer {
+    font-family: 'Droid Sans';
+    background:#252525;
+    color:#eee;
+    padding-top:20px;
+}
+
+footer #footer-floor {
+  background: none repeat scroll 0 0 #1B1B1B;
+  padding-top:10px;
+}
+
+footer h4 {
+    color:#999;
+    margin-bottom:10px;
+}
+
+footer a {
+    color:#fff;
+}
+
+footer a:hover {
+    color:#fff;
+}
+
+.dropdown-menu li>a:hover,.dropdown-menu .active>a,.dropdown-menu .active>a:hover{color:#fff;text-decoration:none;background-color:#F86218 ;}
+
+.page-header {
+    background-color: #F5F5F5;
+    margin:80px 0px 20px 0;
+    padding: 20px 20px 10px;
+}
+
+.orange {
+    background-color: #E16020;
+    background-image: -moz-linear-gradient(center top , #F86218, #F86218 25%, #CB4909)!important;
+    border-color: #B94106!important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+    color: #FFFFFF;
+    padding: 12px 25px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.orange:hover {
+    background: none repeat scroll 0 0 #EA5207!important;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+
 .video-play {
     background:url(../images/play-overlay3.png) no-repeat transparent;
     cursor:pointer!important;
@@ -51,6 +119,10 @@
     margin-top:30px!important;
 }
 
+.available .col{
+    padding-bottom:10px;
+}
+
 .press-release-text {
     margin-left:0px!important;
 }
@@ -61,6 +133,14 @@
 
 .input-xxlarge {
     width:510px;
+}
+
+.center {
+    text-align:center;
+}
+
+.left {
+    text-align:left;
 }
 
 .logo {
@@ -89,4 +169,8 @@ a[rel=twipsy] {
 .store-item .span6 {
     padding-top:5px;
     margin-left:0px;
+}
+
+.store-item input {
+    margin-top:5px;
 }

@@ -153,8 +153,14 @@ class Pressrelease extends MY_Controller
         
         $this->form_validation->set_rules('game_id', 'Game', 'trim|required');
         $this->form_validation->set_rules('released', 'Released', 'trim|required');
+        $this->form_validation->set_rules('title', 'Title', 'trim|required');
         
         if ($this->form_validation->run()) {
+            
+            $this->load->library('Sanitizer', 'sanitizer');
+            
+            $_POST['url'] = $this->sanitizer->sanitize_title_with_dashes($_POST['title']);
+             
             $this->model->update($_POST, $id);
             
             redirect($_SERVER['HTTP_REFERER']);
@@ -224,11 +230,21 @@ class Pressrelease extends MY_Controller
     {
         $data = array();
         
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(2);
         
         $this->load->model('Pressreleases', 'model');
         
-        $item = $this->model->find((int)$id);
+        $data['all'] = $this->model->fetchAll(array('order'=>array('by'=>'published', 'dest'=>'desc')));
+        
+        if ($id) {
+            
+            if (is_numeric($id))
+                $item = $this->model->find((int)$id);
+            else $item = $this->model->findByUrl($id);
+        } else {
+            $item = $data['all'] ? $data['all'][0] : false;
+        }
+        
         $this->load->model('Games', 'games');
         if ($item) {
             
@@ -244,10 +260,12 @@ class Pressrelease extends MY_Controller
             
             $this->load->model('Stores', 'stores');
             
-            $item->stores = $this->stores->fetchForPressRelease($id);
+            $item->stores = $this->stores->fetchForPressRelease($item->id);
         }
         
         $data['item'] = $item;
+        
+        $this->template->set_layout('public');
         
         $this->template->set_partial('pressrelease', '_partials/pressrelease', $data);
         

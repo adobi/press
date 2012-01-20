@@ -9,21 +9,9 @@
     </div>
 <?php else: ?>
     <div class="preview">
-        <h2 class="round alert <?php echo $item->active ? 'alert-success' : 'alert-error' ?>" style="padding:10px; color:#222">
-            <?php if ($item && isset($item->game_name)): ?>
-                <?php echo $item->game_name ?> press release
-            <?php endif ?>
-            <?php if ($item): ?>
-                
-                <p class="pull-right">
-                    <?php if ($item->active): ?>
-                        <a class="btn" href="<?php echo base_url() ?>pressrelease/inactivate/<?php echo $item->id ?>"><i class="refresh"></i> make inactive</a>
-                    <?php else: ?>
-                        <a class="btn" href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="refresh"></i> make active</a>
-                    <?php endif ?>
-                    <a href="<?php echo base_url() ?>pressrelease/edit/<?php echo $item ? $item->id : '' ?>" class="btn"><i class="edit"></i>edit</a>
-                    <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>" class="btn danger"><i class="trash"></i>delete</a>
-                </p>
+        <h2 style="padding:10px;">
+            <?php if ($item && isset($item->title)): ?>
+                <?php echo $item->title ?>
             <?php endif ?>
         </h2>
     
@@ -32,12 +20,12 @@
                 <div class="span5 logo">
                     <img src="<?php echo $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/175x175' ?>" alt="">
                 </div>   
-                <div class="span5 <?php echo $item->game_name && $item->released ? '' : 'alert alert-error' ?>">
+                <div class="span5 center">
                     <h3><?php echo $item->game_name ?></h3>         
                     <h5 style="margin-top:10px">Released <?php echo to_date($item->released) ?></h5>
                 </div>
-                <div  class="span5 <?php echo $item->pack ? '' : 'alert alert-error' ?>" style="margin-top:20px;">
-                    <a class="btn primary large" href = "#">Download press pack</a>
+                <div  class="span5 center" style="margin-top:20px;">
+                    <a class="btn orange large" href = "#">Download press pack</a>
                     <p>
                         <span class="help-block">
                             Size: ~18MB

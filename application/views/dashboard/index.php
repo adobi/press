@@ -24,7 +24,7 @@
                                             <a href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="refresh"></i>make active</a>
                                         <?php endif ?>                                    
                                     </li>
-                                    <li><a href="<?php echo base_url() ?>pressrelease/preview/<?php echo $item->id ?>"><i class="zoom-in"></i>preview</a></li>
+                                    <li><a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="zoom-in"></i>preview</a></li>
                                     <li><a href="<?php echo base_url() ?>pressrelease/edit/<?php echo $item->id ?>"><i class="edit"></i>edit</a></li>
                                     <li><a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item->id ?>"><i class="trash"></i>delete</a></li>
                                 </ul>

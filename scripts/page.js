@@ -235,8 +235,16 @@
         
         var on = 0;
         $('.toggle-help').bind('click', function() {
+            var elems = $('[data-tooltip=tooltip]')
+                self = $(this);
             
-            ((on = 1-on) ? $('.editable').css('opacity', 0.6) && $('[data-tooltip=tooltip]').popover('show') : $('.editable').css('opacity', 1) && $('[data-tooltip=tooltip]').popover('hide'))
+            (elems.length
+                ?
+                ( (on = 1-on) ? $('.editable').css('opacity', 0.6) && elems.popover('show') : $('.editable').css('opacity', 1) && elems.popover('hide') ) 
+                :
+                ( (on = 1 - on) && $(this).data('tooltip', 'tooltip').data('title', 'No help on this page').data('placement', 'bottom').data('trigger', 'manual') ? self.popover('show') : self.popover('hide') )
+            );
+
             
             return false;
         })       
