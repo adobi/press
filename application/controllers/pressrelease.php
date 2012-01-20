@@ -234,7 +234,10 @@ class Pressrelease extends MY_Controller
         
         $this->load->model('Pressreleases', 'model');
         
-        $data['all'] = $this->model->fetchAll(array('order'=>array('by'=>'published', 'dest'=>'desc')));
+        $data['all'] = $this->model->fetchRows(array(
+            'where'=>array('active'=>1),
+            'order'=>array('by'=>'published', 'dest'=>'desc')
+        ));
         
         if ($id) {
             

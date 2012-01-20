@@ -31,7 +31,7 @@
                       <ul class="nav">
                             <li class="vertical-divider"></li>
                             <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#" id="select-press-release">
                                     Select one
                                     <b class="caret"></b>
                                 </a>

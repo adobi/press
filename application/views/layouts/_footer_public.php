@@ -4,9 +4,10 @@
             <div class="container">
                 <div class="row">
                     <div class="span3">
-                        <h4>More</h4>
+                        <h4>Company</h4>
                         <ul class="unstyled">
-                            <li><a href="#">Invictus Games</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
                     <div class="span3">
@@ -21,7 +22,10 @@
             </div>
             <div id="footer-floor">
                 <div class="container">
-                    <p><strong>&copy; Invictus Games <?php echo date('Y') ?></strong></p>
+                    <p>
+                        <strong>&copy;  <?php echo date('Y') ?> <a href="http://invictus.com">Invictus Games Ltd.</a>
+                        All rights reserved. <a href="#">Terms</a> & <a href="http://privacy.invictus.com">Privacy</a></strong>
+                    </p>
                 </div>                
             </div>
         </footer>				
