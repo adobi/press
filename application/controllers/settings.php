@@ -24,8 +24,10 @@ class Settings extends MY_Controller
         $this->load->model('Defaults', 'model');
         
         if ($_POST) {
-        
-            $this->model->update($_POST, $this->model->getId());
+            
+            
+            $i = $this->model->update($_POST, $this->model->getId());
+            
             redirect($_SERVER['HTTP_REFERER']);
         }
         $this->template->build('settings/edit', $data);

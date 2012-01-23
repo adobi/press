@@ -27,7 +27,14 @@
                     self.hide();
                 }, 1500)
             });
-	    
+	    /*
+        $('#fileupload').fileupload({
+            done: function (e, data) {
+                location.reload();
+            }            
+        });
+        */
+            
         $('body').delegate('a[rel*=dialog]', 'click', function() {
             
             $('.dialog').remove();
@@ -54,6 +61,20 @@
                         elem.find('.tab-content').css('min-height', 250)
                         elem.dialog('option', 'position', [Math.floor(((window.innerWidth  - elem.width()) / 2)), window.pageYOffset]);
                         $('.ui-dialog').css('top',  window.pageYOffset + 70);
+                        
+                        /*
+                        $('#fileupload').fileupload({
+                            singleFileUploads: false,
+                            acceptFileTypes:/(\.|\/)(gif|jpe?g|png|rar|zip)$/i,
+                            done: function (e, data) {
+                                console.log
+                                location.reload();
+                            },
+                            fail: function(e, data) {
+                                console.log(data.result);
+                            }           
+                        });
+                        */
                         
                         
                         if ($('#redactor').length) {
@@ -247,7 +268,13 @@
 
             
             return false;
-        })       
+        });
+        
+        $('body').delegate('input[type=file]', 'change', function() {
+            var self = $(this);
+            
+            self.parents('.file-input-wrapper').after($('<p />').html(self[0].files[0].name));
+        });     
 
     });
 	

@@ -86,6 +86,12 @@ class Pressrelease extends MY_Controller
             redirect($_SERVER['HTTP_REFERER']);
         }
         
+        if ($item->pack) {
+            $item->size = round(@filesize(dirname($_SERVER['SCRIPT_FILENAME']) . '/uploads/original/'.$item->pack) / (1024*1024), 4);
+        } else {
+            $item->size = 0;
+        }
+        
         $data['item'] = $item;
 
         $this->template->build('pressrelease/edit', $data);
@@ -130,9 +136,69 @@ class Pressrelease extends MY_Controller
 
         $this->template->set_partial('analytics', '_partials/analytics', array('prefix'=>'pack_'));
         
-        $data['item'] = false;
+        $id = $this->session->userdata('current_pressrelease');
+
+        $this->load->model('Pressreleases', 'model');
+        
+        $item = $this->model->find($id);
+        
+        if ($_POST) {
+            
+            $this->load->model('Pressreleases', 'model');
+
+    	  	if ($this->upload->do_upload('pack')) {
+    	  	    
+    	  	    $this->load->config('upload');
+    	  	    
+    	  	    $data = $this->upload->data();
+                
+    	  	    if ($item->pack) {
+    	  	        
+                    unlink($this->config->item('upload_path') . $item->pack);
+    	  	    }
+                
+                $this->model->update(array('pack'=>$data['file_name']), $this->session->userdata('current_pressrelease'));
+                
+                if ($this->input->is_ajax_request()) {
+                    
+                    echo json_encode(array($info));
+                } else {
+                    
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+        	  	die;
+    	  	} 
+    	  	
+    	  	unset($_POST['pack']);
+    	  	
+  	        $this->model->update($_POST, $this->session->userdata('current_pressrelease'));
+  	        
+  	        redirect($_SERVER['HTTP_REFERER']);
+    	  	
+        }
+        
+        $data['item'] = $item;
         
         $this->template->build('pressrelease/edit_pack', $data);
+    }
+    
+    public function delete_pack()
+    {
+        
+        $id = $this->session->userdata('current_pressrelease');
+
+        $this->load->model('Pressreleases', 'model');
+        $this->load->config('upload');
+        
+        $item = $this->model->find($id);   
+        
+        @unlink($this->config->item('upload_path') . $item->pack);
+        
+        $this->model->update(array('pack'=>null), $id);
+        
+        if (!$this->input->is_ajax_request()) {
+            redirect($_SERVER['HTTP_REFERER']);
+        } 
     }
     
     public function edit_game()

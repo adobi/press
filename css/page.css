@@ -171,7 +171,7 @@ table thead th {
     width:340px!important;
 }
 
-#upload-logo {
+#upload-logo, #upload-pack {
     cursor: pointer;
     font-size: 50px;
     //left: -680px;
@@ -182,7 +182,7 @@ table thead th {
     width: 120px;
 }
 .file-input-wrapper {
-    cursor:pointer;width:140px; height:30px;display:inline-block; overflow:hidden; position:relative;top:11px;
+    cursor:pointer;width:120px; height:30px;display:inline-block; overflow:hidden; position:relative;top:11px;
 }
 
 .tabs a {
@@ -218,4 +218,14 @@ table thead th {
 
 .settings-tab-content textarea {
     width:700px; height: 320px;
+}
+
+.fileupload-buttonbar .file-input-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  top: 16px;
+  width: 140px;
 }
