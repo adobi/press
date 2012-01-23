@@ -35,7 +35,8 @@
             <div class="tab-pane active" id="pack-description">
                 <h3>Pack description</h3>
                 <?php echo form_open(base_url().'settings/edit') ?>
-                    <textarea name="pack_description" class="redactor"><?php echo $item->pack_description ?></textarea>
+
+                    <textarea name="pack_description" class="redactor"><?php echo @$item->pack_description ?></textarea>
                     <fieldset class="form-actions">
                         <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
                     </fieldset>                    
@@ -44,7 +45,8 @@
             <div class="tab-pane" id="section-1">
                 <h3>Section one</h3>
                 <?php echo form_open(base_url().'settings/edit') ?>
-                    <textarea name="header_col1"><?php echo $item->header_col1 ?></textarea>
+
+                    <textarea name="header_col1"><?php echo @$item->header_col1 ?></textarea>
                     <fieldset class="form-actions">
                         <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
                     </fieldset>                    
@@ -53,7 +55,8 @@
             <div class="tab-pane" id="section-2">
                 <h3>Section two</h3>
                 <?php echo form_open(base_url().'settings/edit') ?>
-                    <textarea name="header_col2"><?php echo $item->header_col2 ?></textarea>
+
+                    <textarea name="header_col2"><?php echo @$item->header_col2 ?></textarea>
                     <fieldset class="form-actions">
                         <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
                     </fieldset>                    
@@ -62,7 +65,8 @@
             <div class="tab-pane" id="description">
                <h3>Press release</h3>
                 <?php echo form_open(base_url().'settings/edit') ?>
-                    <textarea name="description"><?php echo $item->description ?></textarea>
+
+                    <textarea name="description"><?php echo @$item->description ?></textarea>
                     <fieldset class="form-actions">
                         <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
                     </fieldset>                    

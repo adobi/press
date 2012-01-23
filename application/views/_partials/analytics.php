@@ -4,7 +4,8 @@
         <?php echo validation_errors() ?>
     </div>
 <?php endif ?>
- 
+
+
     <fieldset class="control-group">
         <label for="<?php echo $prefix ? $prefix : '' ?>ga_category">Category</label>
         <div class="controls">

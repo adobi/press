@@ -10,7 +10,11 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
+<<<<<<< HEAD
 Date: 2012-01-19 16:47:43
+=======
+Date: 2012-01-20 11:39:52
+>>>>>>> 15071a9e20da5666fc03ab6509b6e6844295dceb
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -130,6 +134,8 @@ CREATE TABLE `ip_pressrelease` (
   `pack` varchar(255) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `published` datetime DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_pressrelease_game` (`game_id`),
   CONSTRAINT `fk_pressrelease_game` FOREIGN KEY (`game_id`) REFERENCES `ip_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -138,8 +144,8 @@ CREATE TABLE `ip_pressrelease` (
 -- ----------------------------
 -- Records of ip_pressrelease
 -- ----------------------------
-INSERT INTO `ip_pressrelease` VALUES ('3', '51', '2012-01-01 00:00:00', '1326967424_mistbouncer_150.png', null, '\r\n<p> FORMAT: </p>\r\n<p> RELEASE:2012-01-01 </p>\r\n<p> DEVELOPER: <b>Invictus</b> </p>\r\n<p> PUBLISHER: <b>Invictus</b> </p>\r\n<p> INVICTUS WEBSITE: <a href=\"http://www.invictus.com\" target=\"_blank\" data-ga=\"1\" data-ga-category=\"Internal link\" data-ga-action=\"click\" data-ga-label=\"Press - Greed Corp Phone - Greed Corp InvictusCom Top\" data-ga-value=\"1\">www.invictus.com</a> </p>', '\r\n<p>                        PRESS RELEASEhehehe</p>                    \r\n<p>                        2012-01-01                    </p>                    \r\n<p>                        For Immediate Release                                     </p>                    \r\n<p>                        Title: <strong>Greed Corp</strong>                    </p>', '\r\n<br><h3><strong>Localized Greed Corp to hit iPhone and Android phone stores</strong></h3>\r\n<p>\r\n<br></p>\r\n<p>After the release of Greed Corp HD on iPad, Android tablets and Mac in the beginning of November, Greed Corp fans no longer have to wait for being able to play the game on every type of devices: Invictus Games and Vanguard Games are bringing the turn-based strategy hit onto iPhone and Android mobile phones.</p>\r\n<p>Also, all content has been localized for the new release, and updates are being rolled out for the iPad and Android tablet versions accordingly.</p>\r\n<p>The game will launch with a 40% special discount on iPhone and the iPad version will receive a special holiday discount of 40%.</p>\r\n<p>\r\n<br></p>\r\n<p><strong>About Invictus Games Ltd:</strong> </p>\r\n<p>Invictus Games Ltd is Hungary’s premier video game development studio, with a wealth of experience creating detailed racing games. Invictus\' more than 10 year track record developing racing games includes offline and online on iOS, Android and PC, for companies such as Codemasters, Activision, Disney and Gamepot. To learn more about Invictus games, please visit<a href=\"http://www.invictus.com\" target=\"_blank\" data-ga=\"1\" data-ga-category=\"Internal link\" data-ga-action=\"click\" data-ga-label=\"Press - Greed Corp Phone - Greed Corp InvictusCom Bottom\" data-ga-value=\"1\">http://www.invictus.com</a>.</p>', '1', 'Greed Corp press release', 'Click', 'Greed Corp press release', '1', null, null, null, null, null, null, 'Greed Corp Video play', 'Play', 'Greed Corp Video play', '1', null, 'Greed Corp Video copy', 'Click', 'Greed Corp Video copy', '1', null, 'VA770wpLX-Q', null, null, '2012-01-19 15:45:29');
-INSERT INTO `ip_pressrelease` VALUES ('4', null, null, null, null, null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2012-01-19 16:21:13', null);
+INSERT INTO `ip_pressrelease` VALUES ('3', '51', '2012-01-01 00:00:00', '1326967424_mistbouncer_150.png', null, '\r\n<p> FORMAT: </p>\r\n<p> RELEASE:2012-01-01 </p>\r\n<p> DEVELOPER: <b>Invictus</b> </p>\r\n<p> PUBLISHER: <b>Invictus</b> </p>\r\n<p> INVICTUS WEBSITE: <a href=\"http://www.invictus.com\" target=\"_blank\" data-ga=\"1\" data-ga-category=\"Internal link\" data-ga-action=\"click\" data-ga-label=\"Press - Greed Corp Phone - Greed Corp InvictusCom Top\" data-ga-value=\"1\">www.invictus.com</a> </p>', '\r\n<p>                        PRESS RELEASEhehehe</p>                    \r\n<p>                        2012-01-01                    </p>                    \r\n<p>                        For Immediate Release                                     </p>                    \r\n<p>                        Title: <strong>Greed Corp</strong>                    </p>', '\r\n<br><h3><strong>Localized Greed Corp to hit iPhone and Android phone stores</strong></h3>\r\n<p>\r\n<br></p>\r\n<p>After the release of Greed Corp HD on iPad, Android tablets and Mac in the beginning of November, Greed Corp fans no longer have to wait for being able to play the game on every type of devices: Invictus Games and Vanguard Games are bringing the turn-based strategy hit onto iPhone and Android mobile phones.</p>\r\n<p>Also, all content has been localized for the new release, and updates are being rolled out for the iPad and Android tablet versions accordingly.</p>\r\n<p>The game will launch with a 40% special discount on iPhone and the iPad version will receive a special holiday discount of 40%.</p>\r\n<p>\r\n<br></p>\r\n<p><strong>About Invictus Games Ltd:</strong> </p>\r\n<p>Invictus Games Ltd is Hungary’s premier video game development studio, with a wealth of experience creating detailed racing games. Invictus\' more than 10 year track record developing racing games includes offline and online on iOS, Android and PC, for companies such as Codemasters, Activision, Disney and Gamepot. To learn more about Invictus games, please visit<a href=\"http://www.invictus.com\" target=\"_blank\" data-ga=\"1\" data-ga-category=\"Internal link\" data-ga-action=\"click\" data-ga-label=\"Press - Greed Corp Phone - Greed Corp InvictusCom Bottom\" data-ga-value=\"1\">http://www.invictus.com</a>.</p>', '1', 'Greed Corp press release', 'Click', 'Greed Corp press release', '1', null, null, null, null, null, null, 'Greed Corp Video play', 'Play', 'Greed Corp Video play', '1', null, 'Greed Corp Video copy', 'Click', 'Greed Corp Video copy', '1', null, 'VA770wpLX-Q', null, null, '2012-01-19 15:45:29', 'Greed Corp released', 'greed-corp-released');
+INSERT INTO `ip_pressrelease` VALUES ('4', '53', '2012-01-01 00:00:00', null, null, null, null, null, '1', '', 'Click', '', '1', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2012-01-19 16:21:13', '2012-01-20 10:53:15', 'Mist Boucer released', 'mist-boucer-released');
 
 -- ----------------------------
 -- Table structure for `ip_settings`
@@ -175,8 +181,8 @@ CREATE TABLE `ip_store` (
   PRIMARY KEY (`id`),
   KEY `fk_store_pressrelease` (`pressrelease_id`),
   KEY `fk_store_platform` (`platform_id`),
-  CONSTRAINT `fk_store_pressrelease` FOREIGN KEY (`pressrelease_id`) REFERENCES `ip_pressrelease` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_store_platform` FOREIGN KEY (`platform_id`) REFERENCES `ip_platform` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_store_platform` FOREIGN KEY (`platform_id`) REFERENCES `ip_platform` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_store_pressrelease` FOREIGN KEY (`pressrelease_id`) REFERENCES `ip_pressrelease` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------

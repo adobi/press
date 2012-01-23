@@ -16,18 +16,30 @@
         $('#loading-global')
            .ajaxStart(function() {
                 
-        		$(this).show();
+        		$(this).slideDown();
            })
            .ajaxStop(function() {
         		var self = $(this);
                 self.html('Done!');
                 
                 setTimeout(function() {
-                    self.html('Working...');
-                    self.hide();
+                    self.slideUp(
+                        function() {
+                            self.html('Working...');
+                            
+                        }
+                    );
+                    
                 }, 1500)
             });
-	    
+	    /*
+        $('#fileupload').fileupload({
+            done: function (e, data) {
+                location.reload();
+            }            
+        });
+        */
+            
         $('body').delegate('a[rel*=dialog]', 'click', function() {
             
             $('.dialog').remove();
@@ -37,7 +49,7 @@
             
             var elem = $('<div />', {'class': 'dialog', id: 'dialog_'+(new Date()).getTime(), title: self.attr('title')}).html('<p style = "text-align:center"><img src = "'+App.URL+'images/pie.gif" /></p>');
             elem.css({
-                'min-width': '450px',
+                'min-width': '550px',
             });
             
             elem.dialog({
@@ -54,6 +66,20 @@
                         elem.find('.tab-content').css('min-height', 250)
                         elem.dialog('option', 'position', [Math.floor(((window.innerWidth  - elem.width()) / 2)), window.pageYOffset]);
                         $('.ui-dialog').css('top',  window.pageYOffset + 70);
+                        
+                        /*
+                        $('#fileupload').fileupload({
+                            singleFileUploads: false,
+                            acceptFileTypes:/(\.|\/)(gif|jpe?g|png|rar|zip)$/i,
+                            done: function (e, data) {
+                                console.log
+                                location.reload();
+                            },
+                            fail: function(e, data) {
+                                console.log(data.result);
+                            }           
+                        });
+                        */
                         
                         
                         if ($('#redactor').length) {
@@ -235,12 +261,51 @@
         
         var on = 0;
         $('.toggle-help').bind('click', function() {
+
+            var elems = $('[data-tooltip=tooltip]')
+                self = $(this);
             
-            ((on = 1-on) ? $('.editable').css('opacity', 0.6) && $('[data-tooltip=tooltip]').popover('show') : $('.editable').css('opacity', 1) && $('[data-tooltip=tooltip]').popover('hide'))
+            (elems.length
+                ?
+                ( (on = 1-on) ? $('.editable').css('opacity', 0.6) && elems.popover('show') : $('.editable').css('opacity', 1) && elems.popover('hide') ) 
+                :
+                ( (on = 1 - on) && $(this).data('tooltip', 'tooltip').data('title', 'No help on this page').data('placement', 'bottom').data('trigger', 'manual') ? self.popover('show') : self.popover('hide') )
+            );
+
             
             return false;
-        })       
-
+        });
+        
+        $('body').delegate('input[type=file]', 'change', function() {
+            var self = $(this);
+            
+            self.parents('.file-input-wrapper')
+                .after($('<p />')
+                    .html(self[0].files[0].name)
+                    .append($('<a />', {href:'javascript:void(0)'})
+                        .html('remove')
+                        .css('margin-left', '10px')
+                        .bind('click', function() {
+                            $(this).parent().remove();
+                            
+                            self[0].files = [];
+                        })
+                    )                    
+                );
+        }); 
+        
+        $('body').delegate('#preview-video', 'click', function() {
+            var code = $('#video-code').val();
+            
+            if ($.trim(code)) {
+                $.getJSON(App.URL+'pressrelease/video/'+code, function(response) {
+                    $('#video-preview').show();
+                    $('#video-preview .youtube-iframe').html(response.response);
+                })
+            }
+            
+            return false;
+        });
     });
 	
 }) (jQuery);

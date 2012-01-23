@@ -118,20 +118,7 @@ table thead th {
     margin-right: 5px;
     padding: 14px 24px;
 }
-.orange {
-    background-color: #E16020;
-    background-image: -moz-linear-gradient(center top , #F86218, #F86218 25%, #CB4909)!important;
-    border-color: #B94106!important;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-    color: #FFFFFF;
-    padding: 12px 25px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-.orange:hover {
-    background: none repeat scroll 0 0 #EA5207!important;
-    color: #FFFFFF;
-    text-decoration: none;
-}
+
 
 .create-new {
     display: -moz-inline-box;
@@ -185,7 +172,8 @@ table thead th {
     width:340px!important;
 }
 
-#upload-logo {
+
+#upload-logo, #upload-pack {
     cursor: pointer;
     font-size: 50px;
     //left: -680px;
@@ -196,7 +184,8 @@ table thead th {
     width: 120px;
 }
 .file-input-wrapper {
-    cursor:pointer;width:140px; height:30px;display:inline-block; overflow:hidden; position:relative;top:11px;
+
+    cursor:pointer;width:140px; height:30px;display:inline-block; overflow:hidden; position:relative;margin-bottom:10px;//top:11px;
 }
 
 .tabs a {
@@ -232,4 +221,19 @@ table thead th {
 
 .settings-tab-content textarea {
     width:700px; height: 320px;
+
+}
+
+.fileupload-buttonbar .file-input-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  top: 16px;
+  width: 140px;
+}
+
+.ui-widget-content a:not(.btn) {
+    color:#0088CC;
 }

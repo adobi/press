@@ -41,9 +41,9 @@
 $route['default_controller'] = "dashboard";
 $route['404_override'] = '';
 
-$route['games'] = 'press/index';
-$route['games/(:any)'] = 'press/show/$1';
-
+//$route['games'] = 'press/index';
+$route['press/(:any)'] = 'pressrelease/preview/$1';
+$route['press'] = 'pressrelease/preview';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

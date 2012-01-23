@@ -40,7 +40,8 @@ class Store extends MY_Controller
             $data['platforms'] = $this->platforms->toAssocArray('id', 'name', $this->platforms->fetchAll());
         }
         
-		$this->form_validation->set_rules("platform_id", "Platform_id", "trim|required");
+
+		$this->form_validation->set_rules("platform_id", "Platform_id", "trim|required|is_natural_no_zero");
         
         if ($this->form_validation->run()) {
         

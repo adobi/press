@@ -13,17 +13,18 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->        
         
-        <link rel = "stylesheet" href="<?= base_url() ?>css/aristo.css" media="all" />
-        <link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.min.css" media="all" />
-		<link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.custom.min.css" media="all" />
-        <link rel = "stylesheet" href="<?= base_url() ?>css/press-release.css" media="all" />
-        <link rel = "stylesheet" href="<?= base_url() ?>css/page.css" media="all" />
-        <link rel = "stylesheet" href="<?= base_url() ?>scripts/plugins/file-upload/jquery.fileupload-ui.css" media="all" />
-        <link rel = "stylesheet" href="<?= base_url() ?>scripts/plugins/colorpicker/farbtastic.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>css/aristo.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" media="all" />
+		<link rel = "stylesheet" href="<?php echo base_url() ?>css/bootstrap.custom.min.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>css/press-release.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>css/page.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>scripts/plugins/file-upload/jquery.fileupload-ui.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>scripts/plugins/colorpicker/farbtastic.css" media="all" />
     	<link rel = "stylesheet" href="<?php echo base_url() ?>scripts/plugins/redactor/js/redactor/css/redactor.css" />        
-        <link rel = "stylesheet" href="<?= base_url() ?>scripts/plugins/fancybox/jquery.fancybox.css" media="all" />
-        <link rel = "stylesheet" href="<?= base_url() ?>scripts/plugins/chosen/chosen.css" media="all" />
-        <link rel = "stylesheet" href="<?= base_url() ?>scripts/plugins/google-code-prettify/prettify.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>scripts/plugins/fancybox/jquery.fancybox.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>scripts/plugins/chosen/chosen.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>scripts/plugins/google-code-prettify/prettify.css" media="all" />
+
         <!-- 
         <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
          -->

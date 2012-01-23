@@ -12,8 +12,8 @@
     </div>
 <?php else: ?>
     <h2 class="round alert <?php echo $item->active ? 'alert-success' : 'alert-error' ?>" style="padding:10px; color:#222">
-        <?php if ($item && isset($item->game_name)): ?>
-            <?php echo $item->game_name ?> press release
+        <?php if ($item && isset($item->title)): ?>
+            <?php echo $item->title ?> press release
         <?php else: ?>
                 Create new press release
         <?php endif ?>
@@ -25,7 +25,7 @@
                 <?php else: ?>
                     <a class="btn" href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="refresh"></i> make active</a>
                 <?php endif ?>
-                <a class="btn" href="<?php echo base_url() ?>pressrelease/preview/<?php echo $item->id ?>"><i class="zoom-in"></i>preview</a>
+                <a class="btn" href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="zoom-in"></i>preview</a>
                 <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>" class="btn danger"><i class="trash"></i>delete</a>
             </p>
         <?php endif ?>
@@ -46,24 +46,29 @@
                                 </button>
                                 <input type="file" id="upload-logo" name="logo"/>
                             </div>
-                            <button class="btn"><i class="upload"></i>upload</button>
                             <input type="hidden" name="upload_logo" value="1">
+                            <p><button class="btn"><i class="upload"></i>upload</button></p>
                         <?php echo form_close() ?>
                     <?php endif ?>
                 </div>
             </div>   
-            <div class="span5 editable <?php echo $item->game_name && $item->released ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 2" data-content="Select a game and set the release date" data-placement="right" data-trigger="manual">
-                <h3><?php echo $item->game_name ?></h3>         
+            <div class="span5 editable <?php echo $item->title && $item->released ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 2" data-content="Select a game and set the release date" data-placement="right" data-trigger="manual">
+                <h3><?php echo $item->title ?></h3>         
                 <h5>Released <?php echo to_date($item->released) ?></h5>
                 <p class="right item-nav">
                     <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_game/" rel="dialog" title="Press release game settings"><i class="edit"></i>edit</a>
                 </p>
             </div>
             <div  class="span5 editable <?php echo $item->pack ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 3" data-content="Upload the pack (may take several minutes)" data-placement="right" data-trigger="manual">
-                <a class="btn primary large" href = "#">Download press pack</a>
+                <?php if ($item->pack): ?>
+                    <a class="btn primary large" href = "<?php echo base_url() ?>uploads/original/<?php echo $item->pack ?>" target = "_blank">Download press pack</a>
+                <?php else: ?>
+                    <a class="btn primary large disabled" href = "#">Download press pack</a>
+                <?php endif ?>
+                
                 <p>
                     <span class="help-block">
-                        Size: ~18MB
+                        Size: ~ <?php echo $item->size ?> MB
                     </span>                
                 </p>
                 <div class="right item-nav">
@@ -75,7 +80,7 @@
                     <?php if (trim($item->pack_description)): ?>
                         <?php echo $item->pack_description ?>
                     <?php else: ?>
-                        <?php echo $defaults->pack_description ?>
+                        <?php echo @$defaults->pack_description ?>
                     <?php endif ?>
                 </div>
                 <p class="right item-nav">
@@ -146,7 +151,7 @@
                 <?php if ($item->header_col1): ?>
                     <?php echo $item->header_col1 ?>
                 <?php else: ?>
-                    <?php echo $defaults->header_col1 ?>
+                    <?php echo @$defaults->header_col1 ?>
                 <?php endif ?>
             </div>
             <p class="right item-nav">
@@ -158,7 +163,7 @@
                 <?php if ($item->header_col2): ?>
                     <?php echo $item->header_col2 ?>
                 <?php else: ?>
-                    <?php echo $defaults->header_col2 ?>
+                    <?php echo @$defaults->header_col2 ?>
                 <?php endif ?>
             </div>
             <p class="right item-nav">
@@ -172,7 +177,7 @@
             <?php if ($item->description): ?>
                 <?php echo $item->description ?>
             <?php else: ?>
-                <?php echo $defaults->description ?>
+                <?php echo @$defaults->description ?>
             <?php endif ?>
         </div>                 
         <p class="right item-nav">

@@ -86,6 +86,13 @@ class Pressrelease extends MY_Controller
             redirect($_SERVER['HTTP_REFERER']);
         }
         
+
+        if ($item->pack) {
+            $item->size = round(@filesize(dirname($_SERVER['SCRIPT_FILENAME']) . '/uploads/original/'.$item->pack) / (1024*1024), 4);
+        } else {
+            $item->size = 0;
+        }
+        
         $data['item'] = $item;
 
         $this->template->build('pressrelease/edit', $data);
@@ -130,9 +137,77 @@ class Pressrelease extends MY_Controller
 
         $this->template->set_partial('analytics', '_partials/analytics', array('prefix'=>'pack_'));
         
-        $data['item'] = false;
+
+        $id = $this->session->userdata('current_pressrelease');
+
+        $this->load->model('Pressreleases', 'model');
+        
+        $item = $this->model->find($id);
+        
+        if ($_POST) {
+            
+            $this->load->model('Pressreleases', 'model');
+
+    	  	if ($this->upload->do_upload('pack')) {
+    	  	    
+    	  	    $this->load->config('upload');
+    	  	    
+    	  	    $data = $this->upload->data();
+                
+    	  	    if ($item->pack) {
+    	  	        
+                    unlink($this->config->item('upload_path') . $item->pack);
+    	  	    }
+                
+                $this->model->update(array('pack'=>$data['file_name']), $this->session->userdata('current_pressrelease'));
+                
+                if ($this->input->is_ajax_request()) {
+                    
+                    echo json_encode(array($info));
+                } else {
+                    
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+        	  	die;
+    	  	} 
+    	  	
+    	  	unset($_POST['pack']);
+    	  	
+  	        $this->model->update($_POST, $this->session->userdata('current_pressrelease'));
+  	        
+  	        redirect($_SERVER['HTTP_REFERER']);
+    	  	
+        }
+        
+        $data['item'] = $item;
         
         $this->template->build('pressrelease/edit_pack', $data);
+    }
+    
+    public function delete_pack()
+    {
+        
+        $this->_deletePack();
+        
+        if (!$this->input->is_ajax_request()) {
+            redirect($_SERVER['HTTP_REFERER']);
+        } 
+    }
+    
+    public function _deletePack() 
+    {
+        
+        $id = $this->session->userdata('current_pressrelease');
+
+        $this->load->model('Pressreleases', 'model');
+        $this->load->config('upload');
+        
+        $item = $this->model->find($id);   
+        
+        @unlink($this->config->item('upload_path') . $item->pack);
+        
+        $this->model->update(array('pack'=>null), $id);
+        
     }
     
     public function edit_game()
@@ -153,8 +228,14 @@ class Pressrelease extends MY_Controller
         
         $this->form_validation->set_rules('game_id', 'Game', 'trim|required');
         $this->form_validation->set_rules('released', 'Released', 'trim|required');
+        $this->form_validation->set_rules('title', 'Title', 'trim|required');
         
         if ($this->form_validation->run()) {
+            
+            $this->load->library('Sanitizer', 'sanitizer');
+            
+            $_POST['url'] = $this->sanitizer->sanitize_title_with_dashes($_POST['title']);
+             
             $this->model->update($_POST, $id);
             
             redirect($_SERVER['HTTP_REFERER']);
@@ -194,7 +275,9 @@ class Pressrelease extends MY_Controller
         if ($id) {
             $this->load->model('Pressreleases', 'model');
             
-            $this->model->delete($id);
+            //$this->model->delete($id);
+            
+            $this->_deletePack();
             
             $this->_deleteImage($id, true);
         }
@@ -224,30 +307,58 @@ class Pressrelease extends MY_Controller
     {
         $data = array();
         
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(2);
         
         $this->load->model('Pressreleases', 'model');
         
-        $item = $this->model->find((int)$id);
-        $this->load->model('Games', 'games');
-        if ($item) {
+        $data['all'] = $this->model->fetchRows(array(
+            'where'=>array('active'=>1),
+            'order'=>array('by'=>'published', 'dest'=>'desc')
+        ));
+        
+        if ($id) {
             
-            $game = $this->games->find($item->game_id);
-            if ($game) {
-                
-                $item->game_name = $game->name;
-                $item->game_url = $game->url;
-            } else {
-                $item->game_name = false;
-                $item->game_url = false;
-            }
-            
-            $this->load->model('Stores', 'stores');
-            
-            $item->stores = $this->stores->fetchForPressRelease($id);
+            if (is_numeric($id))
+                $item = $this->model->find((int)$id);
+            else $item = $this->model->findByUrl($id);
+        } else {
+            $item = $data['all'] ? $data['all'][0] : false;
         }
         
+        if ($item && !$item->active && !$this->session->userdata('logged_in')) {
+            $item = false;
+        } else {
+            
+            $this->load->model('Games', 'games');
+            if ($item) {
+                
+                $game = $this->games->find($item->game_id);
+                if ($game) {
+                    
+                    $item->game_name = $game->name;
+                    $item->game_url = $game->url;
+                } else {
+                    $item->game_name = false;
+                    $item->game_url = false;
+                }
+                
+                $this->load->model('Stores', 'stores');
+                
+                $item->stores = $this->stores->fetchForPressRelease($item->id);
+            }
+            
+        }
+        
+        if ($item && $item->pack) {
+            $item->size = round(@filesize(dirname($_SERVER['SCRIPT_FILENAME']) . '/uploads/original/'.$item->pack) / (1024*1024), 4);
+        } else {
+            $item->size = 0;
+        }
+        
+        
         $data['item'] = $item;
+        
+        $this->template->set_layout('public');
         
         $this->template->set_partial('pressrelease', '_partials/pressrelease', $data);
         
@@ -273,4 +384,13 @@ class Pressrelease extends MY_Controller
         
         return $withRecord ? $this->model->delete($id) : true;
     }     
+    
+    public function video()
+    {
+        echo json_encode(
+            array('response'=>embed_youtube($this->uri->segment(3)))
+        );
+        
+        die;
+    }
 }
