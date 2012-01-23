@@ -25,7 +25,7 @@
                     <h5 style="margin-top:10px">Released <?php echo to_date($item->released) ?></h5>
                 </div>
                 <div  class="span5 center" style="margin-top:20px;">
-                    <a class="btn orange large" href = "#">Download press pack</a>
+                    <a class="btn orange xxlarge download-button" href = "#"><i class="download-large"></i> Download the pack</a>
                     <p>
                         <span class="help-block">
                             Size: ~18MB
