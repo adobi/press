@@ -382,4 +382,13 @@ class Pressrelease extends MY_Controller
         
         return $withRecord ? $this->model->delete($id) : true;
     }     
+    
+    public function video()
+    {
+        echo json_encode(
+            array('response'=>embed_youtube($this->uri->segment(3)))
+        );
+        
+        die;
+    }
 }

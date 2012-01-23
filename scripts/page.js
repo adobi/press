@@ -291,7 +291,20 @@
                         })
                     )                    
                 );
-        });     
+        }); 
+        
+        $('body').delegate('#preview-video', 'click', function() {
+            var code = $('#video-code').val();
+            
+            if ($.trim(code)) {
+                $.getJSON(App.URL+'pressrelease/video/'+code, function(response) {
+                    $('#video-preview').show();
+                    $('#video-preview .youtube-iframe').html(response.response);
+                })
+            }
+            
+            return false;
+        });
 
     });
 	
