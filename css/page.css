@@ -234,6 +234,6 @@ table thead th {
   width: 140px;
 }
 
-.ui-widget-content a:not(.btn) {
-    color:#0088CC;
+.ui-widget-content a:not(.btn, .chzn-single) {
+//    color:#0088CC;
 }

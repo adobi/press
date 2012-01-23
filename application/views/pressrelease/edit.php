@@ -37,7 +37,7 @@
                 <img src="<?php echo $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/175x175' ?>" alt="">
                 <div class="center item-nav ">
                     <?php if ($item->logo): ?>
-                        <a class="btn" href="<?php echo base_url() ?>pressrelease/delete_image/<?php echo $item->id ?>"><i class="trash"></i>delete</a>
+                        <a class="btn danger" href="<?php echo base_url() ?>pressrelease/delete_image/<?php echo $item->id ?>"><i class="trash"></i>delete</a>
                     <?php else: ?>
                         <?php echo form_open_multipart('', array('style'=>'margin-right:10px;')) ?>
                             <div class="file-input-wrapper">
@@ -132,7 +132,7 @@
                                 <input type="text" class = "input-xxlarge copy-code" value = "<?php echo $store->url ?>">
                                 <p class="item-nav right">
                                     <a class="btn" href="<?php echo base_url() ?>store/edit/<?php echo $store->id ?>" rel="dialog" title="Store settings"><i class="edit"></i>edit</a>
-                                    <a class="btn" href="<?php echo base_url() ?>store/delete/<?php echo $store->id ?>"><i class="trash"></i>delete</a>
+                                    <a class="btn danger" href="<?php echo base_url() ?>store/delete/<?php echo $store->id ?>"><i class="trash"></i>delete</a>
                                 </p>
                             </div>
                         </div>

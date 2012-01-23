@@ -16,21 +16,21 @@
         $('#loading-global')
            .ajaxStart(function() {
                 
-        		$(this).slideDown();
+        		$(this).slideDown(100);
            })
            .ajaxStop(function() {
         		var self = $(this);
                 self.html('Done!');
                 
                 setTimeout(function() {
-                    self.slideUp(
+                    self.slideUp( 100,
                         function() {
                             self.html('Working...');
                             
                         }
                     );
                     
-                }, 1500)
+                }, 2000)
             });
 	    /*
         $('#fileupload').fileupload({
@@ -282,8 +282,8 @@
             self.parents('.file-input-wrapper')
                 .after($('<p />')
                     .html(self[0].files[0].name)
-                    .append($('<a />', {href:'javascript:void(0)'})
-                        .html('remove')
+                    .append($('<a />', {href:'javascript:void(0)', 'class': 'btn danger'})
+                        .html('<i class="trash"></i>remove')
                         .css('margin-left', '10px')
                         .bind('click', function() {
                             $(this).parent().remove();

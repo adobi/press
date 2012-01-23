@@ -59,7 +59,8 @@ class Pressrelease extends MY_Controller
         } else {
             
             foreach ($data['defaults'] as $prop=>$val) {
-                $insert[$prop] = $val;
+                if ($prop !== 'id')
+                    $insert[$prop] = $val;
             }
             $insert['active'] = 0;
             $insert['created'] = date('Y-m-d H:i:s', time());

@@ -17,7 +17,7 @@
                     <p class="help-block"><code style="padding:5px;">http://www.youtube.com/watch?v=<strong style="color:#000;font-size:1.2em">VA770wpLX-Q</strong></code></p>
                     <div id="video-preview" style="margin-top:20px; display:none">
                         <div class="youtube-iframe"></div>
-                        <p><a href="#" onclick="$('#video-preview').hide(); $('#video-preview iframe').remove();">cancel</a></p>
+                        <p><a class="btn danger" href="#" onclick="$('#video-preview').hide(); $('#video-preview iframe').remove(); return false;">cancel</a></p>
                     </div>
                 </div>
             </fieldset>            
