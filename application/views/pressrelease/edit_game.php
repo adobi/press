@@ -10,7 +10,7 @@
             <fieldset class="control-group">
                 <label for="">Title</label>
                 <div class="controls">
-                    <input type="text" class = "input-xxlarge" value = "<?php echo $item->title ?>" name="title">
+                    <input type="text" class = "input-xlarge" value = "<?php echo $item->title ?>" name="title">
                 </div>
             </fieldset>
             <fieldset class="control-group">

@@ -16,15 +16,20 @@
         $('#loading-global')
            .ajaxStart(function() {
                 
-        		$(this).show();
+        		$(this).slideDown();
            })
            .ajaxStop(function() {
         		var self = $(this);
                 self.html('Done!');
                 
                 setTimeout(function() {
-                    self.html('Working...');
-                    self.hide();
+                    self.slideUp(
+                        function() {
+                            self.html('Working...');
+                            
+                        }
+                    );
+                    
                 }, 1500)
             });
 	    /*
@@ -44,7 +49,7 @@
             
             var elem = $('<div />', {'class': 'dialog', id: 'dialog_'+(new Date()).getTime(), title: self.attr('title')}).html('<p style = "text-align:center"><img src = "'+App.URL+'images/pie.gif" /></p>');
             elem.css({
-                'min-width': '450px',
+                'min-width': '550px',
             });
             
             elem.dialog({
@@ -273,7 +278,19 @@
         $('body').delegate('input[type=file]', 'change', function() {
             var self = $(this);
             
-            self.parents('.file-input-wrapper').after($('<p />').html(self[0].files[0].name));
+            self.parents('.file-input-wrapper')
+                .after($('<p />')
+                    .html(self[0].files[0].name)
+                    .append($('<a />', {href:'javascript:void(0)'})
+                        .html('remove')
+                        .css('margin-left', '10px')
+                        .bind('click', function() {
+                            $(this).parent().remove();
+                            
+                            self[0].files = [];
+                        })
+                    )                    
+                );
         });     
 
     });

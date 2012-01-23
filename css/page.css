@@ -182,7 +182,7 @@ table thead th {
     width: 120px;
 }
 .file-input-wrapper {
-    cursor:pointer;width:140px; height:30px;display:inline-block; overflow:hidden; position:relative;top:11px;
+    cursor:pointer;width:140px; height:30px;display:inline-block; overflow:hidden; position:relative;margin-bottom:10px;//top:11px;
 }
 
 .tabs a {
@@ -228,4 +228,8 @@ table thead th {
   position: relative;
   top: 16px;
   width: 140px;
+}
+
+.ui-widget-content a {
+    color:#0088CC;
 }

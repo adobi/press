@@ -6,7 +6,7 @@ body.press-release {
   position: relative;
 }
 
-.content {
+.press-release .content {
   min-height:500px;
 
 }

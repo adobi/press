@@ -46,8 +46,8 @@
                                 </button>
                                 <input type="file" id="upload-logo" name="logo"/>
                             </div>
-                            <button class="btn"><i class="upload"></i>upload</button>
                             <input type="hidden" name="upload_logo" value="1">
+                            <p><button class="btn"><i class="upload"></i>upload</button></p>
                         <?php echo form_close() ?>
                     <?php endif ?>
                 </div>
