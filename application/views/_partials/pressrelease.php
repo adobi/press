@@ -21,15 +21,19 @@
                     <img src="<?php echo $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/175x175' ?>" alt="">
                 </div>   
                 <div class="span5 center">
-                    <h3><?php echo $item->game_name ?></h3>         
+                    <h3><?php echo $item->title ?></h3>         
                     <h5 style="margin-top:10px">Released <?php echo to_date($item->released) ?></h5>
                 </div>
                 <div  class="span5 center" style="margin-top:20px;">
-                    <a class="btn orange xxlarge download-button" href = "#"><i class="download-large"></i> Download the pack</a>
+                    <a class="btn orange xxlarge download-button <?php echo $item->pack ? '' : 'disabled' ?>" href = "<?php echo $item->pack ? base_url() . 'uploads/original/'.$item->pack : '#' ?>"<?php echo event_tracking($item, 'pack') ?>>
+                        <i class="download-large"></i> Download the pack
+                    </a>
                     <p>
-                        <span class="help-block">
-                            Size: ~18MB
-                        </span>                
+                        <?php if ($item->pack): ?>
+                            <span class="help-block">
+                                Size: ~<?php echo $item->size ?> MB
+                            </span>                
+                        <?php endif ?>
                     </p>
                 </div>
                 <div class="span5 ">
@@ -57,7 +61,7 @@
                         <?php endif ?>
                     </div>
                     <div class="span7" style="margin:5px auto">
-                        <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 auto;"><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
+                        <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 auto;"<?php echo event_tracking($item, 'video') ?>><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
                     </div>
                 </div>
             </div>
@@ -78,7 +82,7 @@
                                     </a>                                
                                 </div>
                                 <div class="span7">
-                                    <input type="text" class = "input-xxlarge copy-code" value = "<?php echo $store->url ?>">
+                                    <input type="text" class = "input-xxlarge copy-code" value = "<?php echo $store->url ?>"<?php echo event_tracking($store) ?>>
                                 </div>
                             </div>
                         <?php endforeach ?>

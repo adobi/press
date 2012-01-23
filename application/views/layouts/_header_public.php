@@ -31,15 +31,17 @@
                       <ul class="nav">
                             <li class="vertical-divider"></li>
                             <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle orange btn" href="#" id="select-press-release">
+                                <a data-toggle="dropdown" class="dropdown-toggle orange btn <?php echo !$all ? 'disabled' : '' ?>" href="#" id="select-press-release">
                                     Select a press release
                                     <b class="caret"></b>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <?php foreach ($all as $a): ?>
-                                        <li><a href="<?php echo base_url() ?>press/<?php echo $a->url ?>"><?php echo $a->title ?></a></li>
-                                    <?php endforeach ?>
-                                </ul>                  
+                                <?php if ($all): ?>
+                                    <ul class="dropdown-menu">
+                                        <?php foreach ($all as $a): ?>
+                                            <li><a href="<?php echo base_url() ?>press/<?php echo $a->url ?>" <?php echo event_tracking($a, 'title') ?>><?php echo $a->title ?></a></li>
+                                        <?php endforeach ?>
+                                    </ul>                  
+                                <?php endif; ?>
                             </li>
                       </ul>
                     </div>

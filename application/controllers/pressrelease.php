@@ -185,6 +185,16 @@ class Pressrelease extends MY_Controller
     public function delete_pack()
     {
         
+        $this->_deletePack();
+        
+        if (!$this->input->is_ajax_request()) {
+            redirect($_SERVER['HTTP_REFERER']);
+        } 
+    }
+    
+    public function _deletePack() 
+    {
+        
         $id = $this->session->userdata('current_pressrelease');
 
         $this->load->model('Pressreleases', 'model');
@@ -196,9 +206,6 @@ class Pressrelease extends MY_Controller
         
         $this->model->update(array('pack'=>null), $id);
         
-        if (!$this->input->is_ajax_request()) {
-            redirect($_SERVER['HTTP_REFERER']);
-        } 
     }
     
     public function edit_game()
@@ -266,7 +273,9 @@ class Pressrelease extends MY_Controller
         if ($id) {
             $this->load->model('Pressreleases', 'model');
             
-            $this->model->delete($id);
+            //$this->model->delete($id);
+            
+            $this->_deletePack();
             
             $this->_deleteImage($id, true);
         }
@@ -314,23 +323,36 @@ class Pressrelease extends MY_Controller
             $item = $data['all'] ? $data['all'][0] : false;
         }
         
-        $this->load->model('Games', 'games');
-        if ($item) {
+        if ($item && !$item->active && !$this->session->userdata('logged_in')) {
+            $item = false;
+        } else {
             
-            $game = $this->games->find($item->game_id);
-            if ($game) {
+            $this->load->model('Games', 'games');
+            if ($item) {
                 
-                $item->game_name = $game->name;
-                $item->game_url = $game->url;
-            } else {
-                $item->game_name = false;
-                $item->game_url = false;
+                $game = $this->games->find($item->game_id);
+                if ($game) {
+                    
+                    $item->game_name = $game->name;
+                    $item->game_url = $game->url;
+                } else {
+                    $item->game_name = false;
+                    $item->game_url = false;
+                }
+                
+                $this->load->model('Stores', 'stores');
+                
+                $item->stores = $this->stores->fetchForPressRelease($item->id);
             }
             
-            $this->load->model('Stores', 'stores');
-            
-            $item->stores = $this->stores->fetchForPressRelease($item->id);
         }
+        
+        if ($item && $item->pack) {
+            $item->size = round(@filesize(dirname($_SERVER['SCRIPT_FILENAME']) . '/uploads/original/'.$item->pack) / (1024*1024), 4);
+        } else {
+            $item->size = 0;
+        }
+        
         
         $data['item'] = $item;
         
