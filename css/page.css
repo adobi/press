@@ -172,7 +172,7 @@ table thead th {
     width:340px!important;
 }
 
-
+/*
 #upload-logo, #upload-pack {
     cursor: pointer;
     font-size: 50px;
@@ -187,7 +187,7 @@ table thead th {
 
     cursor:pointer;width:140px; height:30px;display:inline-block; overflow:hidden; position:relative;margin-bottom:10px;//top:11px;
 }
-
+*/
 .tabs a {
     color:#0088cc;
 }
