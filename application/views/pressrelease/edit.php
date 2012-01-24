@@ -40,12 +40,8 @@
                         <a class="btn danger" href="<?php echo base_url() ?>pressrelease/delete_image/<?php echo $item->id ?>"><i class="trash"></i>delete</a>
                     <?php else: ?>
                         <?php echo form_open_multipart('', array('style'=>'margin-right:10px;')) ?>
-                            <div class="file-input-wrapper">
-                                <button class="btn info"><i class="picture"></i>
-                                    select an image
-                                </button>
-                                <input type="file" id="upload-logo" name="logo"/>
-                            </div>
+                            
+                            <input type="file" id="upload-logo" name="logo"/>
                             <input type="hidden" name="upload_logo" value="1">
                             <p><button class="btn"><i class="upload"></i>upload</button></p>
                         <?php echo form_close() ?>

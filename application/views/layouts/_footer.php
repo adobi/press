@@ -26,6 +26,7 @@
                     "<?php echo base_url(); ?>scripts/plugins/scroll/jquery.scrollTo-min.js",
                     "<?php echo base_url() ?>scripts/plugins/google-code-prettify/prettify.js",
                     "<?php echo base_url() ?>scripts/plugins/charcounter/jquery.charcounter.js",
+                    "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
                     "<?php echo base_url() ?>scripts/page.js?<?php echo time(); ?>"
             );
     	</script>

@@ -18,12 +18,8 @@
                             <a href="<?php echo base_url() ?>pressrelease/delete_pack" class="btn danger"><i class="trash"></i>delte</a>
                         </p>
                     <?php else: ?>
-                        <div class="file-input-wrapper" style="top:5px; height:36px;">
-                            <button class="btn info"><i class="file"></i>
-                                select a file
-                            </button>
-                            <input type="file" id="upload-pack" name="pack"/>
-                        </div>
+                        
+                        <input type="file" id="upload-pack" name="pack"/>
                     <?php endif ?>
                 </div>
             </fieldset>

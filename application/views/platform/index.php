@@ -4,7 +4,7 @@
 </p>
 
 <?php if ($items): ?>
-    <ul class="thumbnails row span12" style="margin-left:0px;">
+    <ul class="thumbnails row span12" style="margin-left:-20px;">
         <?php foreach ($items as $item): ?>
             <li class=" span3">
                 <div class="thumbnail">

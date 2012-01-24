@@ -102,6 +102,8 @@
                                 no_results_text: "No results matched", 
                             }); 
                         //}
+                        
+                        $('input[type=file]').prettifyUpload();
                     });
                     
                 }
@@ -276,6 +278,7 @@
             return false;
         });
         
+        /*
         $('body').delegate('input[type=file]', 'change', function() {
             var self = $(this);
             
@@ -293,7 +296,7 @@
                     )                    
                 );
         }); 
-        
+        */
         $('body').delegate('#preview-video', 'click', function() {
             var code = $('#video-code').val();
             
