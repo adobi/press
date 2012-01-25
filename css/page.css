@@ -245,3 +245,7 @@ table thead th {
 .ui-widget-content a:not(.btn, .chzn-single) {
 //    color:#0088CC;
 }
+
+.thumbnails > li {
+    margin: 0 0 15px 15px;
+}
