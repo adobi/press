@@ -52,6 +52,9 @@ class Pressrelease extends MY_Controller
                 
                 $this->session->set_userdata('current_pressrelease', $id);
             } else {
+                
+                $this->session->set_flashdata('message', 'Saved');
+                
                 redirect(base_url().'dashboard');
             }
             
@@ -83,7 +86,10 @@ class Pressrelease extends MY_Controller
                 unset($_POST['upload_logo']);
                 $this->model->update($_POST, $id);
                 
-            }             
+            }      
+            
+            $this->session->set_flashdata('message', 'Saved');
+                   
             redirect($_SERVER['HTTP_REFERER']);
         }
         
@@ -106,6 +112,8 @@ class Pressrelease extends MY_Controller
         if ($id) {
             
             $this->_deleteImage($id);
+            
+            $this->session->set_flashdata('message', 'Deleted');
         }
         
         redirect($_SERVER['HTTP_REFERER']);
@@ -125,6 +133,8 @@ class Pressrelease extends MY_Controller
         if ($_POST) {
             
             $this->model->update($_POST, $id);
+
+            $this->session->set_flashdata('message', 'Saved');
             
             redirect($_SERVER['HTTP_REFERER']);
         }
@@ -162,22 +172,19 @@ class Pressrelease extends MY_Controller
                 
                 $this->model->update(array('pack'=>$data['file_name']), $this->session->userdata('current_pressrelease'));
                 
-                if ($this->input->is_ajax_request()) {
                     
-                    echo json_encode(array($info));
-                } else {
-                    
-                    redirect($_SERVER['HTTP_REFERER']);
-                }
-        	  	die;
+                $this->session->set_flashdata('message', 'Saved');
+                
+                redirect($_SERVER['HTTP_REFERER']);
     	  	} 
     	  	
     	  	unset($_POST['pack']);
     	  	
   	        $this->model->update($_POST, $this->session->userdata('current_pressrelease'));
+
+            $this->session->set_flashdata('message', 'Saved');
   	        
   	        redirect($_SERVER['HTTP_REFERER']);
-    	  	
         }
         
         $data['item'] = $item;
@@ -190,9 +197,9 @@ class Pressrelease extends MY_Controller
         
         $this->_deletePack();
         
-        if (!$this->input->is_ajax_request()) {
-            redirect($_SERVER['HTTP_REFERER']);
-        } 
+        $this->session->set_flashdata('message', 'Deleted');
+        
+        redirect($_SERVER['HTTP_REFERER']);
     }
     
     public function _deletePack() 
@@ -239,6 +246,8 @@ class Pressrelease extends MY_Controller
              
             $this->model->update($_POST, $id);
             
+            $this->session->set_flashdata('message', 'Saved');
+            
             redirect($_SERVER['HTTP_REFERER']);
         }
         
@@ -261,8 +270,11 @@ class Pressrelease extends MY_Controller
         $this->form_validation->set_rules('video', 'Video', 'trim|required');
         
         if ($this->form_validation->run()) {
+
             $this->model->update($_POST, $id);
             
+            $this->session->set_flashdata('message', 'Saved');
+
             redirect($_SERVER['HTTP_REFERER']);
         }
         
@@ -281,6 +293,8 @@ class Pressrelease extends MY_Controller
             $this->_deletePack();
             
             $this->_deleteImage($id, true);
+            
+            $this->session->set_flashdata('message', 'Deleted');
         }
         
         redirect($_SERVER['HTTP_REFERER']);
@@ -292,6 +306,8 @@ class Pressrelease extends MY_Controller
         
         $this->rumor->update(array('active'=>1, 'published'=>date('Y-m-d H:i:s', time())), $this->uri->segment(3));
         
+        $this->session->set_flashdata('message', 'Activated');
+        
         redirect($_SERVER['HTTP_REFERER']);
     } 
 
@@ -300,6 +316,8 @@ class Pressrelease extends MY_Controller
         $this->load->model('Pressreleases', 'rumor');
         
         $this->rumor->update(array('active'=>0), $this->uri->segment(3));
+        
+        $this->session->set_flashdata('message', 'Inactivated');
         
         redirect($_SERVER['HTTP_REFERER']);
     }     
@@ -391,7 +409,6 @@ class Pressrelease extends MY_Controller
         echo json_encode(
             array('response'=>embed_youtube($this->uri->segment(3)))
         );
-        
         die;
     }
 }

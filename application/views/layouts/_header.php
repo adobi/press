@@ -36,7 +36,7 @@
             <div class="navbar navbar-fixed">
               <div class="navbar-inner">
                 <div class="container">
-                  <a href="<?php echo  base_url() ?>dashboard" class="brand"><?php echo SITE_TITLE ?></a>
+                  <a href="<?php echo  base_url() ?>dashboard" class="brand"><i class="mainpage"></i><?php echo SITE_TITLE ?></a>
                   <ul class="nav">
                       <li <?php echo $this->uri->segment(1) === 'pressrelease' && $this->uri->segment(2) === 'edit' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pressrelease/edit"><i class="w create-new"></i>Create a press release</a></li>
                       <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform">Platforms</a></li>

@@ -8,14 +8,15 @@
 <?php endif ?>
 
 <?php echo form_open_multipart('', array('id'=>'edit-form', 'class'=>'form-horizontal')) ?>    
-
-    <legend>
-        <?php if ($item): ?>
-            Edit
-        <?php else: ?>
-            New
-        <?php endif ?>
-    </legend>    
+    <fieldset>
+        <legend>
+            <?php if ($item): ?>
+                Edit
+            <?php else: ?>
+                New
+            <?php endif ?>
+        </legend>    
+    </fieldset>
     <fieldset class="control-group">
         <label for="name">Name</label>
         <div class="controls">
@@ -26,12 +27,20 @@
     <fieldset class="control-group">
         <label for="image">Logo</label>
         <div class="controls">
-           <div class="file-input-wrapper">
-                <button class="btn info"><i class="picture"></i>
-                    select an image
-                </button>
+            <?php if ($item && $item->image): ?>
+               <ul class="thumbnails">
+                    <li>
+                        <a href="#" class="thumbnail">
+                            <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->image ?>" alt=""/>
+                        </a>
+                    </li>
+                </ul>
+                <p>
+                    <a class="btn" href="<?php echo base_url() ?>platform/delete_image/<?php echo $item->id ?>"><i class="trash"></i>Delete image</a>
+                </p>
+            <?php else: ?>
                 <input type="file" id="upload-logo" name="image"/>
-            </div>
+            <?php endif ?>
         </div>
     </fieldset>      
     <fieldset class="form-actions">

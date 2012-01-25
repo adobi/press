@@ -27,14 +27,30 @@
                     "<?php echo base_url() ?>scripts/plugins/google-code-prettify/prettify.js",
                     "<?php echo base_url() ?>scripts/plugins/charcounter/jquery.charcounter.js",
                     "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
-                    "<?php echo base_url() ?>scripts/page.js?<?php echo time(); ?>"
+                    "<?php echo base_url() ?>scripts/page.js?<?php echo time(); ?>",
+                    function() {
+                    
+                        <?php if ($this->session->flashdata('message')): ?>
+                            $(function() {
+                                App.showNotification("<?php echo $this->session->flashdata("message") ?>")
+                            })
+                        <?php endif ?>
+                        
+                        <?php if ($this->session->flashdata('trigger_tab')): ?>
+                            $(function() {
+                                $('a[href='+window.location.hash+']').trigger('click');		     
+                            })
+                        <?php endif ?>
+                    }
             );
     	</script>
     	            
 		<script type="text/javascript">
 		    var App = App || {};
 			App.URL = "<?php echo base_url() ?>";
-
-		</script>     
+		</script>
+		
+            <script type="text/javascript">
+            </script>
     </body>
 </html>

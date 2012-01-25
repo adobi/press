@@ -24,10 +24,11 @@ class Settings extends MY_Controller
         $this->load->model('Defaults', 'model');
         
         if ($_POST) {
-
-            
-            
             $i = $this->model->update($_POST, $this->model->getId());
+            
+            $this->session->set_flashdata('message', 'Saved');
+            
+            $this->session->set_flashdata('trigger_tab', true);
             
             redirect($_SERVER['HTTP_REFERER']);
         }

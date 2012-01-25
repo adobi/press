@@ -34,7 +34,7 @@
         <div class="tab-content settings-tab-content">
             <div class="tab-pane active" id="pack-description">
                 <h3>Pack description</h3>
-                <?php echo form_open(base_url().'settings/edit') ?>
+                <?php echo form_open(base_url().'settings/edit#pack-description') ?>
 
                     <textarea name="pack_description" class="redactor"><?php echo @$item->pack_description ?></textarea>
                     <fieldset class="form-actions">
@@ -44,7 +44,7 @@
              </div>
             <div class="tab-pane" id="section-1">
                 <h3>Section one</h3>
-                <?php echo form_open(base_url().'settings/edit') ?>
+                <?php echo form_open(base_url().'settings/edit#section-1') ?>
 
                     <textarea name="header_col1"><?php echo @$item->header_col1 ?></textarea>
                     <fieldset class="form-actions">
@@ -54,7 +54,7 @@
             </div>
             <div class="tab-pane" id="section-2">
                 <h3>Section two</h3>
-                <?php echo form_open(base_url().'settings/edit') ?>
+                <?php echo form_open(base_url().'settings/edit#section-2') ?>
 
                     <textarea name="header_col2"><?php echo @$item->header_col2 ?></textarea>
                     <fieldset class="form-actions">
@@ -64,7 +64,7 @@
             </div>
             <div class="tab-pane" id="description">
                <h3>Press release</h3>
-                <?php echo form_open(base_url().'settings/edit') ?>
+                <?php echo form_open(base_url().'settings/edit#description') ?>
 
                     <textarea name="description"><?php echo @$item->description ?></textarea>
                     <fieldset class="form-actions">
@@ -74,4 +74,5 @@
             </div>
         </div>
     </div>
+    
     

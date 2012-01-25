@@ -51,7 +51,9 @@ class Platform extends MY_Controller
             } else {
                 $this->model->insert($_POST);
             }
-            redirect($_SERVER['HTTP_REFERER']);
+            $this->session->set_flashdata('message', 'Saved');
+            
+            redirect(base_url().'platform');
         }
         $this->template->build('platform/edit', $data);
     }
@@ -64,6 +66,7 @@ class Platform extends MY_Controller
             
             $this->_deleteImage($id);
             
+            $this->session->set_flashdata('message', 'Deleted');
         }
         
         redirect($_SERVER['HTTP_REFERER']);
@@ -79,6 +82,9 @@ class Platform extends MY_Controller
             $this->model->delete($id);
             
             $this->_deleteImage($id, true);
+            
+            $this->session->set_flashdata('message', 'Deleted');
+            
         }
         
         redirect($_SERVER['HTTP_REFERER']);

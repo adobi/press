@@ -53,6 +53,8 @@ class Store extends MY_Controller
                 $this->model->insert($_POST);
             }
             
+            $this->session->set_flashdata('message', 'Saved');
+            
             redirect($_SERVER['HTTP_REFERER']);
         }
         
@@ -69,6 +71,8 @@ class Store extends MY_Controller
             $this->load->model('Stores', 'model');
             
             $this->model->delete($id);
+
+            $this->session->set_flashdata('message', 'Deleted');
         }
         
         redirect($_SERVER['HTTP_REFERER']);

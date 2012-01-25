@@ -47,6 +47,9 @@ class Video extends MY_Controller
             } else {
                 $this->model->insert($_POST);
             }
+
+            $this->session->set_flashdata('message', 'Saved');
+            
             redirect($_SERVER['HTTP_REFERER']);
         }
         $this->template->build('video/edit', $data);
@@ -60,6 +63,8 @@ class Video extends MY_Controller
             $this->load->model('Videos', 'model');
             
             $this->model->delete($id);
+            
+            $this->session->set_flashdata('message', 'Saved');
         }
         
         redirect($_SERVER['HTTP_REFERER']);

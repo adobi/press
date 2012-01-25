@@ -26,12 +26,27 @@
                     self.slideUp( 100,
                         function() {
                             self.html('Working...');
-                            
                         }
                     );
                     
                 }, 2000)
             });
+            
+        
+        App.showNotification = function(message) 
+        {
+            var self = $('#loading-global');
+            
+            self.html(message).show();
+    
+            setTimeout(function() {
+                self.hide();
+                self.html('Working...');
+    
+            }, 4000)
+            
+        };	
+                    
 	    /*
         $('#fileupload').fileupload({
             done: function (e, data) {
@@ -309,6 +324,8 @@
             
             return false;
         });
+        
+        
     });
 	
 }) (jQuery);
