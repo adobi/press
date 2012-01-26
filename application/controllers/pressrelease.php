@@ -341,7 +341,9 @@ class Pressrelease extends MY_Controller
                 $item = $this->model->find((int)$id);
             else $item = $this->model->findByUrl($id);
         } else {
+            
             $item = $data['all'] ? $data['all'][0] : false;
+            
         }
         
         if ($item && !$item->active && !$this->session->userdata('logged_in')) {
@@ -371,7 +373,8 @@ class Pressrelease extends MY_Controller
         if ($item && $item->pack) {
             $item->size = round(@filesize(dirname($_SERVER['SCRIPT_FILENAME']) . '/uploads/original/'.$item->pack) / (1024*1024), 4);
         } else {
-            $item->size = 0;
+            if ($item)
+                $item->size = 0;
         }
         
         

@@ -76,7 +76,7 @@ footer a:hover {
 #select-press-release {
     font-weight:bold;
     color:#fff;
-    margin-top:5px;
+    margin-top:3px;
     padding:6px 6px 7px;
 }
 
@@ -92,20 +92,20 @@ footer a:hover {
 }
 
 .orange {
-    background-color: #E16020;
+    background-color: #E16020!important;
     background-image: -moz-linear-gradient(center top , #F86218, #F86218 25%, #CB4909)!important;
     background-image:-khtml-gradient(linear, left top, left bottom, from(#F86218), to(#CB4909));
     background-image:-ms-linear-gradient(top, #F86218, #CB4909);
-    background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #CB4909), color-stop(100%, #F86218));
-    background-image:-webkit-linear-gradient(top, #F86218, #CB4909);
+    background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #CB4909), color-stop(100%, #F86218))!important;
+    background-image:-webkit-linear-gradient(top, #F86218, #CB4909)!important;
     background-image:-o-linear-gradient(top, #F86218, #CB4909);
-    background-image:linear-gradient(top, #F86218, #CB4909);
+    background-image:linear-gradient(top, #F86218, #CB4909)!important;
     background-repeat:repeat-x;
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#F86218', endColorstr='#CB4909', GradientType=0);
     
     border-color: #B94106!important;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-    color: #FFFFFF;
+    color: #FFFFFF!important;
     padding: 12px 25px;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -247,3 +247,28 @@ a[rel=twipsy] {
 
 
 
+.pressrelease-nav {
+  display: block;
+  left: 0;
+  margin: 0 10px 0 0;
+  position: relative;
+  float:right;
+}
+.navbar .pressrelease-nav.pull-right {
+  margin-left: 10px;
+  margin-right: 0;
+}
+.navbar .pressrelease-nav.pull-right {
+  float: right;
+}
+.navbar .pressrelease-nav > li {
+  display: block;
+  float: left;
+}
+
+.navbar .pressrelease-nav > li > a {
+  float: none;
+  line-height: 19px;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}

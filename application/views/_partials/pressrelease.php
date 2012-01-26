@@ -3,6 +3,7 @@
         <?php echo validation_errors() ?>
     </div>
 <?php endif ?>
+
 <?php if (!$item): ?>
     <div class="alert alret-error">
         No press release found :(
@@ -55,16 +56,16 @@
             </div>
             <div class="span7 col">
                 <div>
-                    <div class="span7" style="margin:10px auto;text-align:center">
+                    <div class="span7 press-video" style="margin:10px auto;text-align:center">
                         <?php if ($item->video): ?>
                             <?php echo embed_youtube($item->video) ?>
                         <?php else: ?>
                             <img src="http://placehold.it/520x305" alt="" style="margin: 0 auto;">
                         <?php endif ?>
                     </div>
-                    <div class="span7" style="margin:5px auto">
+                    <div class="span7 press-video-code" style="margin:5px auto">
 
-                        <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 auto;"<?php echo event_tracking($item, 'video') ?>><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
+                        <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 10px;"<?php echo event_tracking($item, 'video') ?>><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
                     </div>
                 </div>
             </div>

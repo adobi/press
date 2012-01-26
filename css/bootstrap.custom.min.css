@@ -1,3 +1,5 @@
+i, .icon{background-image:url(glyphicons-halflings-sprite.png);background-position:0 0;background-repeat:no-repeat;display:inline-block;vertical-align:text-top;width:14px;height:14px;}
+
 i.w{background-image:url(glyphicons-halflings-sprite-w.png);opacity:0.25}
 .glass-w{background-position:0 0;}
 .music-w{background-position:-24px 0;}

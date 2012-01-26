@@ -4,6 +4,7 @@
     	<title><?php echo SITE_TITLE ?></title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
         
         <meta name="description" content="">
         <meta name="author" content="">
@@ -17,20 +18,18 @@
         <link rel = "stylesheet" href="<?php echo base_url() ?>css/bootstrap-responsive.css" media="all" />
 		<link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.custom.min.css" media="all" />
         <link rel = "stylesheet" href="<?= base_url() ?>css/press-release.css" media="all" />
+        <link rel = "stylesheet" href="<?= base_url() ?>css/press-release-responsive.css" media="all" />
     </head>
     
     <body class="press-release">    
             <div class="navbar navbar-fixed">
               <div class="navbar-inner" style="padding:5px 0">
                 <div class="container">
-                    <h1 style="display:inline-block;">
-                        <a  class="brand" href="<?php echo base_url() ?>press" style="color:#eee; font-size:0.9em;">Invictus Press </a>
-                        <small>Latest press releases</small>
-                    </h1>
+                    <a  class="brand" href="<?php echo base_url() ?>press">Invictus Press <small style="color:#ccc; font-size:0.85em">Latest press releases</small></a>
                   
-                    <div class="pull-right">
-                      <ul class="nav">
-                            <li class="vertical-divider"></li>
+                      <!-- <div class="pull-right press-selector"> -->
+                      <ul class=" pull-right nav">
+                            <!-- <li class="vertical-divider"></li> -->
                             <li class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle orange btn <?php echo !$all ? 'disabled' : '' ?>" href="#" id="select-press-release">
                                     Select a press release
@@ -45,7 +44,7 @@
                                 <?php endif; ?>
                             </li>
                       </ul>
-                    </div>
+                    <!-- </div> -->
                 </div>
               </div>
             </div>        
