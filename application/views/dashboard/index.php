@@ -8,8 +8,8 @@
                 <div class="thumbnail">
                     <img class="press-logo" src="<?php echo $item->logo ? base_url() .'uploads/original/' . $item->logo : 'http://placehold.it/175x175' ?>" alt="">
                     <div class="caption">
-                        <h5 class="center"><?php echo $item->game_name ?></h5>
-                        <h6 class="center"><?php echo to_date($item->released) ?></h6>
+                        <h5 class="center"><?php echo $item->title ? $item->title : '<small>No title</small>' ?></h5>
+                        <h6 class="center"><?php echo $item->released ? to_date($item->released) : '<small>No release date</small>' ?></h6>
                         <p class="item-nav right">
                             <div class="btn-group" style="padding-left:20px;">
                                 <a class="btn  large" data-toggle="dropdown" href="#">Select an option</a>

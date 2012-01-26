@@ -40,7 +40,6 @@
                         <a class="btn danger" href="<?php echo base_url() ?>pressrelease/delete_image/<?php echo $item->id ?>"><i class="trash"></i>delete</a>
                     <?php else: ?>
                         <?php echo form_open_multipart('', array('style'=>'margin-right:10px;')) ?>
-                            
                             <input type="file" id="upload-logo" name="logo"/>
                             <input type="hidden" name="upload_logo" value="1">
                             <p><button class="btn"><i class="upload"></i>upload</button></p>
@@ -48,9 +47,9 @@
                     <?php endif ?>
                 </div>
             </div>   
-            <div class="span5 editable <?php echo $item->title && $item->released ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 2" data-content="Select a game and set the release date" data-placement="right" data-trigger="manual">
-                <h3><?php echo $item->title ?></h3>         
-                <h5>Released <?php echo to_date($item->released) ?></h5>
+            <div class="span5 editable <?php echo $item->title && $item->released ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 2" data-content="Select a game and set the title and release date" data-placement="right" data-trigger="manual">
+                <h3><?php echo $item->title ? $item->title : '<small>No title</small>' ?></h3>         
+                <h5><?php echo $item->released ? 'Released ' . to_date($item->released) : '<small>No release date</small>' ?></h5>
                 <p class="right item-nav">
                     <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_game/" rel="dialog" title="Press release game settings"><i class="edit"></i>edit</a>
                 </p>
@@ -111,7 +110,7 @@
     </div>
 
     <div class="row available">
-        <div class="span12 col <?php echo !$item->stores ? 'missing' : '' ?>" data-tooltip="tooltip" data-title="Step 6" data-content="Set the platforms and stores" data-placement="top" data-trigger="manual">
+        <div class="span12 col <?php echo !$item->stores ? 'missing' : '' ?>" data-tooltip="tooltip" data-title="Step 6" data-content="Set the platforms and stores" data-placement="bottom" data-trigger="manual">
             <div class="span3">
                 <h2>Available on:</h2>
             </div>
@@ -142,7 +141,7 @@
     </div>
     
     <div class="row press">
-        <div class="span5 editable" data-tooltip="tooltip" data-title="Step 7" data-content="Add the game name and release date" data-placement="top" data-trigger="manual">
+        <div class="span5 editable" data-tooltip="tooltip" data-title="Step 7" data-content="Add the game name and release date" data-placement="bottom" data-trigger="manual">
             <div class="editable-text">
                 <?php if ($item->header_col1): ?>
                     <?php echo $item->header_col1 ?>
@@ -154,7 +153,7 @@
                 <a href="<?php echo base_url() ?>pressrelease/edit_section" class="btn" data-editable="edit" data-field="header_col1"><i class="edit"></i> edit</a>
             </p>
         </div>
-        <div class="span6 editable" style="width:535px;" data-tooltip="tooltip" data-title="Step 8" data-content="Add the platforms" data-placement="top" data-trigger="manual">
+        <div class="span6 editable" style="width:535px;" data-tooltip="tooltip" data-title="Step 8" data-content="Add the platforms" data-placement="bottom" data-trigger="manual">
             <div class="editable-text">
                 <?php if ($item->header_col2): ?>
                     <?php echo $item->header_col2 ?>
@@ -168,7 +167,7 @@
         </div>
     </div>
     
-    <div class="editable press-release-text" data-tooltip="tooltip" data-title="Step 9" data-content="Add the text of the press release" data-placement="top" data-trigger="manual">
+    <div class="editable press-release-text" data-tooltip="tooltip" data-title="Step 9" data-content="Add the text of the press release" data-placement="bottom" data-trigger="manual">
         <div class="editable-text">
             <?php if ($item->description): ?>
                 <?php echo $item->description ?>

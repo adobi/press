@@ -23,8 +23,8 @@
                 </div>   
 
                 <div class="span5 center">
-                    <h3><?php echo $item->title ?></h3>         
-                    <h5 style="margin-top:10px">Released <?php echo to_date($item->released) ?></h5>
+                    <h3><?php echo $item->title ? $item->title : '<small>No title</small>' ?></h3>         
+                    <h5 style="margin-top:10px"><?php echo $item->released ? 'Released '.to_date($item->released) : '<small>No release date</small>'?></h5>
                 </div>
                 <div  class="span5 center" style="margin-top:20px;">
                     <a class="btn orange xxlarge download-button <?php echo $item->pack ? '' : 'disabled' ?>" href = "<?php echo $item->pack ? base_url() . 'uploads/original/'.$item->pack : '#' ?>"<?php echo event_tracking($item, 'pack') ?>>

@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "dashboard";
+$route['default_controller'] = "pressrelease";
 $route['404_override'] = '';
 
 //$route['games'] = 'press/index';

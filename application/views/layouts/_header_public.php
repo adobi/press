@@ -38,7 +38,7 @@
                                 <?php if ($all): ?>
                                     <ul class="dropdown-menu">
                                         <?php foreach ($all as $a): ?>
-                                            <li><a href="<?php echo base_url() ?>press/<?php echo $a->url ?>" <?php echo event_tracking($a, 'title') ?>><?php echo $a->title ?></a></li>
+                                            <li><a href="<?php echo base_url() ?>press/<?php echo $a->url ? $a->url : $a->id ?>" <?php echo event_tracking($a, 'title') ?>><?php echo $a->title ? $a->title : '<em>No title</em>' ?></a></li>
                                         <?php endforeach ?>
                                     </ul>                  
                                 <?php endif; ?>

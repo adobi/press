@@ -206,39 +206,41 @@
         });	
         	
         var originalHtml = null;
+        var isRedactorActive = false;
         $('body').delegate('[data-editable=edit]', 'click', function() {
+            if (!isRedactorActive) {
             
-            if ($(this).is('.editable')) {
-                var self = $(this).find('[data-editable=edit]'),
-                    elem = $(this).find('.editable-text');
-            } else {
-                var self = $(this),
-                    elem = self.parents('.editable:first').find('.editable-text');
-            }
-            
-            var html = elem.html(),
-            
-            h = (self.data('editable-height') !== undefined ? self.data('editable-height') : 220) + 'px';
-
-            $.get(self.attr('href'), function(response) {
-                
-                if ($('.redactor').length) {
-                    $.each($('.redactor'), function(i, v) {
-                        $(v).parents('.editable-text').html(originalHtml);
-                    });
+                if ($(this).is('.editable')) {
+                    var self = $(this).find('[data-editable=edit]'),
+                        elem = $(this).find('.editable-text');
+                } else {
+                    var self = $(this),
+                        elem = self.parents('.editable:first').find('.editable-text');
                 }
                 
-                elem.html(response);
+                var html = elem.html(),
                 
-                originalHtml = html;
-                
-                elem.find('.redactor')
-                    .attr('name', self.data('field'))
-                    .css('height', h)
-                    .val(html)
-                    .redactor({ lang: 'en', toolbar: 'mini' });
-            });
-            
+                h = (self.data('editable-height') !== undefined ? self.data('editable-height') : 220) + 'px';
+    
+                $.get(self.attr('href'), function(response) {
+                    
+                    if ($('.redactor').length) {
+                        $.each($('.redactor'), function(i, v) {
+                            $(v).parents('.editable-text').html(originalHtml);
+                        });
+                    }
+                    
+                    elem.html(response);
+                    
+                    originalHtml = html;
+                    elem.find('.redactor')
+                        .attr('name', self.data('field'))
+                        .css('height', h)
+                        .val(html)
+                        .redactor({ lang: 'en', toolbar: 'mini' });
+                    isRedactorActive = true;
+                });
+            }
             return false;
         });
         
@@ -248,6 +250,8 @@
                 elem = self.parents('.editable:first').find('.editable-text');
             
             elem.html(originalHtml);
+            
+            isRedactorActive = false;
             
             return false;
         });
