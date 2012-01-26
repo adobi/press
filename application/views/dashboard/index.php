@@ -1,6 +1,14 @@
 
 <?php if ($items): ?>
-    <h1>Recent press releases</h1>
+    <h1 style="margin-bottom:20px;">Recent press releases</h1>
+    <div class="subnav">
+        <ul class="nav pills">
+            <li><a href="#" style="cursor:text;color:#222;border-right:0px;"><strong>Filter: </strong></a></li>
+            <li><a href="#">Active</a></li>
+            <li><a href="#">Inactive</a></li>
+        </ul>
+    </div>    
+    
     <ul class="thumbnails" style="margin-top:20px;">
         <?php foreach ($items as $item): ?>
             
