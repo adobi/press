@@ -240,6 +240,8 @@
                         .redactor({ lang: 'en', toolbar: 'mini' });
                     isRedactorActive = true;
                 });
+            } else {
+                App.showNotification('Only one editor at a time')
             }
             return false;
         });

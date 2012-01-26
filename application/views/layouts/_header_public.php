@@ -14,6 +14,7 @@
         <![endif]-->        
         
         <link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.min.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>css/bootstrap-responsive.css" media="all" />
 		<link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.custom.min.css" media="all" />
         <link rel = "stylesheet" href="<?= base_url() ?>css/press-release.css" media="all" />
     </head>

@@ -15,6 +15,7 @@
         
         <link rel = "stylesheet" href="<?php echo base_url() ?>css/aristo.css" media="all" />
         <link rel = "stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" media="all" />
+        <link rel = "stylesheet" href="<?php echo base_url() ?>css/bootstrap-responsive.css" media="all" />
 		<link rel = "stylesheet" href="<?php echo base_url() ?>css/bootstrap.custom.min.css" media="all" />
         <link rel = "stylesheet" href="<?php echo base_url() ?>css/press-release.css" media="all" />
         <link rel = "stylesheet" href="<?php echo base_url() ?>css/page.css" media="all" />
