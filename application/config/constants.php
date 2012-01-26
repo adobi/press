@@ -38,7 +38,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('SITE_TITLE', 'Invictus Press');
 
-define('ITEMS_PER_PAGE', 6);
+define('ITEMS_PER_PAGE', 8);
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

@@ -9,6 +9,7 @@ class Pressreleases extends MY_Model
     
 	public function fetchAllWithGame($offset) 
 	{
+	    
 	    return $this->fetchAll(array(
 	        'join'=>array(
 

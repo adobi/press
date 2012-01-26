@@ -14,7 +14,7 @@ class Dashboard extends MY_Controller
         
         $this->load->model('Pressreleases', 'model');
         
-        $data['items'] = $this->model->fetchAllWithGame($this->uri->segment(3) ? $this->uri->segment(0) : 0);
+        $data['items'] = $this->model->fetchAllWithGame($this->uri->segment(3) ? $this->uri->segment(3) : 0);
         
         $data['pagination_links'] = $this->paginate('dashboard/index/', 3, $this->model->count());        
         
