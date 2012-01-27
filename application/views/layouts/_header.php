@@ -37,7 +37,7 @@
             <div class="navbar navbar-fixed">
               <div class="navbar-inner">
                 <div class="container">
-                  <a href="<?php echo  base_url() ?>dashboard" class="brand"><i class="mainpage"></i><?php echo SITE_TITLE ?></a>
+                  <a href="<?php echo  base_url() ?>dashboard/index/0" class="brand"><i class="mainpage"></i><?php echo SITE_TITLE ?></a>
                   <ul class="nav">
                       <li <?php echo $this->uri->segment(1) === 'pressrelease' && $this->uri->segment(2) === 'edit' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pressrelease/edit"><i class="w create-new"></i>Create a press release</a></li>
                       <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform">Platforms</a></li>
@@ -45,9 +45,6 @@
                       <li><a href="#" class="toggle-help" style="color:#fff;"><strong>Help!</strong></a></li>
                       <!-- <li class="vertical-divider"></li>  -->
                       <li><a href="<?php echo base_url() ?>auth/logout" style="font-weight:bold"><i class="w off-w"></i>Logout</a></li>                      
-                  </ul>
-                  <ul class="pull-right nav">
-                      
                   </ul>
                 </div>
               </div>

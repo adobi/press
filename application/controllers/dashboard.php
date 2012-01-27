@@ -14,10 +14,32 @@ class Dashboard extends MY_Controller
         
         $this->load->model('Pressreleases', 'model');
         
-        $data['items'] = $this->model->fetchAllWithGame($this->uri->segment(3) ? $this->uri->segment(3) : 0);
+        $data['press_games'] = $this->model->fetchGames();
         
-        $data['pagination_links'] = $this->paginate('dashboard/index/', 3, $this->model->count());        
+        $data['items'] = false;
+        if (!$this->uri->segment(4)) {
+            
+            $data['items'] = $this->model->fetchAllWithGame($this->uri->segment(3) ? $this->uri->segment(3) : 0);
         
+            $data['pagination_links'] = $this->paginate('dashboard/index/', 3, $this->model->count());        
+        
+        } else {
+            
+            if ($this->uri->segment(4) === 'type') {
+                
+                $type = $this->uri->segment(5);
+                
+                $data['items'] = $this->model->fetchByType($type-1);
+            }
+            
+            if ($this->uri->segment(4) === 'game') {
+                
+                $data['items'] = $this->model->fetchByGame($this->uri->segment(5));
+            }
+            
+            $data['pagination_links'] = '';
+        }
+
         $this->template->build('dashboard/index', $data);
     }
 }

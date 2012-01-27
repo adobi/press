@@ -1,13 +1,28 @@
 
+<h1 style="margin-bottom:20px;">Recent press releases</h1>
+<div class="subnav">
+    <ul class="nav pills">
+        <li><a class="subnav-a" href="#" style="cursor:text;color:#222;border-right:0px;"><strong>Filter </strong></a></li>
+        <li><a class="subnav-a <?php echo $this->uri->segment(4) === 'type' && $this->uri->segment(5) === '2' ? ' active' : '' ?>" href="<?php echo base_url() ?>dashboard/index/0">All</a></li>
+        <li><a class="subnav-a <?php echo $this->uri->segment(4) === 'type' && $this->uri->segment(5) === '2' ? ' active' : '' ?>" href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/type/2">Active</a></li>
+        <li><a class="subnav-a  <?php echo $this->uri->segment(4) === 'type' && $this->uri->segment(5) === '1' ? ' active' : '' ?>" href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/type/1">Inactive</a></li>
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                Select a game<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <?php if ($press_games): ?>
+                    <?php foreach ($press_games as $item): ?>
+                        <li><a href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/game/<?php echo $item->id ?>"><?php echo $item->name ?></a></li>
+                    <?php endforeach ?>
+                <?php else: ?>
+                    <li><a href="#"><em>No games</em></a></li>
+                <?php endif ?>
+            </ul>                
+        </li>
+    </ul>
+</div>  
 <?php if ($items): ?>
-    <h1 style="margin-bottom:20px;">Recent press releases</h1>
-    <div class="subnav">
-        <ul class="nav pills">
-            <li><a href="#" style="cursor:text;color:#222;border-right:0px;"><strong>Filter: </strong></a></li>
-            <li><a href="#">Active</a></li>
-            <li><a href="#">Inactive</a></li>
-        </ul>
-    </div>    
     
     <ul class="thumbnails" style="margin-top:20px;">
         <?php foreach ($items as $item): ?>
