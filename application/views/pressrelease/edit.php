@@ -19,7 +19,6 @@
         <?php endif ?>
         <?php if ($item): ?>
             <p class="pull-right">
-                
                 <?php if ($item->active): ?>
                     <a class="btn" href="<?php echo base_url() ?>pressrelease/inactivate/<?php echo $item->id ?>"><i class="refresh"></i> make inactive</a>
                 <?php else: ?>
@@ -30,7 +29,24 @@
             </p>
         <?php endif ?>
     </h2>
-
+<div class="subnav">
+    <ul class="nav pills">
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                Select a game<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <?php if ($press_games): ?>
+                    <?php foreach ($press_games as $p): ?>
+                        <li><a href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/game/<?php echo $p->id ?>"><?php echo $p->name ?></a></li>
+                    <?php endforeach ?>
+                <?php else: ?>
+                    <li><a href="#"><em>No games</em></a></li>
+                <?php endif ?>
+            </ul>                
+        </li>
+    </ul>
+</div>    
     <div class="row cols">
         <div class="span5 col center" id="general-info">
             <div class="span5 logo editable <?php echo $item->logo ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 1" data-content="Upload game logo" data-placement="top" data-trigger="manual">
@@ -94,7 +110,7 @@
                     <?php endif ?>
                 </div>
                 <div class="span7" style="margin:5px auto">
-                    <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 auto;" disabled="disabled"><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
+                    <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 10px;" disabled="disabled"><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
                     <!-- 
                     <p class="right item-nav" style="margin-right:10px;">
                         <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_analytics" rel="dialog" title="Video code copy - Google analytics settings" style="margin-right:0px;"><i class="cog"></i>analytics</a>

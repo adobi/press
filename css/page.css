@@ -335,3 +335,8 @@ table thead th {
     margin: 0 auto;
     padding: 0 1px;
   }
+
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    font-weight:normal;
+}

@@ -28,6 +28,8 @@ class Pressrelease extends MY_Controller
         $this->load->model('Defaults', 'defaults');
         $data['defaults'] = $this->defaults->find($this->defaults->getid());
         
+        $data['press_games'] = $this->model->fetchGames();
+        
         $item = false;
         if ($id) {
             $item = $this->model->find((int)$id);
