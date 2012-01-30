@@ -12,16 +12,31 @@
 <div class="subnav" style="margin-bottom:20px;">
     <ul class="nav pills">
         <li>
-            <a href="<?php echo base_url() ?>dashboard/index/0"><i class="arrow-left"></i>Go back</a>
+            <a href="<?php echo base_url() ?>dashboard/index/0"><i class="arrow-left"></i>go back</a>
         </li>
-        <li class="dropdown">
+        <?php if ($item): ?>
+            <li style="float:right">
+                <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>"><i class="trash"></i>delete</a>
+            </li>
+            <li style="float:right">
+                <a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="zoom-in"></i>preview</a>
+            </li>
+            <li style="float:right">
+                <?php if ($item->active): ?>
+                    <a href="<?php echo base_url() ?>pressrelease/inactivate/<?php echo $item->id ?>"><i class="refresh"></i> make inactive</a>
+                <?php else: ?>
+                    <a href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="refresh"></i> make active</a>
+                <?php endif ?>
+            </li>
+        <?php endif ?>
+        <li class="dropdown" style="float:right;">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="align-justify"></i>Select another game<b class="caret"></b>
+                <i class="align-justify"></i>select another game<b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
                 <?php if ($others): ?>
                     <?php foreach ($others as $p): ?>
-                        <li><a href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/game/<?php echo $p->id ?>"><?php echo $p->title ? $p->title : '<em>No title ('.to_date($p->created).')</em>' ?></a></li>
+                        <li><a href="<?php echo base_url() ?>pressrelease/edit/<?php echo $p->id ?>"><?php echo $p->title ? $p->title : '<em>No title ('.to_date($p->created).')</em>' ?></a></li>
                     <?php endforeach ?>
                 <?php else: ?>
                     <li><a href="#"><em>No games</em></a></li>
@@ -36,6 +51,7 @@
         <?php else: ?>
                 Create new press release
         <?php endif ?>
+        <!-- 
         <?php if ($item): ?>
             <p class="pull-right">
                 <?php if ($item->active): ?>
@@ -47,6 +63,7 @@
                 <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>" class="btn danger"><i class="trash"></i>delete</a>
             </p>
         <?php endif ?>
+         -->
     </h2>
     <div class="row cols">
         <div class="span5 col center" id="general-info">
