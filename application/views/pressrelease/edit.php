@@ -1,6 +1,4 @@
 
-<p><a href="<?php echo base_url() ?>" class="btn primary"><i class="arrow-left"></i>Go back</a></p>
-
 <?php if (validation_errors()): ?>
     <div class="alert alert-error">
         <?php echo validation_errors() ?>
@@ -11,6 +9,27 @@
         No press release found
     </div>
 <?php else: ?>
+<div class="subnav" style="margin-bottom:20px;">
+    <ul class="nav pills">
+        <li>
+            <a href="<?php echo base_url() ?>dashboard/index/0"><i class="arrow-left"></i>Go back</a>
+        </li>
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="align-justify"></i>Select another game<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <?php if ($others): ?>
+                    <?php foreach ($others as $p): ?>
+                        <li><a href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/game/<?php echo $p->id ?>"><?php echo $p->title ? $p->title : '<em>No title ('.to_date($p->created).')</em>' ?></a></li>
+                    <?php endforeach ?>
+                <?php else: ?>
+                    <li><a href="#"><em>No games</em></a></li>
+                <?php endif ?>
+            </ul>                
+        </li>
+    </ul>
+</div>    
     <h2 class="round alert <?php echo $item->active ? 'alert-success' : 'alert-error' ?>" style="padding:10px; color:#222">
         <?php if ($item && isset($item->title)): ?>
             <?php echo $item->title ?> press release
@@ -29,24 +48,6 @@
             </p>
         <?php endif ?>
     </h2>
-<div class="subnav">
-    <ul class="nav pills">
-        <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                Select a game<b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <?php if ($press_games): ?>
-                    <?php foreach ($press_games as $p): ?>
-                        <li><a href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/game/<?php echo $p->id ?>"><?php echo $p->name ?></a></li>
-                    <?php endforeach ?>
-                <?php else: ?>
-                    <li><a href="#"><em>No games</em></a></li>
-                <?php endif ?>
-            </ul>                
-        </li>
-    </ul>
-</div>    
     <div class="row cols">
         <div class="span5 col center" id="general-info">
             <div class="span5 logo editable <?php echo $item->logo ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 1" data-content="Upload game logo" data-placement="top" data-trigger="manual">

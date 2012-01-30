@@ -39,6 +39,18 @@ class Pressreleases extends MY_Model
 	    
 	    return $this->execute($sql);
 	}
+	
+	/**
+	 * returns all pressreleases which are not equal with the $id
+	 *
+	 * @param string $id 
+	 * @return void
+	 * @author Dobi Attila
+	 */
+	public function fetchOtherThan($id) 
+	{
+	    return $this->execute("select p.* from $this->_name p where p.id != $id");
+	}
     
 	/**
 	 * press release by type: active, inactive

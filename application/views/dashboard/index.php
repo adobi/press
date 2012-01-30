@@ -8,7 +8,7 @@
         <li><a class="subnav-a  <?php echo $this->uri->segment(4) === 'type' && $this->uri->segment(5) === '1' ? ' active' : '' ?>" href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/type/1">Inactive</a></li>
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                Select a game<b class="caret"></b>
+                <i class="align-justify"></i>Select a game<b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
                 <?php if ($press_games): ?>
