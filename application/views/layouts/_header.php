@@ -33,7 +33,7 @@
     
     <body>    
         	
-        <?php if ($this->session->userdata('logged_in')): ?>
+        <?php if ($this->uri->segment(1) !== 'auth' && $this->session->userdata('logged_in')): ?>
             <div class="navbar navbar-fixed">
               <div class="navbar-inner">
                 <div class="container">

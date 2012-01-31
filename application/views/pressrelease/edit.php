@@ -49,20 +49,18 @@
                     <?php endif ?>
                 </li>
             <?php endif ?>
-            <li class="dropdown" style="float:right;">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <i class="align-justify"></i>select another release<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <?php if ($others): ?>
-                        <?php foreach ($others as $p): ?>
-                            <li><a href="<?php echo base_url() ?>pressrelease/edit/<?php echo $p->id ?>"><?php echo $p->title ? $p->title : '<em>No title ('.to_date($p->created).')</em>' ?></a></li>
-                        <?php endforeach ?>
-                    <?php else: ?>
-                        <li><a href="#"><em>No games</em></a></li>
-                    <?php endif ?>
-                </ul>                
-            </li>
+            <?php if ($others): ?>
+                <li class="dropdown" style="float:right;">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="align-justify"></i>select another release<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                            <?php foreach ($others as $p): ?>
+                                <li><a href="<?php echo base_url() ?>pressrelease/edit/<?php echo $p->id ?>"><?php echo $p->title ? $p->title : '<em>No title ('.to_date($p->created).')</em>' ?></a></li>
+                            <?php endforeach ?>
+                    </ul>                
+                </li>
+            <?php endif ?>
         </ul>
     </div>    
      <div class="row cols">
