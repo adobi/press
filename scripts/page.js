@@ -288,14 +288,14 @@
             var elems = $('[data-tooltip=tooltip]')
                 self = $(this);
             
+            
             (elems.length
                 ?
-                ( (on = 1-on) ? $('.editable').css('opacity', 0.6) && elems.popover('show') : $('.editable').css('opacity', 1) && elems.popover('hide') ) 
+                ( (on = 1-on) ? $('body > .container').css('opacity', 0.6) && elems.popover('show') : $('body > .container').css('opacity', 1) && elems.popover('hide') ) 
                 :
                 ( (on = 1 - on) && $(this).data('tooltip', 'tooltip').data('title', 'No help on this page').data('placement', 'bottom').data('trigger', 'manual') ? self.popover('show') : self.popover('hide') )
             );
 
-            
             return false;
         });
         

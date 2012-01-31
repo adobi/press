@@ -25,7 +25,7 @@
     
     <div class="tabbable tabs-left">
         
-        <ul class="nav tabs settings-tabs">
+        <ul class="nav tabs settings-tabs" data-tooltip="tooltip" data-title="Page sections" data-content="Default values of the page sections <img src='<?php echo base_url() ?>images/layout-mini-help.png'>" data-placement="right" data-trigger="manual">
             <li class="active"><a href="#pack-description" data-toggle="tab">Pack description</a></li>
             <li><a href="#section-1" data-toggle="tab">Section one</a></li>            
             <li><a href="#section-2" data-toggle="tab">Section two</a></li>            
