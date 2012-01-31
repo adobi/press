@@ -9,42 +9,6 @@
         No press release found
     </div>
 <?php else: ?>
-<div class="subnav" style="margin-bottom:20px;">
-    <ul class="nav pills">
-        <li>
-            <a href="<?php echo base_url() ?>dashboard/index/0"><i class="arrow-left"></i>go back</a>
-        </li>
-        <?php if ($item): ?>
-            <li style="float:right">
-                <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>"><i class="trash"></i>delete</a>
-            </li>
-            <li style="float:right">
-                <a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="zoom-in"></i>preview</a>
-            </li>
-            <li style="float:right">
-                <?php if ($item->active): ?>
-                    <a href="<?php echo base_url() ?>pressrelease/inactivate/<?php echo $item->id ?>"><i class="refresh"></i> make inactive</a>
-                <?php else: ?>
-                    <a href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="refresh"></i> make active</a>
-                <?php endif ?>
-            </li>
-        <?php endif ?>
-        <li class="dropdown" style="float:right;">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="align-justify"></i>select another game<b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <?php if ($others): ?>
-                    <?php foreach ($others as $p): ?>
-                        <li><a href="<?php echo base_url() ?>pressrelease/edit/<?php echo $p->id ?>"><?php echo $p->title ? $p->title : '<em>No title ('.to_date($p->created).')</em>' ?></a></li>
-                    <?php endforeach ?>
-                <?php else: ?>
-                    <li><a href="#"><em>No games</em></a></li>
-                <?php endif ?>
-            </ul>                
-        </li>
-    </ul>
-</div>    
     <h2 class="round alert <?php echo $item->active ? 'alert-success' : 'alert-error' ?>" style="padding:10px; color:#222">
         <?php if ($item && isset($item->title)): ?>
             <?php echo $item->title ?> press release
@@ -65,6 +29,42 @@
         <?php endif ?>
          -->
     </h2>
+    <div class="subnav" style="margin-bottom:20px;">
+        <ul class="nav pills">
+            <li>
+                <a href="<?php echo base_url() ?>dashboard/index/0"><i class="arrow-left"></i>go back</a>
+            </li>
+            <?php if ($item): ?>
+                <li style="float:right">
+                    <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>"><i class="trash"></i>delete</a>
+                </li>
+                <li style="float:right">
+                    <a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="zoom-in"></i>preview</a>
+                </li>
+                <li style="float:right">
+                    <?php if ($item->active): ?>
+                        <a href="<?php echo base_url() ?>pressrelease/inactivate/<?php echo $item->id ?>"><i class="refresh"></i> make inactive</a>
+                    <?php else: ?>
+                        <a href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="refresh"></i> make active</a>
+                    <?php endif ?>
+                </li>
+            <?php endif ?>
+            <li class="dropdown" style="float:right;">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <i class="align-justify"></i>select another release<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <?php if ($others): ?>
+                        <?php foreach ($others as $p): ?>
+                            <li><a href="<?php echo base_url() ?>pressrelease/edit/<?php echo $p->id ?>"><?php echo $p->title ? $p->title : '<em>No title ('.to_date($p->created).')</em>' ?></a></li>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                        <li><a href="#"><em>No games</em></a></li>
+                    <?php endif ?>
+                </ul>                
+            </li>
+        </ul>
+    </div>    
     <div class="row cols">
         <div class="span5 col center" id="general-info">
             <div class="span5 logo editable <?php echo $item->logo ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 1" data-content="Upload game logo" data-placement="top" data-trigger="manual">

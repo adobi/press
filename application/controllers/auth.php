@@ -20,6 +20,18 @@ class Auth extends MY_Controller
         //dump($_POST); die;
         if ($this->form_validation->run()) {
 			
+            $this->load->library('Api', 'api');
+            
+            $this->load->model('Games', 'games');
+            
+            $games = $this->api->getGames();
+            
+            if (!$this->session->userdata('api_loaded')) {
+                
+                $this->games->saveFromApi($games);
+                
+                $this->session->set_userdata('api_loaded', true);
+            }
 			redirect(base_url() . 'dashboard');
 		}
         

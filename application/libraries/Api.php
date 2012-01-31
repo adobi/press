@@ -5,7 +5,14 @@ if (! defined('BASEPATH')) exit('No direct script access');
 class Api 
 {
     private $_uri;
-
+    
+    public function __construct($uri = false)
+    {
+        if (!$uri) {
+            $this->_uri = 'http://invictus.com/api/';
+        }
+    }
+    
     public function setUri($uri)
     {
         $this->_uri = $uri;

@@ -28,12 +28,14 @@ class Pressrelease extends MY_Controller
         $this->load->model('Defaults', 'defaults');
         $data['defaults'] = $this->defaults->find($this->defaults->getid());
         
-        $data['others'] = $this->model->fetchOtherThan($id);
+        $data['others'] = false;
         
         $item = false;
         if ($id) {
             $item = $this->model->find((int)$id);
             $this->load->model('Games', 'games');
+            
+            $data['others'] = $this->model->fetchOtherThan($id);
             
             if ($item) {
                 
