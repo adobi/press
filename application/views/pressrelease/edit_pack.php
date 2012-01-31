@@ -1,5 +1,9 @@
  
-    
+<?php if ($this->upload->display_errors()): ?>
+     <div class="alert alert-error">
+         <?php echo $this->upload->display_errors() ?>
+     </div>
+ <?php endif ?> 
 
 <?php echo form_open_multipart('', array('id'=>'edit-form', 'class'=>'form-horizontal')) ?>
     <ul class="tabs nav">

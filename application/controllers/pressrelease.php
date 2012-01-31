@@ -79,6 +79,8 @@ class Pressrelease extends MY_Controller
         
         if ($_POST) {
             
+            $this->upload->allowed_types = array('gif', 'jpg', 'jpeg', 'png', 'jpe');
+            
             if ($this->upload->do_upload('logo')) {
                 
                 if ($id) {
@@ -90,11 +92,10 @@ class Pressrelease extends MY_Controller
                 unset($_POST['upload_logo']);
                 $this->model->update($_POST, $id);
                 
+                $this->session->set_flashdata('message', 'Saved');
+                       
+                redirect($_SERVER['HTTP_REFERER']);
             }      
-            
-            $this->session->set_flashdata('message', 'Saved');
-                   
-            redirect($_SERVER['HTTP_REFERER']);
         }
         
 
@@ -162,8 +163,10 @@ class Pressrelease extends MY_Controller
         if ($_POST) {
             
             $this->load->model('Pressreleases', 'model');
-
-    	  	if ($this->upload->do_upload('pack')) {
+            
+            $this->upload->allowed_types = array('zip', 'rar');
+            
+            if ($this->upload->do_upload('pack')) {
     	  	    
     	  	    $this->load->config('upload');
     	  	    
@@ -179,16 +182,12 @@ class Pressrelease extends MY_Controller
                     
                 $this->session->set_flashdata('message', 'Saved');
                 
-                redirect($_SERVER['HTTP_REFERER']);
+        	  	unset($_POST['pack']);
+        	  	
+      	        $this->model->update($_POST, $this->session->userdata('current_pressrelease'));
+      	        
+      	        redirect(base_url().'pressrelease/edit/'.$this->session->userdata('current_pressrelease'));
     	  	} 
-    	  	
-    	  	unset($_POST['pack']);
-    	  	
-  	        $this->model->update($_POST, $this->session->userdata('current_pressrelease'));
-
-            $this->session->set_flashdata('message', 'Saved');
-  	        
-  	        redirect($_SERVER['HTTP_REFERER']);
         }
         
         $data['item'] = $item;

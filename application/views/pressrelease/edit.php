@@ -65,8 +65,14 @@
             </li>
         </ul>
     </div>    
-    <div class="row cols">
+     <div class="row cols">
         <div class="span5 col center" id="general-info">
+             
+            <?php if ($this->upload->display_errors()): ?>
+                 <div class="alert alert-error" style="margin:5px;">
+                     <?php echo $this->upload->display_errors() ?>
+                 </div>
+             <?php endif ?>
             <div class="span5 logo editable <?php echo $item->logo ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 1" data-content="Upload game logo" data-placement="top" data-trigger="manual">
                 <img src="<?php echo $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/175x175' ?>" alt="">
                 <div class="center item-nav ">
