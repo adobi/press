@@ -24,7 +24,7 @@
 </div>  
 <?php if ($items): ?>
     
-    <ul class="thumbnails" style="margin-top:20px;">
+    <ul class="thumbnails" style="margin-top:30px; margin-left:-10px;">
         <?php foreach ($items as $item): ?>
             <li class="span3 alert <?php echo $item->active === '1' ? 'alert-success' : 'alert-error' ?>">
                 <div class="thumbnail">
@@ -32,9 +32,9 @@
                     <div class="caption">
                         <h5 class="center"><?php echo $item->title ? $item->title : '<small>No title</small>' ?></h5>
                         <h6 class="center"><?php echo $item->released ? to_date($item->released) : '<small>No release date</small>' ?></h6>
-                        <div>
-                            <div class="btn-group">
-                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-align-justify"></i>Select something <span class="caret"></span></a>
+                        <div style="margin: 10px auto 0; width:150px;">
+                            <div class="btn-group" style="display:inline-block; margin:0 auto;">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog"></i>Select something <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <?php if ($item->active === '1'): ?>

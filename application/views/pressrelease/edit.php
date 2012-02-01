@@ -173,7 +173,7 @@
                 <a href="<?php echo base_url() ?>pressrelease/edit_section" class="btn" data-editable="edit" data-field="header_col1"><i class="icon-edit"></i> edit</a>
             </p>
         </div>
-        <div class="span6 editable" style="width:535px;" data-tooltip="tooltip" data-title="Step 8" data-content="Add the platforms" data-placement="bottom" data-trigger="manual">
+        <div class="span6 editable" data-tooltip="tooltip" data-title="Step 8" data-content="Add the platforms" data-placement="bottom" data-trigger="manual">
             <div class="editable-text">
                 <?php if ($item->header_col2): ?>
                     <?php echo $item->header_col2 ?>

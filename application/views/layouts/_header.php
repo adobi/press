@@ -48,7 +48,7 @@
                           <li <?php echo $this->uri->segment(1) === 'pressrelease' && $this->uri->segment(2) === 'edit' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pressrelease/edit"><i class="icon-white create-new"></i>Create a press release</a></li>
                           <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform">Platforms</a></li>
                           <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>settings">Settings</a></li>
-                          <li><a href="#" class="toggle-help" style="color:#fff;"><strong>Help!</strong></a></li>
+                          <li><a href="#" class="toggle-help" style="color:#fff;"><strong>Help?!</strong></a></li>
                           <!-- <li class="vertical-divider"></li>  -->
                           <li class="divider-vertical"></li>
                           <li><a href="<?php echo base_url() ?>auth/logout" style="font-weight:bold"><i class="icon-off icon-white"></i>Logout</a></li>                      
