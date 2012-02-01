@@ -162,9 +162,9 @@
             select.trigger("liszt:updated");
         });  
         
-        $('i.w').parents('li').hover(
-			function() { $(this).find('i.w').css('opacity', 1); }, 
-			function() { $(this).find('i.w').css('opacity', 0.25); }
+        $('i.icon-white').parents('li').hover(
+			function() { $(this).find('i.icon-white').css('opacity', 1); }, 
+			function() { $(this).find('i.icon-white').css('opacity', 0.6); }
 		)
         
 		$('.news-filter-options').bind('click', function() {

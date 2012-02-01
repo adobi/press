@@ -23,7 +23,7 @@
             </div>
         </fieldset>
         <fieldset class="form-actions">
-            <input type="submit" value="Login" class="btn primary">
+            <button class="btn btn-primary" type="submit">Login</button>
         </fieldset> 
 
 <?php echo form_close() ?>

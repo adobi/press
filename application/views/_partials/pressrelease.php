@@ -5,7 +5,7 @@
 <?php endif ?>
 
 <?php if (!$item): ?>
-    <div class="alert alret-error">
+    <div class="alert alert-error">
         No press release found :(
     </div>
 <?php else: ?>
@@ -44,12 +44,7 @@
                         <?php if (trim($item->pack_description)): ?>
                             <?php echo $item->pack_description ?>
                         <?php else: ?>
-                            <p>The press pack contains:</p>
-                            <ul>
-                                <li>High resolution artwork and screenshots</li>
-                                <li>Press release</li>
-                                <li>YouTube video embed code </li>
-                            </ul>
+                            <?php echo @$defaults->pack_description ?>
                         <?php endif ?>
                     </div>
                 </div>
@@ -97,46 +92,21 @@
         </div>
         
         <div class="row press">
-            <div class="span5">
+            <div class="span5 col-1">
                 <div>
                     <?php if ($item->header_col1): ?>
                         <?php echo $item->header_col1 ?>
                     <?php else: ?>
-                        <p>
-                            PRESS RELEASE
-                        </p>
-                        <p>
-                            <?php echo to_date($item->released) ?>
-                        </p>
-                        <p>
-                            For Immediate Release                 
-                        </p>
-                        <p>
-                            Title: <strong><?php echo $item->game_name ?></strong>
-                        </p>
+                        <?php echo @$defaults->header_col1 ?>
                     <?php endif ?>
                 </div>
             </div>
-            <div class="span6" style="width:535px;">
+            <div class="span6 col-2">
                 <div>
                     <?php if ($item->header_col2): ?>
                         <?php echo $item->header_col2 ?>
                     <?php else: ?>
-                        <p>
-                            FORMAT:
-                        </p>
-                        <p>
-                            RELEASE:<?php echo to_date($item->released) ?>
-                        </p>
-                        <p>
-                            DEVELOPER: Invictus
-                        </p>
-                        <p>
-                            PUBLISHER: Invictus
-                        </p>
-                        <p>
-                            INVICTUS WEBSITE: <a href="http://www.invictus.com" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - Greed Corp Phone - Greed Corp InvictusCom Top" data-ga-value="1">www.invictus.com</a>
-                        </p>
+                        <?php echo @$defaults->header_col2 ?>
                     <?php endif ?>
                 </div>
             </div>
@@ -147,15 +117,7 @@
                 <?php if ($item->description): ?>
                     <?php echo $item->description ?>
                 <?php else: ?>
-        
-                    <p>
-                       <strong>About Invictus Games Ltd: </strong>
-                    </p>
-                    <p>
-                        Invictus Games Ltd is Hungary’s premier video game development studio, with a wealth of experience creating detailed racing games. Invictus' more than 10 year track record developing racing games includes offline and online on iOS, Android and PC, for companies such as Codemasters, Activision, Disney and Gamepot. To learn more about Invictus games, please visit 
-                        <a href="http://www.invictus.com" target = "_blank" data-ga = "1" data-ga-category="Internal link" data-ga-action="click" data-ga-label="Press - Greed Corp Phone - Greed Corp InvictusCom Bottom" data-ga-value="1">http://www.invictus.com</a>.
-                    </p>
-     
+                    <?php echo @$defaults->description ?>
                 <?php endif ?>
             </div>                 
         </div>

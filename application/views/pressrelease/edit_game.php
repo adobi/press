@@ -1,7 +1,7 @@
  
     
 <?php echo form_open('', array('id'=>'edit-form', 'class'=>'form-horizontal')) ?>
-    <ul class="tabs nav">
+    <ul class="nav nav-tabs">
 
         <li class="active"><a href="#general" data-toggle="tab">1. General information</a></li>
         <li><a href="#analytics" data-toggle="tab">2. Set up Google Analytics</a></li>
@@ -34,6 +34,6 @@
         </div>
     </div>
     <fieldset class="form-actions">
-        <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn close-dialog" href="#">Cancel</a>
+        <button class="btn btn-primary"><i class="icon-ok"></i>Save</button> &nbsp; <a class="btn close-dialog" href="#">Cancel</a>
     </fieldset>
 <?php echo form_close() ?>

@@ -338,6 +338,9 @@ class Pressrelease extends MY_Controller
             'order'=>array('by'=>'published', 'dest'=>'desc')
         ));
         
+        $this->load->model('Defaults', 'defaults');
+        $data['defaults'] = $this->defaults->find($this->defaults->getid());        
+        
         if ($id) {
             
             if (is_numeric($id))

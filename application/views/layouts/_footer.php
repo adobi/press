@@ -8,6 +8,7 @@
     	<script type="text/javascript">
     	    head.js("http://code.jquery.com/jquery-1.7.1.min.js", 
     	            "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
+                    "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-dropdown.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-tab.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
@@ -15,7 +16,7 @@
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-modal.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-tooltip.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-popover.js",
-                    "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
+                    "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-collapse.js",
                     "<?php echo base_url() ?>scripts/plugins/redactor/js/redactor/redactor.js",
                     "<?php echo base_url() ?>scripts/plugins/fancybox/jquery.fancybox.pack.js",
                     "<?php echo base_url() ?>scripts/plugins/chosen/chosen.jquery.min.js",

@@ -25,7 +25,7 @@
     
     <div class="tabbable tabs-left">
         
-        <ul class="nav tabs settings-tabs" data-tooltip="tooltip" data-title="Page sections" data-content="Default values of the page sections <img src='<?php echo base_url() ?>images/layout-mini-help.png'>" data-placement="right" data-trigger="manual">
+        <ul class="nav nav-tabs settings-tabs" data-tooltip="tooltip" data-title="Page sections" data-content="Default values of the page sections <img src='<?php echo base_url() ?>images/layout-mini-help.png'>" data-placement="right" data-trigger="manual">
             <li class="active"><a href="#pack-description" data-toggle="tab">Pack description</a></li>
             <li><a href="#section-1" data-toggle="tab">Section one</a></li>            
             <li><a href="#section-2" data-toggle="tab">Section two</a></li>            
@@ -38,7 +38,7 @@
 
                     <textarea name="pack_description" class="redactor"><?php echo @$item->pack_description ?></textarea>
                     <fieldset class="form-actions">
-                        <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
+                        <button class="btn btn-primary"><i class="icon-ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
                     </fieldset>                    
                 <?php echo form_close() ?>
              </div>
@@ -48,7 +48,7 @@
 
                     <textarea name="header_col1"><?php echo @$item->header_col1 ?></textarea>
                     <fieldset class="form-actions">
-                        <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
+                        <button class="btn btn-primary"><i class="icon-ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
                     </fieldset>                    
                 <?php echo form_close() ?>
             </div>
@@ -58,7 +58,7 @@
 
                     <textarea name="header_col2"><?php echo @$item->header_col2 ?></textarea>
                     <fieldset class="form-actions">
-                        <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
+                        <button class="btn btn-primary"><i class="icon-ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
                     </fieldset>                    
                 <?php echo form_close() ?>
             </div>
@@ -68,7 +68,7 @@
 
                     <textarea name="description"><?php echo @$item->description ?></textarea>
                     <fieldset class="form-actions">
-                        <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
+                        <button class="btn btn-primary"><i class="icon-ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>dashboard">Cancel</a>
                     </fieldset>                    
                 <?php echo form_close() ?>
             </div>

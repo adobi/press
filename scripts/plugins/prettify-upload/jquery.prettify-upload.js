@@ -16,8 +16,8 @@
     // Create the defaults once
     var pluginName = 'prettifyUpload',
         defaults = {
-            buttonClass:'btn info',
-            iconClass:'picture',
+            buttonClass:'btn btn-info',
+            iconClass:'icon-picture',
             text:'select a file',
             
         };
@@ -79,8 +79,8 @@
             self.parents('.input-file-wrapper')
                 .after($('<p />')
                     .html(self[0].files[0].name)
-                    .append($('<a />', {href:'javascript:void(0)', 'class': 'btn danger input-file-remove'})
-                        .html('<i class="trash"></i>remove')
+                    .append($('<a />', {href:'javascript:void(0)', 'class': 'btn btn-danger input-file-remove'})
+                        .html('<i class="icon-trash"></i>remove')
                         .css('margin-left', '10px')
                         .bind('click', function() {
                             $(this).parent().remove();

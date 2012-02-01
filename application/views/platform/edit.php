@@ -1,5 +1,5 @@
 
-<p><a href="<?php echo base_url() ?><?php echo $this->uri->segment(1) ?>" class="btn primary"><i class="arrow-left"></i>Go back</a></p>
+<p><a href="<?php echo base_url() ?><?php echo $this->uri->segment(1) ?>" class="btn primary"><i class="icon-arrow-left"></i>Go back</a></p>
 
 <?php if (validation_errors()): ?>
     <div class="alert alert-error">
@@ -36,7 +36,7 @@
                     </li>
                 </ul>
                 <p>
-                    <a class="btn" href="<?php echo base_url() ?>platform/delete_image/<?php echo $item->id ?>"><i class="trash"></i>Delete image</a>
+                    <a class="btn" href="<?php echo base_url() ?>platform/delete_image/<?php echo $item->id ?>"><i class="icon-trash"></i>Delete image</a>
                 </p>
             <?php else: ?>
                 <input type="file" id="upload-logo" name="image"/>
@@ -44,6 +44,6 @@
         </div>
     </fieldset>      
     <fieldset class="form-actions">
-        <button class="btn primary"><i class="ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>/<?php echo $this->uri->segment(1) ?>">Cancel</a>
+        <button class="btn primary"><i class="icon-ok"></i>Save</button> &nbsp; <a class="btn" href="<?php echo base_url() ?>/<?php echo $this->uri->segment(1) ?>">Cancel</a>
     </fieldset>    
 <?php echo form_close() ?>

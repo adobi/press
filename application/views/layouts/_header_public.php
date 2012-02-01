@@ -14,9 +14,9 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->        
         
-        <link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.min.css" media="all" />
-        <link rel = "stylesheet" href="<?php echo base_url() ?>css/bootstrap-responsive.css" media="all" />
+        <link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.css" media="all" />
 		<link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap.custom.min.css" media="all" />
+        <link rel = "stylesheet" href="<?= base_url() ?>css/bootstrap-responsive.css" media="all" />
         <link rel = "stylesheet" href="<?= base_url() ?>css/press-release.css" media="all" />
         <link rel = "stylesheet" href="<?= base_url() ?>css/press-release-responsive.css" media="all" />
     </head>
@@ -37,14 +37,18 @@
         
         </script>     
       
-            <div class="navbar navbar-fixed">
+            <div class="navbar navbar-fixed-top">
               <div class="navbar-inner" style="padding:5px 0">
                 <div class="container">
+                    <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </a>
                     <a  class="brand" href="<?php echo base_url() ?>press">Invictus Press <small style="color:#ccc; font-size:0.85em">Latest press releases</small></a>
-                  
-                      <!-- <div class="pull-right press-selector"> -->
-                      <ul class=" pull-right nav">
-                            <!-- <li class="vertical-divider"></li> -->
+                    <div class="nav-collapse">
+                        <ul class="nav pull-right">
+                            <li class="divider-vertical"></li>
                             <li class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle orange btn <?php echo !$all ? 'disabled' : '' ?>" href="#" id="select-press-release">
                                     Select a press release
@@ -58,8 +62,8 @@
                                     </ul>                  
                                 <?php endif; ?>
                             </li>
-                      </ul>
-                    <!-- </div> -->
+                        </ul>
+                    </div>
                 </div>
               </div>
             </div>        

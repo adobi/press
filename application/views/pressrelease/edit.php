@@ -15,50 +15,37 @@
         <?php else: ?>
                 Create new press release
         <?php endif ?>
-        <!-- 
-        <?php if ($item): ?>
-            <p class="pull-right">
-                <?php if ($item->active): ?>
-                    <a class="btn" href="<?php echo base_url() ?>pressrelease/inactivate/<?php echo $item->id ?>"><i class="refresh"></i> make inactive</a>
-                <?php else: ?>
-                    <a class="btn" href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="refresh"></i> make active</a>
-                <?php endif ?>
-                <a class="btn" href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="zoom-in"></i>preview</a>
-                <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>" class="btn danger"><i class="trash"></i>delete</a>
-            </p>
-        <?php endif ?>
-         -->
     </h2>
     <div class="subnav" style="margin-bottom:20px;">
-        <ul class="nav pills">
+        <ul class="nav nav-pills">
             <li>
-                <a href="<?php echo base_url() ?>dashboard/index/0"><i class="arrow-left"></i>go back</a>
+                <a href="<?php echo base_url() ?>dashboard/index/0"><i class="icon-arrow-left"></i>go back</a>
             </li>
-            <?php if ($item): ?>
-                <li style="float:right">
-                    <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>"><i class="trash"></i>delete</a>
-                </li>
-                <li style="float:right">
-                    <a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="zoom-in"></i>preview</a>
-                </li>
-                <li style="float:right">
-                    <?php if ($item->active): ?>
-                        <a href="<?php echo base_url() ?>pressrelease/inactivate/<?php echo $item->id ?>"><i class="refresh"></i> make inactive</a>
-                    <?php else: ?>
-                        <a href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="refresh"></i> make active</a>
-                    <?php endif ?>
-                </li>
-            <?php endif ?>
             <?php if ($others): ?>
-                <li class="dropdown" style="float:right;">
+                <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="align-justify"></i>select another release<b class="caret"></b>
+                        <i class="icon-align-justify"></i>select another release<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                             <?php foreach ($others as $p): ?>
                                 <li><a href="<?php echo base_url() ?>pressrelease/edit/<?php echo $p->id ?>"><?php echo $p->title ? $p->title : '<em>No title ('.to_date($p->created).')</em>' ?></a></li>
                             <?php endforeach ?>
                     </ul>                
+                </li>
+            <?php endif ?>
+            <?php if ($item): ?>
+                <li>
+                    <?php if ($item->active): ?>
+                        <a href="<?php echo base_url() ?>pressrelease/inactivate/<?php echo $item->id ?>"><i class="icon-retweet"></i> make inactive</a>
+                    <?php else: ?>
+                        <a href="<?php echo base_url() ?>pressrelease/activate/<?php echo $item->id ?>"><i class="icon-retweet"></i> make active</a>
+                    <?php endif ?>
+                </li>
+                <li>
+                    <a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="icon-zoom-in"></i>preview</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>"><i class="icon-trash"></i>delete</a>
                 </li>
             <?php endif ?>
         </ul>
@@ -75,12 +62,12 @@
                 <img src="<?php echo $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/175x175' ?>" alt="">
                 <div class="center item-nav ">
                     <?php if ($item->logo): ?>
-                        <a class="btn danger" href="<?php echo base_url() ?>pressrelease/delete_image/<?php echo $item->id ?>"><i class="trash"></i>delete</a>
+                        <a class="btn btn-danger" href="<?php echo base_url() ?>pressrelease/delete_image/<?php echo $item->id ?>"><i class="icon-trash"></i>delete</a>
                     <?php else: ?>
                         <?php echo form_open_multipart('', array('style'=>'margin-right:10px;')) ?>
                             <input type="file" id="upload-logo" name="logo"/>
                             <input type="hidden" name="upload_logo" value="1">
-                            <p><button class="btn"><i class="upload"></i>upload</button></p>
+                            <p><button class="btn"><i class="icon-upload"></i>upload</button></p>
                         <?php echo form_close() ?>
                     <?php endif ?>
                 </div>
@@ -89,14 +76,14 @@
                 <h3><?php echo $item->title ? $item->title : '<small>No title</small>' ?></h3>         
                 <h5><?php echo $item->released ? 'Released ' . to_date($item->released) : '<small>No release date</small>' ?></h5>
                 <p class="right item-nav">
-                    <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_game/" rel="dialog" title="Press release game settings"><i class="edit"></i>edit</a>
+                    <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_game/" rel="dialog" title="Press release game settings"><i class="icon-edit"></i>edit</a>
                 </p>
             </div>
             <div  class="span5 editable <?php echo $item->pack ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 3" data-content="Upload the pack (may take several minutes)" data-placement="right" data-trigger="manual">
                 <?php if ($item->pack): ?>
-                    <a class="btn primary large" href = "<?php echo base_url() ?>uploads/original/<?php echo $item->pack ?>" target = "_blank">Download press pack</a>
+                    <a class="btn btn-primary btn-large" href = "<?php echo base_url() ?>uploads/original/<?php echo $item->pack ?>" target = "_blank">Download press pack</a>
                 <?php else: ?>
-                    <a class="btn primary large disabled" href = "#">Download press pack</a>
+                    <a class="btn btn-primary btn-large disabled" href = "#">Download press pack</a>
                 <?php endif ?>
                 
                 <p>
@@ -105,7 +92,7 @@
                     </span>                
                 </p>
                 <div class="right item-nav">
-                    <a href="<?php echo base_url() ?>pressrelease/edit_pack" class="btn" rel="dialog" title="Press release pack settings"><i class="edit"></i>edit</a>
+                    <a href="<?php echo base_url() ?>pressrelease/edit_pack" class="btn" rel="dialog" title="Press release pack settings"><i class="icon-edit"></i>edit</a>
                 </div>
             </div>
             <div class="span5 editable <?php echo $item->pack_description ? '' : 'missing' ?>" data-tooltip="tooltip" data-title="Step 4" data-content="Edit the description of the pack" data-placement="right" data-trigger="manual">
@@ -117,7 +104,7 @@
                     <?php endif ?>
                 </div>
                 <p class="right item-nav">
-                    <a href="<?php echo base_url() ?>pressrelease/edit_section/" class="btn" data-editable="edit" data-field="pack_description"><i class="edit"></i> edit</a>
+                    <a href="<?php echo base_url() ?>pressrelease/edit_section/" class="btn" data-editable="edit" data-field="pack_description"><i class="icon-edit"></i> edit</a>
                 </p>
             </div>
         </div>
@@ -131,16 +118,11 @@
                         <img src="http://placehold.it/520x305" alt="" style="margin: 0 auto;">
                     <?php endif ?>
                 </div>
-                <div class="span7" style="margin:5px auto">
+                <div class="span7 center" style="margin:5px auto">
                     <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 10px;" disabled="disabled"><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
-                    <!-- 
-                    <p class="right item-nav" style="margin-right:10px;">
-                        <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_analytics" rel="dialog" title="Video code copy - Google analytics settings" style="margin-right:0px;"><i class="cog"></i>analytics</a>
-                    </p>
-                     -->
                 </div>
                 <p class="right item-nav">
-                    <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_video" rel="dialog" title="Video settings"><i class="edit"></i>edit</a>
+                    <a class="btn" href="<?php echo base_url() ?>pressrelease/edit_video" rel="dialog" title="Video settings"><i class="icon-edit"></i>edit</a>
                 </p>
             </div>
         </div>
@@ -164,15 +146,15 @@
                             <div class="span7">
                                 <input type="text" class = "input-xxlarge copy-code" value = "<?php echo $store->url ?>">
                                 <p class="item-nav right">
-                                    <a class="btn" href="<?php echo base_url() ?>store/edit/<?php echo $store->id ?>" rel="dialog" title="Store settings"><i class="edit"></i>edit</a>
-                                    <a class="btn danger" href="<?php echo base_url() ?>store/delete/<?php echo $store->id ?>"><i class="trash"></i>delete</a>
+                                    <a class="btn" href="<?php echo base_url() ?>store/edit/<?php echo $store->id ?>" rel="dialog" title="Store settings"><i class="icon-edit"></i>edit</a>
+                                    <a class="btn danger" href="<?php echo base_url() ?>store/delete/<?php echo $store->id ?>"><i class="icon-trash"></i>delete</a>
                                 </p>
                             </div>
                         </div>
                     <?php endforeach ?>
                 <?php endif ?>
                 <p class="item-nav right" style="margin-top:10px;">
-                    <a class="btn" href="<?php echo base_url() ?>store/edit" rel="dialog" title="Store settings"><i class="plus"></i>add</a>
+                    <a class="btn" href="<?php echo base_url() ?>store/edit" rel="dialog" title="Store settings"><i class="icon-plus"></i>add</a>
                 </p>
             </div>
         </div>        
@@ -188,7 +170,7 @@
                 <?php endif ?>
             </div>
             <p class="right item-nav">
-                <a href="<?php echo base_url() ?>pressrelease/edit_section" class="btn" data-editable="edit" data-field="header_col1"><i class="edit"></i> edit</a>
+                <a href="<?php echo base_url() ?>pressrelease/edit_section" class="btn" data-editable="edit" data-field="header_col1"><i class="icon-edit"></i> edit</a>
             </p>
         </div>
         <div class="span6 editable" style="width:535px;" data-tooltip="tooltip" data-title="Step 8" data-content="Add the platforms" data-placement="bottom" data-trigger="manual">
@@ -200,7 +182,7 @@
                 <?php endif ?>
             </div>
             <p class="right item-nav">
-                <a href="<?php echo base_url() ?>pressrelease/edit_section" class="btn" data-editable="edit" data-field="header_col2"><i class="edit"></i> edit</a>
+                <a href="<?php echo base_url() ?>pressrelease/edit_section" class="btn" data-editable="edit" data-field="header_col2"><i class="icon-edit"></i> edit</a>
             </p>
         </div>
     </div>
@@ -214,7 +196,7 @@
             <?php endif ?>
         </div>                 
         <p class="right item-nav">
-            <a href="<?php echo base_url() ?>pressrelease/edit_section" class="btn" data-editable="edit" data-editable-height="520" data-field="description"><i class="edit"></i> edit</a>
+            <a href="<?php echo base_url() ?>pressrelease/edit_section" class="btn" data-editable="edit" data-editable-height="520" data-field="description"><i class="icon-edit"></i> edit</a>
         </p> 
     </div>
 <?php endif ?>
