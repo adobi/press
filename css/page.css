@@ -251,7 +251,7 @@ table thead th {
     color:#555;
 }
 
-.ui-widget-content a.btn-primary {
+.ui-widget-content a.btn-primary, .ui-widget-content a.btn-danger {
     color:#fff;
 }
 

@@ -58,7 +58,7 @@
                             <img src="http://placehold.it/520x305" alt="" style="margin: 0 auto;">
                         <?php endif ?>
                     </div>
-                    <div class="span7 press-video-code" style="margin:5px auto">
+                    <div class="span7 press-video-code center" style="margin:5px auto">
 
                         <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 10px;"<?php echo event_tracking($item, 'video') ?>><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
                     </div>
