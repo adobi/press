@@ -19,7 +19,7 @@
     
         <div class="row cols">
             <div class="span5 col center" id="general-info">
-                <div class="span5 logo">
+                <div class="span5 logo center">
                     <img src="<?php echo $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/175x175' ?>" alt="">
                 </div>   
 
@@ -50,7 +50,6 @@
                 </div>
             </div>
             <div class="span7 col">
-                <div>
                     <div class="span7 press-video" style="margin:10px auto;text-align:center">
                         <?php if ($item->video): ?>
                             <?php echo embed_youtube($item->video) ?>
@@ -60,9 +59,8 @@
                     </div>
                     <div class="span7 press-video-code center" style="margin:5px auto">
 
-                        <textarea rows="2" class = "input-xxlarge copy-code" style="margin: 0 10px;"<?php echo event_tracking($item, 'video') ?>><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
+                        <textarea rows="2" class = "span6 copy-code" style="margin: 0 10px;"<?php echo event_tracking($item, 'video') ?>><?php echo $item->video ? embed_youtube($item->video) : '' ?></textarea>
                     </div>
-                </div>
             </div>
         </div>
     
@@ -82,7 +80,7 @@
                                 </div>
                                 <div class="span7">
 
-                                    <input type="text" class = "input-xxlarge copy-code" value = "<?php echo $store->url ?>"<?php echo event_tracking($store) ?>>
+                                    <input type="text" class = "span6 copy-code" value = "<?php echo $store->url ?>"<?php echo event_tracking($store) ?>>
                                 </div>
                             </div>
                         <?php endforeach ?>

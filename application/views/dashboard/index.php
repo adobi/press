@@ -13,7 +13,7 @@
             <ul class="dropdown-menu">
                 <?php if ($press_games): ?>
                     <?php foreach ($press_games as $item): ?>
-                        <li><a href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/game/<?php echo $item->id ?>"><?php echo $item->name ?></a></li>
+                        <li><a href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ? $this->uri->segment(3) : 0 ?>/game/<?php echo $item->id ?>"><?php echo $item->name ?></a></li>
                     <?php endforeach ?>
                 <?php else: ?>
                     <li><a href="#"><em>No games</em></a></li>
