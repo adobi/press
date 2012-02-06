@@ -8,7 +8,7 @@
             
             self.select();
         });	
-        	
+        $('.the-video').fitVids();
     });
 	
 }) (jQuery);

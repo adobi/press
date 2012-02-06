@@ -44,6 +44,7 @@
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
                     "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-collapse.js",                    
                     "<?php echo base_url() ?>scripts/plugins/event-tracking/jquery.trackevent.js",
+                    "<?php echo base_url() ?>scripts/plugins/fitvids/jquery.fitvids.js",
                     "<?php echo base_url() ?>scripts/public.js?<?php echo time(); ?>"
             );
     	</script>

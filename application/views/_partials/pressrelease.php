@@ -51,11 +51,13 @@
             </div>
             <div class="span7 col">
                     <div class="span7 press-video" style="margin:10px auto;text-align:center">
+                        <div id="the-video">
                         <?php if ($item->video): ?>
                             <?php echo embed_youtube($item->video) ?>
                         <?php else: ?>
                             <img src="http://placehold.it/520x305" alt="" style="margin: 0 auto;">
                         <?php endif ?>
+                        </div>
                     </div>
                     <div class="span7 press-video-code center" style="margin:5px auto">
 
