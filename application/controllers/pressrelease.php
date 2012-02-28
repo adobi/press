@@ -350,6 +350,9 @@ class Pressrelease extends MY_Controller
             
             $item = $data['all'] ? $data['all'][0] : false;
             
+            if ($item) {
+                redirect('press/'.$item->url);
+            }
         }
         
         if ($item && !$item->active && !$this->session->userdata('logged_in')) {
