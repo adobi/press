@@ -1,6 +1,7 @@
                 </div>
         </div> <!-- /container -->
         <footer style="margin-top:30px;">
+            <!--
             <div class="container">
                 <div class="row">
                     <div class="span3">
@@ -20,16 +21,16 @@
                     </div>
                 </div>
             </div>
+              -->
             <div id="footer-floor">
                 <div class="container">
                     <p>
                         <strong>&copy;  <?php echo date('Y') ?> <a href="http://invictus.com">Invictus Games Ltd.</a>
-                        All rights reserved. <a href="#">Terms</a> & <a href="http://privacy.invictus.com">Privacy</a></strong>
+                        All rights reserved. <a href="http://privacy.invictus.com">Terms & Privacy</a></strong>
                     </p>
                 </div>                
             </div>
         </footer>				
-
     	<script src = "<?php echo base_url() ?>scripts/plugins/headjs/head.min.js"></script> 
     	<script type="text/javascript">
     	    head.js("http://code.jquery.com/jquery-1.7.1.min.js", 
