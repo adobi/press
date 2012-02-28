@@ -25,8 +25,8 @@
             <div id="footer-floor">
                 <div class="container">
                     <p>
-                        <strong>&copy;  <?php echo date('Y') ?> <a href="http://invictus.com">Invictus Games Ltd.</a>
-                        All rights reserved. <a href="http://privacy.invictus.com">Terms & Privacy</a></strong>
+                        <strong>&copy;  <?php echo date('Y') ?> <a href="http://invictus.com" target="_blank">Invictus Games Ltd.</a>
+                        All rights reserved. <a href="http://privacy.invictus.com" target="_blank">Terms & Privacy</a></strong>
                     </p>
                 </div>                
             </div>
