@@ -14,12 +14,12 @@
         <div class="tab-pane fade in active" id="general">
             <fieldset class="control-group">
 
-                <label for="">Press pack</label>
+                <label class="control-label" for="">Press pack</label>
                 <div class="controls">
                     <?php if ($item->pack): ?>
                         <p>
                             <a href="<?php echo base_url() ?>uploads/original/<?php echo $item->pack ?>" target="_blank"><?php echo $item->pack ?></a>
-                            <a href="<?php echo base_url() ?>pressrelease/delete_pack" class="btn btn-danger"><i class="icon-trash"></i>delte</a>
+                            <a href="<?php echo base_url() ?>pressrelease/delete_pack" class="btn btn-danger btn-mini"><i class="icon-trash"></i>delte</a>
                         </p>
                     <?php else: ?>
                         
@@ -30,8 +30,6 @@
         </div>
         <div class="tab-pane fade" id="analytics">
             <?php echo $template['partials']['analytics'] ?>
-
-    
         </div>
     </div>
     

@@ -18,14 +18,14 @@
         </legend>    
     </fieldset>
     <fieldset class="control-group">
-        <label for="name">Name</label>
+        <label class="control-label" for="name">Name</label>
         <div class="controls">
             <input type="text" name = "name" id = "name" class = "input-xxlarge" value = "<?php echo $_POST && isset($_POST['name']) ? $_POST['name'] : ($item ? $item->name : '') ?>"/>
         </div>
     </fieldset>  
  
     <fieldset class="control-group">
-        <label for="image">Logo</label>
+        <label class="control-label" for="image">Logo</label>
         <div class="controls">
             <?php if ($item && $item->image): ?>
                <ul class="thumbnails">

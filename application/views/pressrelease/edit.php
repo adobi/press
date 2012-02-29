@@ -24,7 +24,7 @@
             <?php if ($others): ?>
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-align-justify"></i>select another release<b class="caret"></b>
+                        <i class="icon-list"></i>select another release<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                             <?php foreach ($others as $p): ?>
@@ -42,7 +42,7 @@
                     <?php endif ?>
                 </li>
                 <li>
-                    <a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="icon-zoom-in"></i>preview</a>
+                    <a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="icon-search"></i>preview</a>
                 </li>
                 <li>
                     <a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item ? $item->id : '' ?>"><i class="icon-trash"></i>delete</a>

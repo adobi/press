@@ -10,19 +10,19 @@
         <div class="tab-pane fade in active" id="general">
             <fieldset class="control-group">
 
-                <label for="">Title</label>
+                <label class="control-label" for="">Title</label>
                 <div class="controls">
                     <input type="text" class = "input-xlarge" value = "<?php echo $item->title ?>" name="title">
                 </div>
             </fieldset>
             <fieldset class="control-group">
-                <label for="">Select a game</label>
+                <label class="control-label" for="">Select a game</label>
                 <div class="controls">
                     <?php echo form_dropdown('game_id', $games, $item && isset($item->game_id) ? $item->game_id : '', 'class="chosen"') ?>
                 </div>
             </fieldset>            
             <fieldset class="control-group">
-                <label for="">Released</label>
+                <label class="control-label" for="">Released</label>
                 <div class="controls">
 
                     <input type="text" class = "input-small datepicker" value = "<?php echo $item->released ? to_date($item->released) : '' ?> " name="released">

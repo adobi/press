@@ -183,11 +183,11 @@ class Pressrelease extends MY_Controller
                 $this->session->set_flashdata('message', 'Saved');
                 
         	  	unset($_POST['pack']);
-        	  	
-      	        $this->model->update($_POST, $this->session->userdata('current_pressrelease'));
-      	        
-      	        redirect(base_url().'pressrelease/edit/'.$this->session->userdata('current_pressrelease'));
     	  	} 
+    	  	
+  	        $this->model->update($_POST, $this->session->userdata('current_pressrelease'));
+  	        
+  	        redirect(base_url().'pressrelease/edit/'.$this->session->userdata('current_pressrelease'));
         }
         
         $data['item'] = $item;

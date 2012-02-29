@@ -8,13 +8,13 @@
     <div class="tab-content">
         <div class="tab-pane fade in active" id="general">
             <fieldset class="control-group">
-                <label for="">Select a store</label>
+                <label class="control-label" for="">Select a store</label>
                 <div class="controls">
                     <input type="text" class = "input-xlarge" value = "" name="game_id">
                 </div>
             </fieldset>            
             <fieldset class="control-group">
-                <label for="">Link</label>
+                <label class="control-label" for="">Link</label>
                 <div class="controls">
                     <input type="text" class = "input-small datepicker" value = "" name="released">
                 </div>

@@ -18,25 +18,25 @@
         </legend>    
     </fieldset>
     <fieldset class="control-group">
-        <label for="pack_description">Pack_description</label>
+        <label class="control-label" for="pack_description">Pack_description</label>
         <div class="controls">
             <textarea rows="5" name="pack_description" id = "pack_description" class="input-xxlarge"><?php echo $_POST && isset($_POST['pack_description']) ? $_POST['pack_description'] : ($item ? $item->pack_description : '') ?></textarea>
         </div>
     </fieldset>  
     <fieldset class="control-group">
-        <label for="header_col1">Header_col1</label>
+        <label class="control-label" for="header_col1">Header_col1</label>
         <div class="controls">
             <textarea rows="5" name="header_col1" id = "header_col1" class="input-xxlarge"><?php echo $_POST && isset($_POST['header_col1']) ? $_POST['header_col1'] : ($item ? $item->header_col1 : '') ?></textarea>
         </div>
     </fieldset>  
     <fieldset class="control-group">
-        <label for="header_col2">Header_col2</label>
+        <label class="control-label" for="header_col2">Header_col2</label>
         <div class="controls">
             <textarea rows="5" name="header_col2" id = "header_col2" class="input-xxlarge"><?php echo $_POST && isset($_POST['header_col2']) ? $_POST['header_col2'] : ($item ? $item->header_col2 : '') ?></textarea>
         </div>
     </fieldset>  
     <fieldset class="control-group">
-        <label for="description">Description</label>
+        <label class="control-label" for="description">Description</label>
         <div class="controls">
             <textarea rows="5" name="description" id = "description" class="input-xxlarge"><?php echo $_POST && isset($_POST['description']) ? $_POST['description'] : ($item ? $item->description : '') ?></textarea>
         </div>

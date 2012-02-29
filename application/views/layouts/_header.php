@@ -45,11 +45,12 @@
                     <a href="<?php echo  base_url() ?>dashboard/index/0" class="brand"><span class="mainpage"></span><?php echo SITE_TITLE ?></a>
                     <div class="nav-collapse">
                         <ul class="nav">
-                          <li <?php echo $this->uri->segment(1) === 'pressrelease' && $this->uri->segment(2) === 'edit' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pressrelease/edit"><i class="icon-white create-new"></i>Create a press release</a></li>
-                          <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform">Platforms</a></li>
-                          <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>settings">Settings</a></li>
-                          <li><a href="#" class="toggle-help" style="color:#fff;"><strong>Help?!</strong></a></li>
-                          <!-- <li class="vertical-divider"></li>  -->
+                          <li <?php echo $this->uri->segment(1) === 'pressrelease' && $this->uri->segment(2) === 'edit' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pressrelease/edit"><i class="icon-white create-new"></i><strong>Create a press release</strong></a></li>
+                          <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform"><i class="icon-shopping-cart icon-white"></i>Platforms</a></li>
+                          <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>settings"><i class="icon-cog icon-white"></i>Settings</a></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                          <li><a href="#" class="toggle-help" style="color:#fff;"><i class="icon-exclamation-sign icon-white" style="opacity:1"></i><strong>Help</strong></a></li>
                           <li class="divider-vertical"></li>
                           <li><a href="<?php echo base_url() ?>auth/logout" style="font-weight:bold"><i class="icon-off icon-white"></i>Logout</a></li>                      
                         </ul>

@@ -1,3 +1,10 @@
+
+<?php if (validation_errors()): ?>
+    <div class="alert alert-error">
+        <?php echo validation_errors() ?>
+    </div>
+<?php endif ?>
+
  
     
 <?php echo form_open('', array('id'=>'edit-form', 'class'=>'form-horizontal')) ?>
@@ -9,7 +16,7 @@
     <div class="tab-content">
         <div class="tab-pane fade in active" id="general">
             <fieldset class="control-group">
-                <label for="">Video code</label>
+                <label class="control-label" for="">Video code</label>
                 <div class="controls">
 
                     <input type="text" class = "input-xlarge" value = "<?php echo $item && $item->video ? $item->video : '' ?>" name="video" id="video-code">

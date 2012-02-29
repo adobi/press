@@ -8,7 +8,7 @@
         <li><a class="subnav-a  <?php echo $this->uri->segment(4) === 'type' && $this->uri->segment(5) === '1' ? ' active' : '' ?>" href="<?php echo base_url() ?>dashboard/index/<?php echo $this->uri->segment(3) ?>/type/1">Inactive</a></li>
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="icon-align-justify"></i>Select a game<b class="caret"></b>
+                <i class="icon-list"></i>Select a game<b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
                 <?php if ($press_games): ?>
@@ -34,7 +34,7 @@
                         <h6 class="center"><?php echo $item->released ? to_date($item->released) : '<small>No release date</small>' ?></h6>
                         <div style="margin: 10px auto 0; width:150px;">
                             <div class="btn-group" style="display:inline-block; margin:0 auto;">
-                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog"></i>Select something <span class="caret"></span></a>
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-list"></i>Select something <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <?php if ($item->active === '1'): ?>
@@ -44,8 +44,9 @@
                                         <?php endif ?>                                    
                                     </li>
     
-                                    <li><a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="icon-zoom-in"></i>preview</a></li>
+                                    <li><a href="<?php echo base_url() ?>press/<?php echo $item->url ? $item->url : $item->id ?>" target="_blank"><i class="icon-search"></i>preview</a></li>
                                     <li><a href="<?php echo base_url() ?>pressrelease/edit/<?php echo $item->id ?>"><i class="icon-edit"></i>edit</a></li>
+                                    <li class="divider"></li>
                                     <li><a href="<?php echo base_url() ?>pressrelease/delete/<?php echo $item->id ?>"><i class="icon-trash"></i>delete</a></li>
                                 </ul>
                             </div>                            

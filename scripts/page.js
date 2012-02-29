@@ -352,6 +352,40 @@
             }
         }        
         
+        
+        $('body').delegate('.add-custom-action', 'click', function() {
+            var self = $(this),
+                select = self.prevAll('select'),
+                name = select.attr('name'),
+                p = self.next(),
+                input = p.find('input');
+                
+            p.show()
+            self.hide()
+            select.hide()
+            select.removeAttr('name')
+            input.attr('name', name)
+
+            return false;
+        })
+        
+        $('body').delegate('.cance-custom-action', 'click', function() {
+            var self = $(this),
+                input = self.parent().find('input'),
+                name = input.attr('name'),
+                p = self.parent(),
+                select = p.prevAll('select')
+            
+            p.hide()
+            
+            input.removeAttr('name')
+            
+            select.attr('name', name).show()
+            
+            select.next().show()
+            
+            return false
+        })
     });
 	
 }) (jQuery);
