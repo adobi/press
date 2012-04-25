@@ -349,7 +349,7 @@ class Pressrelease extends MY_Controller
         } else {
             
             $item = $data['all'] ? $data['all'][0] : false;
-            
+
             if ($item) {
                 redirect('press/'.$item->url);
             }

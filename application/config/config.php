@@ -249,7 +249,7 @@ $config['encryption_key'] = '!8226694765Az4225938426589465386898';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'ci_session';
+$config['sess_cookie_name']		= 'invictus_press_session';
 $config['sess_expiration']		= 7200;
 $config['sess_expire_on_close']	= true;
 $config['sess_encrypt_cookie']	= true;
@@ -299,9 +299,10 @@ $config['global_xss_filtering'] = true;
 | 'csrf_expire' = The number in seconds the token should expire.
 */
 $config['csrf_protection'] = true;
-$config['csrf_token_name'] = 'csrf_test_name';
-$config['csrf_cookie_name'] = 'csrf_cookie_name';
+$config['csrf_token_name'] = 'invictus_press_csrf_name';
+$config['csrf_cookie_name'] = 'invictus_press_csrf_cookie_name';
 $config['csrf_expire'] = 7200;
+$config['csrf_exclude_uris'] = array('api/create');
 
 /*
 |--------------------------------------------------------------------------

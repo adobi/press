@@ -111,5 +111,81 @@ class Pressreleases extends MY_Model
 	    
 	    return $result ? $result[0] : false;
 	}
+	
+	public function insertFromRemote($data)
+	{
+	  
+	  if (!$data) return false;
+    
+	  $this->load->library('Sanitizer');
+	  
+	  $insert = array(
+	    'title'=>$data['title'],
+	    'released'=>$data['released'],
+	    'url'=>$this->sanitizer->sanitize_title_with_dashes($data['title'])
+	  );
+
+    $this->load->model('Defaults', 'defaults');
+    $defaults = $this->defaults->find($this->defaults->getid());
+	  
+    foreach ($defaults as $prop=>$val) {
+        if ($prop !== 'id')
+            $insert[$prop] = $val;
+    }
+    $insert['active'] = 0;
+    $insert['created'] = date('Y-m-d H:i:s', time());    
+    $insert['game_id'] = 1;
+    
+    $insert['logo'] = $this->_getImageFromUrl($data['logo'], $data['logo_name']);
+    
+    $inserted = $this->insert($insert);
+
+    if ($inserted) {
+      $this->load->model('Stores', 'stores');
+      
+      if ($data['platforms']) {
+        $p = array('pressrelease_id'=>$inserted);
+        $p['ga_action'] = "Click";
+        $p['ga_value'] = 1;
+        foreach ($data['platforms'] as $i=>$item) {
+          $p['platform_id'] = $item;
+          $p['url'] = $data['urls'][$i];
+          
+          $this->stores->insert($p);
+        }
+      }
+    }
+    
+    if (!$inserted) {
+      return json_encode(array('message'=>'Press release not created'));
+    } else {
+      return json_encode(array('insert_id'=>$inserted, 'message'=>'Press release created'));
+    }
+	}
+	
+    /** 
+     * get an image from the remote
+     *
+     * @param string $url 
+     * @param string $name 
+     * @return string the name of the loaded image
+     * @author Dobi Attila
+     */
+    private function _getImageFromUrl($url, $name)
+    {
+      if ($url && $name) {
+        
+        $imageBinary = file_get_contents($url);
+        
+        $this->config->load('upload');
+        
+        $image = time().'_'.$name;
+        file_put_contents($this->config->item('upload_path').$image, $imageBinary);
+        
+        return $image;
+      } 
+      
+      return false;
+    }	
 
 }

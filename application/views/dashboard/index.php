@@ -28,9 +28,13 @@
         <?php foreach ($items as $item): ?>
             <li class="span3 alert <?php echo $item->active === '1' ? 'alert-success' : 'alert-error' ?>">
                 <div class="thumbnail">
-                    <img class="press-logo" src="<?php echo $item->logo ? base_url() .'uploads/original/' . $item->logo : 'http://placehold.it/175x175' ?>" alt="">
+                    <img class="press-logo" src="<?php echo $item->logo ? base_url() .'uploads/original/' . $item->logo : 'http://placehold.it/175x175' ?>" alt="" style="width:175px">
                     <div class="caption">
-                        <h5 class="center"><?php echo $item->title ? $item->title : '<small>No title</small>' ?></h5>
+                        <h5 class="center">                
+                          <span rel="tooltip" title="<?php echo $item->title ?>">
+                            <?php echo $item->title ? (strlen($item->title) > 40 ? substr($item->title, 0,40)."..." : $item->title) : '<small>No title</small>' ?>
+                          </span>
+                        </h5>
                         <h6 class="center"><?php echo $item->released ? to_date($item->released) : '<small>No release date</small>' ?></h6>
                         <div style="margin: 10px auto 0; width:150px;">
                             <div class="btn-group" style="display:inline-block; margin:0 auto;">

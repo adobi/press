@@ -38,6 +38,18 @@ class Auth extends MY_Controller
         $this->template->build('login/index', $data);
     }
     
+    
+    public function auto_login()
+    {
+      $redirect = $_GET['r'];
+      
+      if (isset($redirect)) {
+
+        $this->session->set_userdata('logged_in', true);
+        redirect($redirect);
+      }
+    }    
+    
     public function check_credentials() 
     {
         //$this->load->model('Users', 'users');
