@@ -46,7 +46,7 @@
                     <div class="nav-collapse">
                         <ul class="nav">
                           <li <?php echo $this->uri->segment(1) === 'pressrelease' && $this->uri->segment(2) === 'edit' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pressrelease/edit"><i class="icon-white create-new"></i><strong>Create a press release</strong></a></li>
-                          <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform"><i class="icon-shopping-cart icon-white"></i>Platforms</a></li>
+                          <!-- <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform"><i class="icon-shopping-cart icon-white"></i>Platforms</a></li> -->
                           <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>settings"><i class="icon-cog icon-white"></i>Settings</a></li>
                         </ul>
                         <ul class="nav pull-right">

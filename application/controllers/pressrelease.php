@@ -42,9 +42,14 @@ class Pressrelease extends MY_Controller
                 if ($item->game_id) {
                     
                     $game = $this->games->find($item->game_id);
-                    
-                    $item->game_name = $game->name;
-                    $item->game_url = $game->url;
+                    if ($game) {
+                      
+                      $item->game_name = $game->name;
+                      $item->game_url = $game->url;
+                    } else {
+                      $item->game_name = false;
+                      $item->game_url = false;
+                    }
                 } else {
                     $item->game_name = false;
                     $item->game_url = false;

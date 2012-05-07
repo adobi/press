@@ -40,5 +40,7 @@ define('SITE_TITLE', 'Invictus Press');
 
 define('ITEMS_PER_PAGE', 8);
 
+define('INVICTUS_API_URI', 'http://localhost/invictus.com/app/public/api/');
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

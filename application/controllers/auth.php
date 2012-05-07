@@ -20,20 +20,14 @@ class Auth extends MY_Controller
         //dump($_POST); die;
         if ($this->form_validation->run()) {
 			
-            $this->load->library('Api', 'api');
+            $this->load->model('Platforms', 'platforms');
+            $this->platforms->initFromApi();
             
             $this->load->model('Games', 'games');
+            $this->games->initFromApi();
             
-            $games = $this->api->getGames();
-            
-            if (!$this->session->userdata('api_loaded')) {
-                
-                $this->games->saveFromApi($games);
-                
-                $this->session->set_userdata('api_loaded', true);
-            }
-			redirect(base_url() . 'dashboard');
-		}
+            redirect(base_url() . 'dashboard');
+      		}
         
         $this->template->build('login/index', $data);
     }
@@ -48,6 +42,8 @@ class Auth extends MY_Controller
         $this->session->set_userdata('logged_in', true);
         redirect($redirect);
       }
+      
+      redirect(base_url() . 'dashboard');
     }    
     
     public function check_credentials() 

@@ -36,6 +36,24 @@ class Games extends MY_Model
         */
     }
     
+    public function initFromApi()
+    {
+      
+      $data = $this->invictus->setUri(INVICTUS_API_URI)->setAction('games')->get(true);
+      
+      if (!$data) return false;
+      
+      $d = array();
+      foreach ($data as $item) {
+        
+        $d[] = array('id'=>$item['id'], 'name'=>$item['name'], 'url'=>$item['url']);
+      }
+      
+      $this->truncate();
+      
+      $this->bulk_insert($d);
+    }      
+    
     /**
      * STEP 1: diff ($items_db, $items_param) items that are not in the api result -> DELETE CASCADE
      * STEP 2: diff ($items_param, $items_db) items that are not in our db -> INSERT

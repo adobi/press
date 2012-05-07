@@ -134,7 +134,8 @@ class Pressreleases extends MY_Model
     }
     $insert['active'] = 0;
     $insert['created'] = date('Y-m-d H:i:s', time());    
-    $insert['game_id'] = 1;
+    $insert['game_id'] = $data['game_id'];
+    $insert['video'] = $data['video'];
     
     $insert['logo'] = $this->_getImageFromUrl($data['logo'], $data['logo_name']);
     
