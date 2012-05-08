@@ -1,4 +1,3 @@
-
     <fieldset class="control-group">
         <label class="control-label" for="<?php echo $prefix ? $prefix : '' ?>ga_category">Category</label>
         <div class="controls">
@@ -15,17 +14,17 @@
             ?>
 
             <?php echo form_dropdown(
-                            !in_array($item->$prop, $actions) ? '' : $prefix.'ga_action', 
+                            $item && !in_array($item->$prop, $actions) ? '' : $prefix.'ga_action', 
                             $actions, 
                             $_POST && isset($_POST[$prop]) ? $_POST[$prop] : ($item ? $item->$prop : ''), 
-                                'id="ga-action-select"'. ($item->$prop && !in_array($item->$prop, $actions) ? 'style="display:none"' : '')
+                                'id="ga-action-select"'. ($item&&$item->$prop && !in_array($item->$prop, $actions) ? 'style="display:none"' : '')
                         )  
             ?>
 
-            <a href="#" class="add-custom-action" style="<?php echo !$item->$prop || in_array($item->$prop, $actions) ? '' : 'display:none' ?>">Add custom action</a>
+            <a href="#" class="add-custom-action" style="<?php echo $item&&(!$item->$prop || in_array($item->$prop, $actions)) ? '' : 'display:none' ?>">Add custom action</a>
             
-            <p style="<?php echo $item->$prop && !in_array($item->$prop, $actions) ? '' : 'display:none' ?>">
-                <input type="" value="<?php echo !in_array($item->$prop, $actions) ? $item->$prop : '' ?>" <?php echo in_array($item->$prop, $actions) ? '' : 'name="'.$prefix.'ga_action'.'"' ?>>
+            <p style="<?php echo $item && $item->$prop && !in_array($item->$prop, $actions) ? '' : 'display:none' ?>">
+                <input type="" value="<?php echo $item && !in_array($item->$prop, $actions) ? $item->$prop : '' ?>" <?php echo $item&&in_array($item->$prop, $actions) ? '' : 'name="'.$prefix.'ga_action'.'"' ?>>
                 <a href="#" class="cance-custom-action">Cancel</a>
             </p>
         </div>

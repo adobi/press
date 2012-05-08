@@ -18,7 +18,7 @@ if ($_SERVER['HTTP_HOST'] === 'localhost') {
     
     $config['base_url']	= 'http://localhost/press/';    
 } else {
-    
+    $config['base_url']	= 'http://press.invictus.com/'; 
 }
 
 /*

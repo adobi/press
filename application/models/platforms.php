@@ -16,7 +16,7 @@ class Platforms extends MY_Model
     {
       
       $data = $this->invictus->setUri(INVICTUS_API_URI)->setAction('platforms')->get(true);
-      
+      //dump($data);
       if (!$data) return false;
       
       foreach ($data as &$item) {

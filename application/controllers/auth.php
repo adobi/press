@@ -39,6 +39,12 @@ class Auth extends MY_Controller
       
       if (isset($redirect)) {
 
+        $this->load->model('Platforms', 'platforms');
+        $this->platforms->initFromApi();
+        
+        $this->load->model('Games', 'games');
+        $this->games->initFromApi();
+
         $this->session->set_userdata('logged_in', true);
         redirect($redirect);
       }
