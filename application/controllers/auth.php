@@ -35,9 +35,10 @@ class Auth extends MY_Controller
     
     public function auto_login()
     {
-      $redirect = $_GET['r'];
       
-      if (isset($redirect)) {
+      $redirect = isset($_GET['r']) ? $_GET['r'] : false;
+      
+      if ($redirect) {
 
         $this->load->model('Platforms', 'platforms');
         $this->platforms->initFromApi();
@@ -45,9 +46,9 @@ class Auth extends MY_Controller
         $this->load->model('Games', 'games');
         $this->games->initFromApi();
 
-        $this->session->set_userdata('logged_in', true);
         redirect($redirect);
       }
+      $this->session->set_userdata('logged_in', true);
       
       redirect(base_url() . 'dashboard');
     }    
