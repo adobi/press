@@ -132,23 +132,58 @@ class Pressreleases extends MY_Model
         if ($prop !== 'id')
             $insert[$prop] = $val;
     }
+    
+    $this->load->model('Games', 'games');
+    
+    $game = $this->games->find($data['game_id']);
+    
     $insert['active'] = 0;
     $insert['created'] = date('Y-m-d H:i:s', time());    
     $insert['game_id'] = $data['game_id'];
     $insert['video'] = $data['video'];
     
+    $insert['title_ga_category'] = 'Press Release';
+    $insert['title_ga_action'] = 'Click';
+    $insert['title_ga_value'] = 1;
+    $insert['title_ga_label'] = $game->name . ' - ' . $data['title'];
+    
+    $insert['pack_ga_category'] = 'Press Pack';
+    $insert['pack_ga_action'] = 'Download';
+    $insert['pack_ga_value'] = 1;
+    $insert['pack_ga_label'] =  $game->name . ' - ' . $data['title'];
+    
+    $insert['video_ga_category'] = 'Video';
+    $insert['video_ga_action'] = 'Play';
+    $insert['video_ga_value'] = 1;
+    $insert['video_ga_label'] =  $game->name . ' - ' . $data['title'];
+    
+    $insert['video_code_ga_category'] = 'Embed Code';
+    $insert['video_code_ga_action'] = 'Copy';
+    $insert['video_code_ga_value'] = 1;
+    $insert['video_code_ga_label'] =  $game->name . ' - ' . $data['title'] . ' - Video';
+    
     $insert['logo'] = $this->_getImageFromUrl($data['logo'], $data['logo_name']);
     
     $inserted = $this->insert($insert);
-
+    
     if ($inserted) {
       $this->load->model('Stores', 'stores');
       
       if ($data['platforms']) {
         $p = array('pressrelease_id'=>$inserted);
-        $p['ga_action'] = "Click";
+        $p['ga_category'] = "Embed Code";
+        $p['ga_action'] = "Copy";
         $p['ga_value'] = 1;
+
+        $p['link_ga_category'] = "Outbound Link";
+        $p['link_ga_action'] = "Click";
+        $p['link_ga_value'] = 1;
+        
+        $this->load->model('Platforms', 'platform');
         foreach ($data['platforms'] as $i=>$item) {
+          $platform = $this->platform->find($item);
+          $p['ga_label'] = $game->name . ' - ' . $data['title'] . ' - ' . $platform->name;
+          $p['link_ga_label'] = $game->name . ' - ' . $data['title'] . ' - ' . $platform->name;
           $p['platform_id'] = $item;
           $p['url'] = $data['urls'][$i];
           

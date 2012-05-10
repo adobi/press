@@ -76,7 +76,7 @@
                         <?php foreach ($item->stores as $store): ?>
                             <div class="row ">
                                 <div class="span2">
-                                    <a rel = "twipsy" title = "<?php echo $store->name ?>"  href="<?php echo $store->url ?>" target = "_blank">
+                                    <a rel = "twipsy" title = "<?php echo $store->name ?>"  href="<?php echo $store->url ?>" target = "_blank" <?php echo event_tracking($store, 'link') ?> >
                                         <img src="<?php echo base_url() ?>uploads/original/<?php echo $store->image ?>" alt="">
                                     </a>                                
                                 </div>

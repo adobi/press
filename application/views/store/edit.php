@@ -8,7 +8,8 @@
 
     <ul class=" nav nav-tabs">
         <li class="active"><a href="#general" data-toggle="tab">1. Store</a></li>
-        <li><a href="#analytics-store" data-toggle="tab">2. Set up Google Analytics</a></li>
+        <li><a href="#analytics-store" data-toggle="tab">2. Set up Copy Analytics</a></li>
+         <li><a href="#analytics-link" data-toggle="tab">2. Set up Link Analytics</a></li>
     </ul> 
     
     <div class="tab-content">
@@ -29,7 +30,10 @@
         </div>
         <div class="tab-pane fade" id="analytics-store">
             <?php echo $template['partials']['analytics'] ?>
-        </div>  
+        </div> 
+        <div class="tab-pane fade" id="analytics-link">
+            <?php echo $template['partials']['analytics_link'] ?>
+        </div>           
     </div>   
     <fieldset class="form-actions">
         <button class="btn btn-primary"><i class="icon-ok"></i>Save</button> &nbsp; <a class="btn close-dialog" href="#">Cancel</a>

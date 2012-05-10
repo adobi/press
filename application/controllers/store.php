@@ -59,7 +59,7 @@ class Store extends MY_Controller
         }
         
         $this->template->set_partial('analytics', '_partials/analytics', array('prefix'=>''));        
-        
+        $this->template->set_partial('analytics_link', '_partials/analytics', array('prefix'=>'link_'));
         $this->template->build('store/edit', $data);
     }
     
