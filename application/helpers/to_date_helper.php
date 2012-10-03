@@ -4,7 +4,7 @@
 	
 		function to_date($dateStr) {
 		    
-		    return date('Y-m-d', strtotime($dateStr));
+		    return $dateStr !== '0000-00-00 00:00:00' ? date('Y-m-d', strtotime($dateStr)) : '';
 		}	
 	}
 

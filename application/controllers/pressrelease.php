@@ -243,13 +243,15 @@ class Pressrelease extends MY_Controller
         $data['games'] = $this->games->toAssocArray('id', 'name', $this->games->fetchAll());
         
         $this->form_validation->set_rules('game_id', 'Game', 'trim|required');
-        $this->form_validation->set_rules('released', 'Released', 'trim|required');
+        $this->form_validation->set_rules('released', 'Released', 'trim');
         $this->form_validation->set_rules('title', 'Title', 'trim|required');
         
         if ($this->form_validation->run()) {
             
             $this->load->library('Sanitizer', 'sanitizer');
             
+            //dump($_POST); die;
+
             $_POST['url'] = $this->sanitizer->sanitize_title_with_dashes($_POST['title']);
              
             $this->model->update($_POST, $id);
